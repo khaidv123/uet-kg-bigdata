@@ -1,0 +1,69 @@
+{
+  "base": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup",
+  "checks": {
+    "graphml": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\graph_chunk_entity_relation.graphml"
+    },
+    "doc_status": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\kv_store_doc_status.json",
+      "json_parse": true,
+      "status_counts": {
+        "processed": 539,
+        "failed": 5,
+        "processing": 2,
+        "pending": 502
+      }
+    },
+    "full_docs": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\kv_store_full_docs.json",
+      "json_parse": true
+    },
+    "text_chunks": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\kv_store_text_chunks.json",
+      "json_parse": true,
+      "count": 1110
+    },
+    "entity_chunks": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\kv_store_entity_chunks.json",
+      "json_parse": true,
+      "count": 16260
+    },
+    "relation_chunks": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\kv_store_relation_chunks.json",
+      "json_parse": true,
+      "count": 17120
+    },
+    "vdb_chunks": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\vdb_chunks.json",
+      "json_parse": true,
+      "data_len": 1106
+    },
+    "vdb_entities": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\vdb_entities.json",
+      "json_parse": true,
+      "data_len": 16251
+    },
+    "vdb_relationships": {
+      "exists": true,
+      "path": "D:\\projects\\vnu_qa\\rag_rl\\create_references\\test\\output_verson1_prestop_backup\\rag_storage\\vdb_relationships.json",
+      "json_parse": true,
+      "data_len": 17120
+    },
+    "graph": {
+      "nodes": 16260,
+      "edges": 17120
+    }
+  },
+  "issues": [
+    "text_chunks_vs_vdb_chunks:1110!=1106",
+    "graph_nodes_vs_vdb_entities:16260!=16251"
+  ]
+}

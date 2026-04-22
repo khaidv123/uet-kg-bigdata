@@ -1,0 +1,34 @@
+{
+  "graph_files": [
+    "output_verson1\\rag_storage\\graph_chunk_entity_relation.graphml"
+  ],
+  "graph_summary": [
+    {
+      "file": "output_verson1\\rag_storage\\graph_chunk_entity_relation.graphml",
+      "nodes": 2019,
+      "edges": 2232,
+      "sample_nodes": [
+        "van_ban",
+        "de_an_tuyen_sinh_2024",
+        "2024-06-28",
+        "Đề Án Tuyển Sinh Năm 2024 (Điều Chỉnh)",
+        "Công văn",
+        "/ĐHCN-ĐT",
+        "Trường Đại học Công nghệ",
+        "Đại học Quốc gia Hà Nội",
+        "QHI",
+        "Nhà E3",
+        "144 Xuân Thủy",
+        "Cầu Giấy",
+        "Hà Nội",
+        "https://uet.vnu.edu.vn",
+        "https://tuyensinh.uet.vnu.edu.vn",
+        "https://www.facebook.com/UET.VNUH",
+        "024 37 547 865",
+        "033 492 4224",
+        "TuyensinhDHCN@vnu.edu.vn",
+        "De An Tuyen Sinh 2024"
+      ]
+    }
+  ]
+}

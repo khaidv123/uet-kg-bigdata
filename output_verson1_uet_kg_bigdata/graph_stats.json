@@ -1,0 +1,173 @@
+{
+  "graph": {
+    "nodes": 16260,
+    "edges": 17120,
+    "sample_nodes": [
+      "van_ban",
+      "de_an_tuyen_sinh_2024",
+      "2024-06-28",
+      "Đề Án Tuyển Sinh Năm 2024 (Điều Chỉnh)",
+      "Công văn",
+      "/ĐHCN-ĐT",
+      "Trường Đại học Công nghệ",
+      "Đại học Quốc gia Hà Nội",
+      "QHI",
+      "Nhà E3"
+    ]
+  },
+  "top_entity_types": [
+    [
+      "concept",
+      3610
+    ],
+    [
+      "content",
+      1162
+    ],
+    [
+      "event",
+      1060
+    ],
+    [
+      "person",
+      1046
+    ],
+    [
+      "mốc_thời_gian",
+      982
+    ],
+    [
+      "organization",
+      964
+    ],
+    [
+      "điều_khoản",
+      759
+    ],
+    [
+      "data",
+      682
+    ],
+    [
+      "chuyên_ngành",
+      612
+    ],
+    [
+      "method",
+      546
+    ],
+    [
+      "điểm_chuẩn",
+      533
+    ],
+    [
+      "số_liệu",
+      512
+    ],
+    [
+      "số_lượng",
+      502
+    ],
+    [
+      "đơn_vị_trực_thuộc",
+      497
+    ],
+    [
+      "other",
+      402
+    ]
+  ],
+  "top_edge_keywords": [
+    [
+      "tổ chức,địa điểm",
+      50
+    ],
+    [
+      "mốc thời gian",
+      42
+    ],
+    [
+      "tham dự",
+      40
+    ],
+    [
+      "xét tuyển,điểm chuẩn",
+      36
+    ],
+    [
+      "tổ hợp xét tuyển",
+      34
+    ],
+    [
+      "mã học phần,tên học phần",
+      32
+    ],
+    [
+      "thời gian,tổ chức",
+      31
+    ],
+    [
+      "lịch thi",
+      31
+    ],
+    [
+      "địa điểm",
+      30
+    ],
+    [
+      "tham dự,đại diện",
+      29
+    ],
+    [
+      "thời gian",
+      29
+    ],
+    [
+      "chỉ tiêu,số liệu",
+      28
+    ],
+    [
+      "phối hợp tổ chức",
+      26
+    ],
+    [
+      "chức danh",
+      26
+    ],
+    [
+      "diễn ra,thời gian",
+      24
+    ]
+  ],
+  "doc_status": {
+    "processed": 539,
+    "failed": 5,
+    "processing": 2,
+    "pending": 502
+  },
+  "data_1000_status": {
+    "processed": 491,
+    "failed": 5,
+    "processing": 2,
+    "pending": 502
+  },
+  "kv_store_full_docs.json": 1048,
+  "kv_store_text_chunks.json": 1110,
+  "vdb_chunks.json": 1106,
+  "vdb_entities.json": 16251,
+  "vdb_relationships.json": 17120,
+  "consistency": {
+    "text_chunks_vs_vdb_chunks": [
+      1110,
+      1106
+    ],
+    "graph_nodes_vs_vdb_entities": [
+      16260,
+      16251
+    ],
+    "graph_edges_vs_vdb_relationships": [
+      17120,
+      17120
+    ]
+  }
+}
