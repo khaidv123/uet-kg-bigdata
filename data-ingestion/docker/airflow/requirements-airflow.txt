@@ -1,0 +1,9 @@
+apache-airflow-providers-amazon
+apache-airflow-providers-postgres
+boto3
+PyYAML
+python-dotenv
+pydantic
+requests
+Scrapy
+tenacity

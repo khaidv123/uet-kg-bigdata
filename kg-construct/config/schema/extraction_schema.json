@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "config/schema/extraction_schema.json",
+  "title": "Extraction Schema",
+  "type": "object",
+  "properties": {
+    "entity_relation": {
+      "$ref": "#/definitions/entity_relation_items"
+    },
+    "event_entity": {
+      "$ref": "#/definitions/event_entity_items"
+    },
+    "event_relation": {
+      "$ref": "#/definitions/event_relation_items"
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "entity_relation_item": {
+      "type": "object",
+      "properties": {
+        "Head": {
+          "type": "string"
+        },
+        "Relation": {
+          "type": "string"
+        },
+        "Tail": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Head",
+        "Relation",
+        "Tail"
+      ],
+      "additionalProperties": false
+    },
+    "entity_relation_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/entity_relation_item"
+      }
+    },
+    "event_entity_item": {
+      "type": "object",
+      "properties": {
+        "Event": {
+          "type": "string"
+        },
+        "Entity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "Event",
+        "Entity"
+      ],
+      "additionalProperties": false
+    },
+    "event_entity_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/event_entity_item"
+      }
+    },
+    "event_relation_item": {
+      "type": "object",
+      "properties": {
+        "Head": {
+          "type": "string"
+        },
+        "Relation": {
+          "type": "string"
+        },
+        "Tail": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Head",
+        "Relation",
+        "Tail"
+      ],
+      "additionalProperties": false
+    },
+    "event_relation_items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/event_relation_item"
+      }
+    }
+  }
+}

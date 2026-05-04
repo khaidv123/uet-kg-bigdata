@@ -1,0 +1,218 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: ${PROJECT_NAME}-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  minio:
+    image: minio/minio:RELEASE.2025-02-28T09-55-16Z
+    container_name: ${PROJECT_NAME}-minio
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    ports:
+      - "${MINIO_API_PORT}:9000"
+      - "${MINIO_CONSOLE_PORT}:9001"
+    volumes:
+      - minio_data:/data
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: docker/airflow/Dockerfile
+    container_name: ${PROJECT_NAME}-airflow-init
+    env_file:
+      - .env
+    environment: &airflow-env
+      AIRFLOW_HOME: /opt/airflow
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: ${AIRFLOW__CORE__LOAD_EXAMPLES}
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: ${AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION}
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW__CORE__FERNET_KEY}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
+      AIRFLOW_SMOKE_CONFIG_PATH: ${AIRFLOW_SMOKE_CONFIG_PATH:-/opt/project/config/airflow_smoke_config.json}
+      AIRFLOW_SMOKE_REPORT_PATH: ${AIRFLOW_SMOKE_REPORT_PATH:-/opt/project/metadata/airflow_smoke_report.json}
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT}
+      MINIO_BUCKET_RAW: ${MINIO_BUCKET_RAW}
+      MINIO_BUCKET_META: ${MINIO_BUCKET_META:-uet-meta}
+      METADATA_DB_PATH: ${METADATA_DB_PATH:-metadata/crawl_state.db}
+      LOGGING_CONFIG_PATH: ${LOGGING_CONFIG_PATH:-config/logging.yaml}
+      PDF_URL_DISCOVERY_PATH: ${PDF_URL_DISCOVERY_PATH:-metadata/discovered_pdf_urls.jsonl}
+      INGESTION_DAG_SCHEDULE: ${INGESTION_DAG_SCHEDULE:-@once}
+      INGESTION_DEMO_ITERATIONS: ${INGESTION_DEMO_ITERATIONS:-1}
+      INGESTION_MAX_PAGES_PER_SOURCE: ${INGESTION_MAX_PAGES_PER_SOURCE:-20}
+      INGESTION_SOURCE_ID: ${INGESTION_SOURCE_ID:-uet-news}
+      INGESTION_REGISTRY_PATH: ${INGESTION_REGISTRY_PATH:-/opt/project/config/sources.yaml}
+      INGESTION_ARTIFACT_DIR: ${INGESTION_ARTIFACT_DIR:-/opt/project/metadata/ingestion_runs}
+      INGESTION_MANIFEST_PATH: ${INGESTION_MANIFEST_PATH:-/opt/project/metadata/ingestion_manifest.json}
+      INGESTION_QUALITY_REPORT_PATH: ${INGESTION_QUALITY_REPORT_PATH:-/opt/project/metadata/ingestion_quality_report.json}
+      QUALITY_MIN_TITLE_RATIO: ${QUALITY_MIN_TITLE_RATIO:-0.95}
+      QUALITY_MIN_TEXT_PREVIEW_RATIO: ${QUALITY_MIN_TEXT_PREVIEW_RATIO:-0.95}
+      QUALITY_MIN_METADATA_COMPLETENESS_RATIO: ${QUALITY_MIN_METADATA_COMPLETENESS_RATIO:-1.0}
+      QUALITY_MIN_OBJECT_MATCH_RATIO: ${QUALITY_MIN_OBJECT_MATCH_RATIO:-1.0}
+      QUALITY_MAX_ERROR_COUNT: ${QUALITY_MAX_ERROR_COUNT:-0}
+      CRAWLER_DOWNLOAD_TIMEOUT: ${CRAWLER_DOWNLOAD_TIMEOUT:-45}
+      CRAWLER_RETRY_TIMES: ${CRAWLER_RETRY_TIMES:-4}
+      INGESTION_TASK_TIMEOUT_MINUTES: ${INGESTION_TASK_TIMEOUT_MINUTES:-30}
+      INGESTION_TASK_RETRIES: ${INGESTION_TASK_RETRIES:-1}
+      INGESTION_TASK_RETRY_DELAY_MINUTES: ${INGESTION_TASK_RETRY_DELAY_MINUTES:-2}
+      PYTHONPATH: /opt/project/src
+    user: "0:0"
+    working_dir: /opt/airflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes: &project-volumes
+      - ./dags:/opt/airflow/dags
+      - ./crawler:/opt/project/crawler
+      - ./config:/opt/project/config
+      - ./scripts:/opt/project/scripts
+      - ./logs:/opt/airflow/logs
+      - ./metadata:/opt/project/metadata
+      - ./src:/opt/project/src
+      - ./tests:/opt/project/tests
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - >
+        airflow db migrate &&
+        (
+        airflow users create
+        --username "${AIRFLOW_ADMIN_USERNAME}"
+        --password "${AIRFLOW_ADMIN_PASSWORD}"
+        --firstname "${AIRFLOW_ADMIN_FIRSTNAME}"
+        --lastname "${AIRFLOW_ADMIN_LASTNAME}"
+        --role Admin
+        --email "${AIRFLOW_ADMIN_EMAIL}" || true
+        )
+    restart: "no"
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: docker/airflow/Dockerfile
+    container_name: ${PROJECT_NAME}-airflow-webserver
+    env_file:
+      - .env
+    environment: *airflow-env
+    user: "0:0"
+    working_dir: /opt/airflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+    volumes: *project-volumes
+    command: webserver
+    ports:
+      - "${AIRFLOW_WEBSERVER_PORT}:8080"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health').read()\"",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: docker/airflow/Dockerfile
+    container_name: ${PROJECT_NAME}-airflow-scheduler
+    env_file:
+      - .env
+    environment: *airflow-env
+    user: "0:0"
+    working_dir: /opt/airflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+    volumes: *project-volumes
+    command: scheduler
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "airflow jobs check --job-type SchedulerJob --hostname \"$${HOSTNAME}\"",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  crawler-runtime:
+    build:
+      context: .
+      dockerfile: docker/crawler/Dockerfile
+    container_name: ${PROJECT_NAME}-crawler-runtime
+    env_file:
+      - .env
+    working_dir: /opt/project
+    environment:
+      MINIO_BUCKET_META: ${MINIO_BUCKET_META:-uet-meta}
+      METADATA_DB_PATH: ${METADATA_DB_PATH:-metadata/crawl_state.db}
+      LOGGING_CONFIG_PATH: ${LOGGING_CONFIG_PATH:-config/logging.yaml}
+      PDF_URL_DISCOVERY_PATH: ${PDF_URL_DISCOVERY_PATH:-metadata/discovered_pdf_urls.jsonl}
+      INGESTION_DAG_SCHEDULE: ${INGESTION_DAG_SCHEDULE:-@once}
+      INGESTION_DEMO_ITERATIONS: ${INGESTION_DEMO_ITERATIONS:-1}
+      INGESTION_MAX_PAGES_PER_SOURCE: ${INGESTION_MAX_PAGES_PER_SOURCE:-20}
+      INGESTION_SOURCE_ID: ${INGESTION_SOURCE_ID:-uet-news}
+      INGESTION_REGISTRY_PATH: ${INGESTION_REGISTRY_PATH:-/opt/project/config/sources.yaml}
+      INGESTION_ARTIFACT_DIR: ${INGESTION_ARTIFACT_DIR:-/opt/project/metadata/ingestion_runs}
+      INGESTION_MANIFEST_PATH: ${INGESTION_MANIFEST_PATH:-/opt/project/metadata/ingestion_manifest.json}
+      INGESTION_QUALITY_REPORT_PATH: ${INGESTION_QUALITY_REPORT_PATH:-/opt/project/metadata/ingestion_quality_report.json}
+      QUALITY_MIN_TITLE_RATIO: ${QUALITY_MIN_TITLE_RATIO:-0.95}
+      QUALITY_MIN_TEXT_PREVIEW_RATIO: ${QUALITY_MIN_TEXT_PREVIEW_RATIO:-0.95}
+      QUALITY_MIN_METADATA_COMPLETENESS_RATIO: ${QUALITY_MIN_METADATA_COMPLETENESS_RATIO:-1.0}
+      QUALITY_MIN_OBJECT_MATCH_RATIO: ${QUALITY_MIN_OBJECT_MATCH_RATIO:-1.0}
+      QUALITY_MAX_ERROR_COUNT: ${QUALITY_MAX_ERROR_COUNT:-0}
+      CRAWLER_DOWNLOAD_TIMEOUT: ${CRAWLER_DOWNLOAD_TIMEOUT:-45}
+      CRAWLER_RETRY_TIMES: ${CRAWLER_RETRY_TIMES:-4}
+      INGESTION_TASK_TIMEOUT_MINUTES: ${INGESTION_TASK_TIMEOUT_MINUTES:-30}
+      INGESTION_TASK_RETRIES: ${INGESTION_TASK_RETRIES:-1}
+      INGESTION_TASK_RETRY_DELAY_MINUTES: ${INGESTION_TASK_RETRY_DELAY_MINUTES:-2}
+      PYTHONPATH: /opt/project/src
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_started
+    volumes:
+      - ./crawler:/opt/project/crawler
+      - ./config:/opt/project/config
+      - ./scripts:/opt/project/scripts
+      - ./logs:/opt/project/logs
+      - ./metadata:/opt/project/metadata
+      - ./src:/opt/project/src
+      - ./tests:/opt/project/tests
+    command: ["sh", "-c", "${CRAWLER_RUNTIME_COMMAND}"]
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  minio_data:

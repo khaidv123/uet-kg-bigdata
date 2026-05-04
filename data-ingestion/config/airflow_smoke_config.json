@@ -1,0 +1,25 @@
+{
+  "required_env": [
+    "AIRFLOW_HOME",
+    "MINIO_ENDPOINT",
+    "MINIO_BUCKET_RAW"
+  ],
+  "required_mounts": {
+    "config_dir": "/opt/project/config",
+    "scripts_dir": "/opt/project/scripts",
+    "dags_dir": "/opt/airflow/dags",
+    "metadata_dir": "/opt/project/metadata"
+  },
+  "sample_files": {
+    "config_file": "/opt/project/config/airflow_smoke_config.json",
+    "script_file": "/opt/project/scripts/airflow_runtime_smoke.py",
+    "dag_file": "/opt/airflow/dags/airflow_smoke_dag.py"
+  },
+  "required_modules": [
+    "boto3",
+    "dotenv",
+    "pydantic",
+    "requests",
+    "tenacity"
+  ]
+}

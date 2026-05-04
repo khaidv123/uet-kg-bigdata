@@ -1,0 +1,25 @@
+# Defaults live in config/*.yaml.
+# .env is reserved for secrets, endpoints, and deployment/runtime overrides.
+
+app_name: kg-construct-phase2
+worker_count: 2
+
+executor:
+  instances: 2
+  cores: 1
+  memory: 2g
+
+driver:
+  memory: 1g
+
+shuffle_partitions: 8
+default_parallelism: 4
+
+sql:
+  adaptive_enabled: true
+
+submit:
+  deploy_mode: client
+
+packages:
+  s3a_enabled: true

@@ -1,0 +1,31 @@
+.env
+/dags/
+/backups/
+/benchmarks/
+/reports/
+/batch-prompt/
+/docs/
+/analysis/
+/scripts/inspect_*.py
+/graph-base-explanation.md
+/kq-construct-pipeline.md
+/pipeline-example.md
+/TODO.md
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Logs and Data
+logs/*
+!logs/.gitkeep
+
+*.log
+/raw_web_page_data/
+
+# IDE and Virtual Environments
+.vscode/
+.idea/
+.venv/
+venv/
+.DS_Store

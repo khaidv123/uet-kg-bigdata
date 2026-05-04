@@ -1,0 +1,38 @@
+# Defaults live in config/*.yaml.
+# .env is reserved for secrets, endpoints, and deployment/runtime overrides.
+# Do not hard-code sample size or fallback language in source.
+
+input:
+  path: raw_web_page_data/uet_news.json
+  format: json
+  text_field: content
+  id_field: id
+  lang_field: lang
+  metadata_fields:
+    - url
+    - title
+    - domain
+    - category
+    - create_at
+
+sampling:
+  max_records: 100
+  shuffle: false
+
+fallback:
+  default_lang: vi
+
+doc_id:
+  strategy: prefer_id_then_url_then_content_hash
+
+source_name:
+  strategy: prefer_domain_then_file_stem
+
+filters:
+  min_content_length: 50
+
+preprocess:
+  output_format: jsonl
+  normalized_filename: normalized_documents.jsonl
+  reject_manifest_filename: reject_manifest.jsonl
+  summary_manifest_filename: preprocess_manifest.json

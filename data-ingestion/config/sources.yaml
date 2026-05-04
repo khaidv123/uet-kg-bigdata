@@ -1,0 +1,106 @@
+version: 1
+scope:
+  owner: "VNU-UET"
+  objective: "Phase 1 HTML and PDF ingestion MVP for public UET web content"
+  root_domain: "uet.vnu.edu.vn"
+defaults:
+  allowed_domains:
+    - "uet.vnu.edu.vn"
+    - "www.uet.vnu.edu.vn"
+    - "tuyensinh.uet.vnu.edu.vn"
+  deny_patterns:
+    - "/wp-admin/"
+    - "/wp-login"
+    - "/feed/"
+    - "/tag/"
+    - "/author/"
+    - "/comments/"
+    - "/search/"
+    - "replytocom="
+    - "?lang=en"
+    - "&lang=en"
+    - "/en/"
+    - "mailto:"
+    - "tel:"
+    - "facebook.com/"
+    - "linkedin.com/"
+    - "tiktok.com/"
+    - "youtube.com/"
+  pdf_patterns:
+    - "(?i)\\.pdf($|\\?)"
+    - "/wp-content/uploads/"
+sources:
+  - id: "uet-news"
+    source_type: "news"
+    display_name: "UET news archive"
+    description: "General public news posts from the main UET website."
+    allowed_domains:
+      - "uet.vnu.edu.vn"
+      - "www.uet.vnu.edu.vn"
+    start_urls:
+      - "https://uet.vnu.edu.vn/category/tin-tuc/"
+    crawl_interval_hours: 6
+
+  - id: "uet-events"
+    source_type: "events"
+    display_name: "UET events calendar"
+    description: "Upcoming, ongoing, and past public events listed on the main UET events page."
+    allowed_domains:
+      - "uet.vnu.edu.vn"
+      - "www.uet.vnu.edu.vn"
+    start_urls:
+      - "https://uet.vnu.edu.vn/events/"
+    crawl_interval_hours: 6
+
+  - id: "uet-notices"
+    source_type: "notices"
+    display_name: "UET notices"
+    description: "Official public notices published on the main UET site."
+    allowed_domains:
+      - "uet.vnu.edu.vn"
+      - "www.uet.vnu.edu.vn"
+    start_urls:
+      - "https://uet.vnu.edu.vn/category/thong-bao/"
+    crawl_interval_hours: 6
+
+  - id: "uet-admissions"
+    source_type: "admissions"
+    display_name: "UET admissions portal"
+    description: "Public admissions announcements and reference pages from the UET admissions subdomain."
+    allowed_domains:
+      - "tuyensinh.uet.vnu.edu.vn"
+    start_urls:
+      - "https://tuyensinh.uet.vnu.edu.vn/category/tin-tuyen-sinh/"
+      - "https://tuyensinh.uet.vnu.edu.vn/category/ban-nen-biet/"
+    deny_patterns:
+      - "/qlts"
+      - "/dang-ky-xet-tuyen/"
+      - "/category/tra-cuu/"
+      - "/tra-cuu/"
+    crawl_interval_hours: 12
+
+  - id: "uet-scholarships"
+    source_type: "scholarships"
+    display_name: "UET scholarships"
+    description: "Scholarship and financial-support announcements for students."
+    allowed_domains:
+      - "uet.vnu.edu.vn"
+      - "www.uet.vnu.edu.vn"
+      - "tuyensinh.uet.vnu.edu.vn"
+    start_urls:
+      - "https://uet.vnu.edu.vn/category/sinh-vien/hoc-phi-hoc-bong/"
+      - "https://tuyensinh.uet.vnu.edu.vn/category/ban-nen-biet/hoc-bong/"
+    crawl_interval_hours: 24
+
+  - id: "uet-public-documents"
+    source_type: "public_documents"
+    display_name: "UET public regulations and documents"
+    description: "Public regulations, policies, and document-oriented pages that often link to PDF attachments."
+    allowed_domains:
+      - "uet.vnu.edu.vn"
+      - "www.uet.vnu.edu.vn"
+      - "tuyensinh.uet.vnu.edu.vn"
+    start_urls:
+      - "https://uet.vnu.edu.vn/category/sinh-vien/quy-dinh-quy-che/"
+      - "https://tuyensinh.uet.vnu.edu.vn/category/ban-nen-biet/"
+    crawl_interval_hours: 24

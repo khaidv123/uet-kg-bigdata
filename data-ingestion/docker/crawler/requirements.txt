@@ -1,0 +1,13 @@
+beautifulsoup4
+boto3
+huggingface_hub
+pdfplumber
+pydantic
+psycopg2-binary
+PyMuPDF
+pytest
+PyYAML
+python-dotenv
+requests
+Scrapy
+tenacity
