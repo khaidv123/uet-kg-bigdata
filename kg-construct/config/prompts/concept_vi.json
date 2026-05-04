@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "language": "vi",
+    "prompt_version": "v2",
+    "output_format": "json_array",
+    "output_schema": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "entity": {
+    "system_prompt": "Bạn là một trợ lý hữu ích. Bạn chỉ được trả về một mảng JSON hợp lệ đúng định dạng yêu cầu, không kèm giải thích.",
+    "user_prompt_template": "Tôi sẽ đưa cho bạn một THỰC THỂ. Bạn cần đưa ra nhiều cụm từ gồm 1-2 từ cho THỰC THỂ TRỪU TƯỢNG của thực thể đó.\nBạn phải trả lời đúng theo định dạng JSON array sau: [\"cụm_từ_1\", \"cụm_từ_2\", \"cụm_từ_3\"]\nBạn không được trả về bất cứ thứ gì ngoài JSON array hợp lệ.\nCác cụm từ trừu tượng này cần đáp ứng các yêu cầu sau:\n1. Các cụm từ THỰC THỂ TRỪU TƯỢNG phải đại diện tốt cho thực thể đầu vào; chúng có thể là loại của thực thể hoặc các khái niệm liên quan.\n2. Phải tuân thủ nghiêm ngặt định dạng đã cho, không thêm ký tự hay từ thừa.\n3. Nếu có thể, hãy viết ít nhất 3 cụm từ ở các mức độ trừu tượng khác nhau.\n4. Không lặp lại chính từ đầu vào trong câu trả lời.\n5. Nếu không nghĩ thêm được nữa thì dừng ngay, không cần giải thích.\n\nVí dụ:\nTHỰC THỂ: Soul\nNGỮ CẢNH: premiered BFI London Film Festival, became highest-grossing Pixar release\nCâu trả lời: [\"phim\", \"tác phẩm điện ảnh\"]\n\nTHỰC THỂ: Thinkpad X60\nNGỮ CẢNH: Richard Stallman announced he is using Trisquel on a Thinkpad X60\nCâu trả lời: [\"laptop\", \"thiết bị\", \"phần cứng\", \"máy tính\"]\n\nTHỰC THỂ: Harry Callahan\nNGỮ CẢNH: bluffs another robber, tortures Scorpio\nCâu trả lời: [\"nhân vật\", \"cảnh sát\", \"thám tử\"]\n\nTHỰC THỂ: Black Mountain College\nNGỮ CẢNH: was started by John Andrew Rice, attracted faculty\nCâu trả lời: [\"trường đại học\", \"trường học\", \"cơ sở giáo dục\"]\n\nTHỰC THỂ: {{node_name}}\nNGỮ CẢNH: {{context_text}}\nCâu trả lời:"
+  },
+  "event": {
+    "system_prompt": "Bạn là một trợ lý hữu ích. Bạn chỉ được trả về một mảng JSON hợp lệ đúng định dạng yêu cầu, không kèm giải thích.",
+    "user_prompt_template": "Tôi sẽ đưa cho bạn một SỰ KIỆN. Bạn cần đưa ra nhiều cụm từ gồm 1-2 từ cho SỰ KIỆN TRỪU TƯỢNG của sự kiện đó.\nBạn phải trả lời đúng theo định dạng JSON array sau: [\"cụm_từ_1\", \"cụm_từ_2\", \"cụm_từ_3\"]\nBạn không được trả về bất cứ thứ gì ngoài JSON array hợp lệ.\nCác cụm từ trừu tượng này cần đáp ứng các yêu cầu sau:\n1. Các cụm từ SỰ KIỆN TRỪU TƯỢNG phải đại diện tốt cho sự kiện đầu vào; chúng có thể là loại của sự kiện hoặc các khái niệm liên quan.\n2. Phải tuân thủ nghiêm ngặt định dạng đã cho, không thêm ký tự hay từ thừa.\n3. Nếu có thể, hãy viết ít nhất 3 cụm từ ở các mức độ trừu tượng khác nhau.\n4. Không lặp lại chính từ đầu vào trong câu trả lời.\n5. Nếu không nghĩ thêm được nữa thì dừng ngay, không cần giải thích.\n\nVí dụ:\nSỰ KIỆN: Một người đàn ông rút lui vào núi rừng.\nCâu trả lời: [\"rút lui\", \"thư giãn\", \"trốn tránh\", \"thiên nhiên\", \"cô tịch\"]\n\nSỰ KIỆN: Một con mèo đuổi con mồi vào nơi ẩn náu của nó.\nCâu trả lời: [\"săn mồi\", \"truy đuổi\", \"trốn thoát\", \"rình rập\"]\n\nSỰ KIỆN: Sam chơi cùng chú chó của mình.\nCâu trả lời: [\"vui chơi\", \"gắn kết\", \"tình bạn\", \"thư giãn\"]\n\nSỰ KIỆN: {{node_name}}\nCâu trả lời:"
+  },
+  "relation": {
+    "system_prompt": "Bạn là một trợ lý hữu ích. Bạn chỉ được trả về một mảng JSON hợp lệ đúng định dạng yêu cầu, không kèm giải thích.",
+    "user_prompt_template": "Tôi sẽ đưa cho bạn một QUAN HỆ. Bạn cần đưa ra nhiều cụm từ gồm 1-2 từ cho QUAN HỆ TRỪU TƯỢNG của quan hệ đó.\nBạn phải trả lời đúng theo định dạng JSON array sau: [\"cụm_từ_1\", \"cụm_từ_2\", \"cụm_từ_3\"]\nBạn không được trả về bất cứ thứ gì ngoài JSON array hợp lệ.\nCác cụm từ trừu tượng này cần đáp ứng các yêu cầu sau:\n1. Các cụm từ QUAN HỆ TRỪU TƯỢNG phải đại diện tốt cho quan hệ đầu vào; chúng có thể là loại quan hệ hoặc khái niệm đơn giản nhất của quan hệ đó.\n2. Phải tuân thủ nghiêm ngặt định dạng đã cho, không thêm ký tự hay từ thừa.\n3. Nếu có thể, hãy viết ít nhất 3 cụm từ ở các mức độ trừu tượng khác nhau.\n4. Không lặp lại chính từ đầu vào trong câu trả lời.\n5. Nếu không nghĩ thêm được nữa thì dừng ngay, không cần giải thích.\n\nVí dụ:\nQUAN HỆ: participated in\nCâu trả lời: [\"tham gia\", \"góp mặt\", \"dự phần\", \"can dự\"]\n\nQUAN HỆ: be included in\nCâu trả lời: [\"thuộc về\", \"là một phần của\", \"bao gồm trong\"]\n\nQUAN HỆ: {{node_name}}\nCâu trả lời:"
+  }
+}

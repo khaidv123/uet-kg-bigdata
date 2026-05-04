@@ -1,0 +1,52 @@
+# Defaults live in config/*.yaml.
+# .env is reserved for secrets, endpoints, and deployment/runtime overrides.
+
+provider: minio
+file_format: parquet
+bucket: kg-construct-phase2
+
+prefixes:
+  raw: raw
+  bronze: bronze
+  silver: silver
+  gold: gold
+  meta: meta/phase2
+
+tables:
+  raw.normalized_documents: raw/normalized_documents
+  raw.normalized_reject_manifest: raw/reject_manifest
+  bronze.documents: bronze/documents
+  bronze.extraction_raw: bronze/extraction_raw
+  bronze.concept_raw: bronze/concept_raw
+  silver.documents_clean: silver/documents_clean
+  silver.document_chunks: silver/document_chunks
+  silver.extraction_requests: silver/extraction_requests
+  silver.extraction_structured: silver/extraction_structured
+  silver.triple_nodes: silver/triple_nodes
+  silver.triple_edges: silver/triple_edges
+  silver.text_nodes: silver/text_nodes
+  silver.text_edges: silver/text_edges
+  silver.missing_concepts: silver/missing_concepts
+  silver.node_context: silver/node_context
+  silver.concept_requests: silver/concept_requests
+  silver.concept_mappings: silver/concept_mappings
+  silver.concept_coverage: silver/concept_coverage
+  gold.concept_nodes: gold/concept_nodes
+  gold.concept_edges: gold/concept_edges
+  gold.triple_edges_enriched: gold/triple_edges_enriched
+  gold.kg_export: gold/kg_export
+  gold.embeddings.triple_nodes: gold/embeddings/triple_nodes
+  gold.embeddings.triple_edges: gold/embeddings/triple_edges
+  gold.embeddings.text_nodes: gold/embeddings/text_nodes
+  gold.embeddings.coverage: gold/embeddings/coverage
+  meta.manifests: meta/phase2/manifests
+  meta.checkpoints: meta/phase2/checkpoints
+  meta.logs: meta/phase2/logs
+  meta.quality_reports: meta/phase2/quality_reports
+
+s3a:
+  path_style_access: true
+
+manifests_prefix: meta/phase2/manifests
+checkpoints_prefix: meta/phase2/checkpoints
+logs_prefix: meta/phase2/logs

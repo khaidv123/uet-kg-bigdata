@@ -1,0 +1,188 @@
+services:
+  minio:
+    image: ${MINIO_IMAGE:-minio/minio}
+    command: server /data --address ":9000" --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-minioadmin123}
+    ports:
+      - "${MINIO_API_PORT:-9000}:9000"
+      - "${MINIO_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - minio-data:/data
+    networks:
+      - phase2
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9000/minio/health/live || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+
+  minio-init:
+    image: ${MINIO_MC_IMAGE:-minio/mc}
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT:-http://minio:9000}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin123}
+      MINIO_BUCKET: ${MINIO_BUCKET:-kg-construct-phase2}
+    entrypoint: ["/bin/sh", "/workspace/scripts/bootstrap_minio.sh"]
+    volumes:
+      - ./scripts:/workspace/scripts
+    networks:
+      - phase2
+    restart: "no"
+
+  spark-master:
+    image: ${SPARK_IMAGE:-apache/spark:3.5.1}
+    depends_on:
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+    environment:
+      SPARK_MASTER_URL: ${SPARK_MASTER_URL:-spark://spark-master:7077}
+      SPARK_MASTER_HOST: spark-master
+      SPARK_MASTER_PORT: ${SPARK_MASTER_PORT:-7077}
+      SPARK_MASTER_WEBUI_PORT: ${SPARK_MASTER_WEBUI_PORT:-8080}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_TIMEOUT_SECONDS: ${OPENAI_TIMEOUT_SECONDS:-120}
+      OPENAI_MAX_RETRIES: ${OPENAI_MAX_RETRIES:-3}
+      OPENAI_BACKOFF_SECONDS: ${OPENAI_BACKOFF_SECONDS:-2}
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT:-http://minio:9000}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin123}
+      MINIO_BUCKET: ${MINIO_BUCKET:-kg-construct-phase2}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      S3A_PACKAGES: ${S3A_PACKAGES:-org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262}
+      SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY:-2g}
+      SPARK_EXECUTOR_MEMORY: ${SPARK_EXECUTOR_MEMORY:-4g}
+      SPARK_EXECUTOR_CORES: ${SPARK_EXECUTOR_CORES:-2}
+    command:
+      - /bin/bash
+      - -lc
+      - >
+        /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+        --host spark-master
+        --port ${SPARK_MASTER_PORT:-7077}
+        --webui-port ${SPARK_MASTER_WEBUI_PORT:-8080}
+    ports:
+      - "${SPARK_MASTER_PORT:-7077}:7077"
+      - "${SPARK_MASTER_WEBUI_PORT:-8080}:8080"
+    volumes:
+      - ./pipeline:/workspace/pipeline
+      - ./config:/workspace/config
+      - ./scripts:/workspace/scripts
+      - ./logs:/workspace/logs
+      - ./docs:/workspace/docs
+      - ./tests:/workspace/tests
+    working_dir: /workspace
+    networks:
+      - phase2
+    healthcheck:
+      test: ["CMD", "/bin/bash", "/workspace/scripts/healthcheck_spark.sh", "spark-master", "${SPARK_MASTER_PORT:-7077}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  spark-worker:
+    image: ${SPARK_IMAGE:-apache/spark:3.5.1}
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    environment:
+      SPARK_MASTER_URL: ${SPARK_MASTER_URL:-spark://spark-master:7077}
+      SPARK_WORKER_CORES: ${SPARK_WORKER_CORES:-2}
+      SPARK_WORKER_MEMORY: ${SPARK_WORKER_MEMORY:-4g}
+      SPARK_WORKER_WEBUI_PORT: ${SPARK_WORKER_WEBUI_PORT:-8081}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_TIMEOUT_SECONDS: ${OPENAI_TIMEOUT_SECONDS:-120}
+      OPENAI_MAX_RETRIES: ${OPENAI_MAX_RETRIES:-3}
+      OPENAI_BACKOFF_SECONDS: ${OPENAI_BACKOFF_SECONDS:-2}
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT:-http://minio:9000}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin123}
+      MINIO_BUCKET: ${MINIO_BUCKET:-kg-construct-phase2}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      S3A_PACKAGES: ${S3A_PACKAGES:-org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262}
+    command:
+      - /bin/bash
+      - -lc
+      - >
+        /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
+        --webui-port ${SPARK_WORKER_WEBUI_PORT:-8081}
+        --cores ${SPARK_WORKER_CORES:-2}
+        --memory ${SPARK_WORKER_MEMORY:-4g}
+        ${SPARK_MASTER_URL:-spark://spark-master:7077}
+    volumes:
+      - ./pipeline:/workspace/pipeline
+      - ./config:/workspace/config
+      - ./scripts:/workspace/scripts
+      - ./logs:/workspace/logs
+      - ./docs:/workspace/docs
+      - ./tests:/workspace/tests
+    working_dir: /workspace
+    networks:
+      - phase2
+    healthcheck:
+      test: ["CMD", "/bin/bash", "/workspace/scripts/healthcheck_spark.sh", "127.0.0.1", "${SPARK_WORKER_WEBUI_PORT:-8081}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  spark-submit:
+    image: ${SPARK_IMAGE:-apache/spark:3.5.1}
+    profiles:
+      - tools
+    depends_on:
+      spark-master:
+        condition: service_healthy
+      spark-worker:
+        condition: service_healthy
+    environment:
+      SPARK_MASTER_URL: ${SPARK_MASTER_URL:-spark://spark-master:7077}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_TIMEOUT_SECONDS: ${OPENAI_TIMEOUT_SECONDS:-120}
+      OPENAI_MAX_RETRIES: ${OPENAI_MAX_RETRIES:-3}
+      OPENAI_BACKOFF_SECONDS: ${OPENAI_BACKOFF_SECONDS:-2}
+      MINIO_ENDPOINT: ${MINIO_ENDPOINT:-http://minio:9000}
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin123}
+      MINIO_BUCKET: ${MINIO_BUCKET:-kg-construct-phase2}
+      MINIO_REGION: ${MINIO_REGION:-us-east-1}
+      S3A_PACKAGES: ${S3A_PACKAGES:-org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262}
+      SPARK_SUBMIT_DEPLOY_MODE: ${SPARK_SUBMIT_DEPLOY_MODE:-client}
+      SPARK_DRIVER_MEMORY: ${SPARK_DRIVER_MEMORY:-2g}
+      SPARK_EXECUTOR_INSTANCES: ${SPARK_EXECUTOR_INSTANCES:-}
+      SPARK_EXECUTOR_MEMORY: ${SPARK_EXECUTOR_MEMORY:-4g}
+      SPARK_EXECUTOR_CORES: ${SPARK_EXECUTOR_CORES:-2}
+      PHASE2_RUN_ID: ${PHASE2_RUN_ID:-}
+    command:
+      - /bin/bash
+      - -lc
+      - sleep infinity
+    volumes:
+      - ./pipeline:/workspace/pipeline
+      - ./config:/workspace/config
+      - ./scripts:/workspace/scripts
+      - ./logs:/workspace/logs
+      - ./docs:/workspace/docs
+      - ./tests:/workspace/tests
+    working_dir: /workspace
+    networks:
+      - phase2
+
+networks:
+  phase2:
+    driver: bridge
+
+volumes:
+  minio-data:
