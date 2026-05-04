@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UET KG BigData Chat</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark">KG</div>
+          <div>
+            <h1>UET KG BigData</h1>
+            <p id="statusText">Sẵn sàng</p>
+          </div>
+        </div>
+        <div class="topbar-center">
+          <span class="status-pill">Neo4j RAG</span>
+          <span class="status-pill muted-pill">Local build</span>
+        </div>
+        <div class="topbar-actions">
+          <button id="settingsBtn" class="secondary-button" type="button">Cài đặt</button>
+          <button id="clearBtn" class="secondary-button" type="button">Xóa chat</button>
+        </div>
+      </header>
+
+      <main class="chat-panel">
+        <section id="messages" class="messages" aria-live="polite"></section>
+      </main>
+
+      <form id="chatForm" class="composer">
+        <div class="composer-box">
+          <textarea id="messageInput" rows="1" placeholder="Nhắn cho UET KG BigData" required></textarea>
+          <div class="composer-actions">
+            <span id="composerHint">Enter để gửi, Shift+Enter xuống dòng</span>
+            <button id="sendBtn" type="submit">Gửi</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="drawerOverlay" class="drawer-overlay" hidden></div>
+    <aside id="settingsPanel" class="settings-drawer" aria-label="Cấu hình" aria-hidden="true">
+      <div class="drawer-header">
+        <div>
+          <h2>Cấu hình</h2>
+          <p>Kết nối Neo4j, model và retrieval</p>
+        </div>
+        <button id="closeSettingsBtn" class="secondary-button" type="button">Đóng</button>
+      </div>
+
+      <section class="settings-section">
+        <h3>Neo4j</h3>
+        <label>
+          URI
+          <input id="neo4jUri" value="bolt://localhost:7687" autocomplete="off" />
+        </label>
+        <label>
+          User
+          <input id="neo4jUser" value="neo4j" autocomplete="username" />
+        </label>
+        <label>
+          Password
+          <input id="neo4jPassword" type="password" autocomplete="current-password" />
+        </label>
+        <label>
+          Database
+          <input id="neo4jDatabase" value="neo4j" autocomplete="off" />
+        </label>
+      </section>
+
+      <section class="settings-section">
+        <h3>LLM</h3>
+        <label>
+          API key
+          <input id="apiKey" type="password" autocomplete="off" />
+        </label>
+        <label>
+          Base URL
+          <input id="baseUrl" placeholder="https://api.openai.com/v1" autocomplete="off" />
+        </label>
+        <label>
+          Chat model
+          <input id="chatModel" value="gpt-4o-mini" autocomplete="off" />
+        </label>
+      </section>
+
+      <section class="settings-section compact-grid">
+        <h3>Retrieval</h3>
+        <label class="toggle-row">
+          <input id="vectorSearch" type="checkbox" />
+          <span>Vector search</span>
+        </label>
+        <label>
+          Entities
+          <input id="entityK" type="number" min="1" max="30" value="8" />
+        </label>
+        <label>
+          Chunks
+          <input id="chunkK" type="number" min="1" max="30" value="8" />
+        </label>
+      </section>
+    </aside>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
