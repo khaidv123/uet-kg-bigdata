@@ -1,0 +1,10 @@
+placeholder_name: ".keep"
+
+raw_prefix_templates:
+  html: "html/{yyyy}/{mm}/{dd}/"
+  pdf: "pdf/{yyyy}/{mm}/{dd}/"
+  pdf_text: "pdf_text/{yyyy}/{mm}/{dd}/"
+
+meta_prefixes:
+  crawl_state: "metadata/crawl_state/"
+  ingestion_logs: "logs/ingestion/"
