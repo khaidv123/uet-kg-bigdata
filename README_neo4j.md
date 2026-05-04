@@ -1,12 +1,26 @@
-# Neo4j pipeline cho dữ liệu UET KG BigData
+# Multi-store RAG pipeline cho dữ liệu UET KG BigData
 
-Repo hiện chỉ chứa artifacts đã build từ LightRAG, chưa có Neo4j đang chạy local. Dữ liệu chính nằm ở `output_verson1_uet_kg_bigdata/rag_storage`.
+Repo hiện chứa artifacts đã build từ LightRAG. Dữ liệu chính nằm ở `output_verson1_uet_kg_bigdata/rag_storage`.
 
 Nếu dùng Python environment khác, cài dependency:
 
 ```powershell
 pip install -r requirements-neo4j.txt
 ```
+
+## Kiến trúc lưu trữ
+
+Pipeline lưu cùng một bộ dữ liệu trên 3 lớp:
+
+- Raw data: HDFS/WebHDFS, mặc định thư mục `/uet-kg-bigdata/raw`.
+- Graph DB: Neo4j chứa `Document`, `Chunk`, `Entity`, `RELATES_TO` để traversal multi-hop.
+- Vector DB: Elasticsearch chứa chunk/entity embeddings dạng `dense_vector` để semantic search.
+
+Luồng RAG serving:
+
+1. Chuyển câu hỏi thành embedding bằng model cùng chiều với dữ liệu đã index, mặc định `text-embedding-3-small`.
+2. Truy vấn song song Neo4j graph traversal và Elasticsearch vector kNN.
+3. Gộp context, tạo citation `[S1]`, `[S2]`, rồi gọi LLM Groq qua OpenAI-compatible endpoint.
 
 ## Dữ liệu đã rà soát
 
@@ -19,7 +33,7 @@ pip install -r requirements-neo4j.txt
 - `kv_store_entity_chunks.json` và `kv_store_relation_chunks.json`: map entity/quan hệ về chunk bằng chứng.
 - `kv_store_doc_status.json`: 539 processed, 5 failed, 2 processing, 502 pending.
 
-Embedding trong `vdb_*` là vector float16 nén bằng `zlib + base64`; script import sẽ giải nén thành list float32 để Neo4j tạo vector index.
+Embedding trong `vdb_*` là vector float16 nén bằng `zlib + base64`; script import sẽ giải nén thành list float32 để Elasticsearch index semantic search. Neo4j vẫn có thể giữ vector nếu cần fallback.
 
 ## Mô hình Neo4j
 
@@ -42,13 +56,21 @@ Indexes được tạo:
 
 ## Chạy import
 
-Đặt thông tin kết nối Neo4j trong PowerShell:
+Đặt thông tin kết nối các lớp lưu trữ trong PowerShell:
 
 ```powershell
+$env:WEBHDFS_URL="http://localhost:9870"
+$env:WEBHDFS_USER="hadoop"
+$env:HDFS_RAW_DIR="/uet-kg-bigdata/raw"
+
 $env:NEO4J_URI="bolt://localhost:7687"
 $env:NEO4J_USER="neo4j"
 $env:NEO4J_PASSWORD="minhminh"
 $env:NEO4J_DATABASE="UET_KG_BIGDATA"
+
+$env:ELASTICSEARCH_URL="http://localhost:9200"
+$env:ES_CHUNKS_INDEX="uet_kg_chunks"
+$env:ES_ENTITIES_INDEX="uet_kg_entities"
 ```
 
 Kiểm tra parse dữ liệu, không ghi database:
@@ -57,7 +79,21 @@ Kiểm tra parse dữ liệu, không ghi database:
 python scripts\import_lightrag_to_neo4j.py --dry-run
 ```
 
-Import đầy đủ, có embedding và vector index:
+Import đồng bộ cả HDFS, Neo4j và Elasticsearch:
+
+```powershell
+python scripts\import_lightrag_multistore.py --reset --batch-size 100
+```
+
+Import từng lớp khi cần debug:
+
+```powershell
+python scripts\import_raw_to_hdfs.py
+python scripts\import_lightrag_to_neo4j.py --reset --skip-vectors --batch-size 500
+python scripts\import_lightrag_to_elasticsearch.py --reset --batch-size 200
+```
+
+Nếu vẫn muốn lưu vector trong Neo4j để fallback:
 
 ```powershell
 python scripts\import_lightrag_to_neo4j.py --reset --batch-size 100
@@ -69,32 +105,36 @@ Nếu máy yếu RAM hoặc muốn import nhanh trước:
 python scripts\import_lightrag_to_neo4j.py --reset --skip-vectors --batch-size 500
 ```
 
-## Truy vấn
+## Truy vấn hybrid
 
-Truy vấn lexical/fulltext, không cần OpenAI key:
+Truy vấn graph/fulltext Neo4j, không cần embedding key:
 
 ```powershell
 python scripts\query_neo4j.py "điểm chuẩn ngành khoa học máy tính 2024" --no-vector
 ```
 
-Truy vấn hybrid fulltext + vector, cần `OPENAI_API_KEY` vì query mới phải được embedding cùng model `text-embedding-3-small`:
+Truy vấn hybrid Neo4j multi-hop + Elasticsearch semantic search. Query mới phải được embedding cùng model với vector đã index:
 
 ```powershell
-$env:OPENAI_API_KEY="sk-..."
-python scripts\query_neo4j.py "học phí ngành trí tuệ nhân tạo năm 2024"
+$env:OPENAI_EMBEDDING_API_KEY="sk-..."
+$env:ELASTICSEARCH_URL="http://localhost:9200"
+
+python scripts\query_neo4j.py "học phí ngành trí tuệ nhân tạo năm 2024" --graph-hops 2 --json
 ```
 
-Kết quả trả về gồm entity liên quan, các quan hệ lân cận có trọng số, và chunk bằng chứng. Phần này là retrieval layer; nếu muốn trả lời tự nhiên cho người dùng cuối thì lấy `chunks` làm context đưa vào LLM.
+Kết quả trả về gồm entity liên quan, path multi-hop trong Neo4j, chunk semantic từ Elasticsearch, chunk bằng chứng và metadata `vector_db`, `graph_db`, `graph_hops`. Phần này là retrieval layer; RAG sẽ lấy `chunks` làm context đưa vào LLM.
 
 ## Chatbot RAG
 
-Chatbot dùng lại retrieval từ Neo4j, sau đó gọi LLM để sinh câu trả lời tự nhiên. Cần `OPENAI_API_KEY`; nếu Neo4j chưa có vector index hoặc chưa muốn dùng embedding query thì thêm `--no-vector`.
+Chatbot dùng retrieval hybrid Neo4j + Elasticsearch, sau đó gọi Groq để sinh câu trả lời tự nhiên. Với Groq, đặt `GROQ_API_KEY`; code tự dùng OpenAI-compatible endpoint `https://api.groq.com/openai/v1` và model mặc định `llama-3.1-8b-instant`. Semantic search cần thêm embedding key tương thích với vector đã index.
 
 ```powershell
-$env:OPENAI_API_KEY="sk-..."
-$env:OPENAI_CHAT_MODEL="gpt-4o-mini"
+$env:GROQ_API_KEY="gsk_..."
+$env:GROQ_CHAT_MODEL="llama-3.1-8b-instant"
+$env:OPENAI_EMBEDDING_API_KEY="sk-..."
+$env:ELASTICSEARCH_URL="http://localhost:9200"
 
-python scripts\chatbot_neo4j.py "học phí ngành trí tuệ nhân tạo năm 2024 là bao nhiêu?" --show-sources
+python scripts\chatbot_neo4j.py "học phí ngành trí tuệ nhân tạo năm 2024 là bao nhiêu?" --graph-hops 2 --show-sources
 ```
 
 Chạy hội thoại nhiều lượt:
@@ -103,10 +143,10 @@ Chạy hội thoại nhiều lượt:
 python scripts\chatbot_neo4j.py --interactive --show-sources
 ```
 
-Nếu đang dùng key OpenAI-compatible khác, ví dụ key có dạng `gsk_...`, cần truyền `--base-url` hoặc đặt `OPENAI_BASE_URL`. Nếu provider đó không hỗ trợ embeddings, thêm `--no-vector`:
+Vẫn có thể dùng OpenAI bằng `OPENAI_API_KEY`/`OPENAI_CHAT_MODEL`, hoặc dùng endpoint OpenAI-compatible khác bằng `--base-url`. Nếu chưa có Elasticsearch hoặc embedding key, thêm `--no-vector` để chạy graph-only:
 
 ```powershell
-python scripts\chatbot_neo4j.py "điểm chuẩn khoa học máy tính 2024" --no-vector --base-url https://your-provider.example/v1 --chat-model your-chat-model --show-sources
+python scripts\chatbot_neo4j.py "điểm chuẩn khoa học máy tính 2024" --api-key provider-key --base-url https://your-provider.example/v1 --chat-model your-chat-model --no-vector --show-sources
 ```
 
 Nếu dùng model hoặc endpoint OpenAI-compatible khác:
@@ -129,15 +169,15 @@ Mở:
 http://127.0.0.1:8000
 ```
 
-Web UI có thể nhận Neo4j password, API key, base URL, model và lựa chọn bật/tắt vector search ngay trên màn hình. Mặc định vector search tắt để tránh lỗi khi provider chat không hỗ trợ embeddings.
+Web UI có thể nhận Neo4j password, Groq API key, embedding key, Elasticsearch URL/index, graph hops và lựa chọn bật/tắt vector search ngay trên màn hình. Nếu đã đặt `GROQ_API_KEY`, `OPENAI_EMBEDDING_API_KEY` và `ELASTICSEARCH_URL` trước khi chạy server thì không cần nhập lại trong UI.
 
 ## Chiến lược truy xuất hiệu quả
 
 Luồng nên dùng cho input người dùng:
 
 1. Chạy fulltext trên `entity_text` và `chunk_text` để bắt keyword, mã ngành, tên riêng, thuật ngữ tiếng Việt.
-2. Nếu có embedding query, chạy vector search trên `entity_embedding` và `chunk_embedding`.
-3. Gộp seed entities, mở rộng 1 hop qua `RELATES_TO`, ưu tiên `weight` cao.
+2. Tạo embedding câu hỏi và chạy kNN trên Elasticsearch index `uet_kg_chunks`.
+3. Gộp seed entities, mở rộng multi-hop qua `RELATES_TO`, ưu tiên tổng `weight` cao và path ngắn.
 4. Lấy chunk bằng chứng qua `MENTIONS` và `source_ids/chunk_ids` trên quan hệ.
-5. Rerank chunks bằng điểm tổng hợp: fulltext/vector score, số entity match, relation weight, độ gần của seed.
-6. Đưa 5-10 chunk tốt nhất vào prompt trả lời, yêu cầu trích nguồn theo `file_path` và `chunk_id`.
+5. Merge chunks từ Graph DB và Vector DB, bỏ trùng theo `chunk_id`, giữ `retrieval_source`.
+6. Đưa 5-10 chunk tốt nhất vào prompt Groq, yêu cầu trích nguồn theo `file_path` và `chunk_id`.

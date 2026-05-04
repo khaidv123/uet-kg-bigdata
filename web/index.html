@@ -72,26 +72,58 @@
       </section>
 
       <section class="settings-section">
-        <h3>LLM</h3>
+        <h3>Groq / LLM</h3>
         <label>
           API key
           <input id="apiKey" type="password" autocomplete="off" />
         </label>
         <label>
           Base URL
-          <input id="baseUrl" placeholder="https://api.openai.com/v1" autocomplete="off" />
+          <input id="baseUrl" placeholder="https://api.groq.com/openai/v1" autocomplete="off" />
         </label>
         <label>
           Chat model
-          <input id="chatModel" value="gpt-4o-mini" autocomplete="off" />
+          <input id="chatModel" value="llama-3.1-8b-instant" autocomplete="off" />
         </label>
       </section>
 
       <section class="settings-section compact-grid">
         <h3>Retrieval</h3>
         <label class="toggle-row">
-          <input id="vectorSearch" type="checkbox" />
-          <span>Vector search</span>
+          <input id="vectorSearch" type="checkbox" checked />
+          <span>Elasticsearch vector search</span>
+        </label>
+        <label class="toggle-row">
+          <input id="neo4jVector" type="checkbox" />
+          <span>Neo4j vector fallback</span>
+        </label>
+        <label>
+          ES URL
+          <input id="esUrl" placeholder="http://localhost:9200" autocomplete="off" />
+        </label>
+        <label>
+          ES chunks index
+          <input id="esChunksIndex" value="uet_kg_chunks" autocomplete="off" />
+        </label>
+        <label>
+          ES API key
+          <input id="esApiKey" type="password" autocomplete="off" />
+        </label>
+        <label>
+          Embedding key
+          <input id="embeddingApiKey" type="password" autocomplete="off" />
+        </label>
+        <label>
+          Embedding model
+          <input id="embeddingModel" value="text-embedding-3-small" autocomplete="off" />
+        </label>
+        <label>
+          Embedding base URL
+          <input id="embeddingBaseUrl" placeholder="https://api.openai.com/v1" autocomplete="off" />
+        </label>
+        <label>
+          Graph hops
+          <input id="graphHops" type="number" min="1" max="5" value="2" />
         </label>
         <label>
           Entities

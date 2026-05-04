@@ -9,18 +9,30 @@ const closeSettingsBtn = document.querySelector("#closeSettingsBtn");
 const settingsPanel = document.querySelector("#settingsPanel");
 const drawerOverlay = document.querySelector("#drawerOverlay");
 
+const defaultGroqBaseUrl = "https://api.groq.com/openai/v1";
+const defaultGroqChatModel = "llama-3.1-8b-instant";
+const legacyOpenAiChatModel = "gpt-4o-mini";
 const stored = JSON.parse(localStorage.getItem("uetKgSettings") || "{}");
+if (stored.chatModel === legacyOpenAiChatModel) {
+  stored.chatModel = defaultGroqChatModel;
+}
 const settingIds = [
   "neo4jUri",
   "neo4jUser",
   "neo4jDatabase",
   "baseUrl",
   "chatModel",
+  "embeddingModel",
+  "embeddingBaseUrl",
+  "esUrl",
+  "esChunksIndex",
   "vectorSearch",
+  "neo4jVector",
+  "graphHops",
   "entityK",
   "chunkK",
 ];
-const secretIds = ["neo4jPassword", "apiKey"];
+const secretIds = ["neo4jPassword", "apiKey", "embeddingApiKey", "esApiKey"];
 const suggestions = [
   "Điểm chuẩn ngành Khoa học máy tính 2024",
   "Học phí ngành Trí tuệ nhân tạo năm 2024",
@@ -59,6 +71,12 @@ function collectSettings() {
     settings[id] = el.type === "checkbox" ? el.checked : el.value.trim();
   }
   settings.vectorSearch = document.querySelector("#vectorSearch").checked;
+  if (settings.apiKey.startsWith("gsk_")) {
+    settings.baseUrl = settings.baseUrl || defaultGroqBaseUrl;
+    if (!settings.chatModel || settings.chatModel === legacyOpenAiChatModel) {
+      settings.chatModel = defaultGroqChatModel;
+    }
+  }
   return settings;
 }
 
@@ -193,7 +211,8 @@ async function submitMessage(message) {
   try {
     const data = await sendMessage(text);
     const retrieval = data.retrieval || {};
-    const meta = `entities ${retrieval.entity_count ?? 0} · relations ${retrieval.relation_count ?? 0} · chunks ${retrieval.chunk_count ?? 0} · vector ${retrieval.vector_used ? "on" : "off"}`;
+    const vectorLabel = retrieval.vector_used ? retrieval.vector_db || "vector" : "off";
+    const meta = `entities ${retrieval.entity_count ?? 0} · relations ${retrieval.relation_count ?? 0} · chunks ${retrieval.chunk_count ?? 0} · semantic ${retrieval.semantic_chunk_count ?? 0} · hops ${retrieval.graph_hops ?? 1} · vector ${vectorLabel}`;
     pending.remove();
     appendMessage("assistant", data.answer || "", { sources: data.sources || [], meta });
     history.push({ role: "assistant", content: data.answer || "" });

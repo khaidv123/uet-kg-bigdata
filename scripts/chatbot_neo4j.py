@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Natural-language RAG chatbot over the imported Neo4j knowledge graph."""
+"""Natural-language RAG chatbot over Neo4j graph and Elasticsearch vector context."""
 
 from __future__ import annotations
 
@@ -21,6 +21,18 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 
+GROQ_OPENAI_BASE_URL = "https://api.groq.com/openai/v1"
+DEFAULT_GROQ_CHAT_MODEL = "llama-3.1-8b-instant"
+DEFAULT_OPENAI_CHAT_MODEL = "gpt-4o-mini"
+OPENAI_DEFAULT_CHAT_MODELS = {
+    DEFAULT_OPENAI_CHAT_MODEL,
+    "gpt-4o",
+    "gpt-4.1",
+    "gpt-4.1-mini",
+    "gpt-4.1-nano",
+}
+
+
 SYSTEM_PROMPT = """Bạn là chatbot RAG cho dữ liệu UET KG BigData.
 
 Nguyên tắc trả lời:
@@ -33,19 +45,64 @@ Nguyên tắc trả lời:
 """
 
 
-def get_client(args: argparse.Namespace) -> OpenAI:
-    api_key = args.api_key or os.getenv("OPENAI_CHAT_API_KEY") or os.getenv("OPENAI_API_KEY")
-    base_url = args.base_url or os.getenv("OPENAI_CHAT_BASE_URL") or os.getenv("OPENAI_BASE_URL")
+def first_nonempty(*values: str | None) -> str | None:
+    for value in values:
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return None
+
+
+def env_first(*names: str) -> str | None:
+    return first_nonempty(*(os.getenv(name) for name in names))
+
+
+def looks_like_groq_key(api_key: str | None) -> bool:
+    return bool(api_key and api_key.startswith("gsk_"))
+
+
+def is_groq_base_url(base_url: str | None) -> bool:
+    return bool(base_url and "api.groq.com" in base_url.casefold())
+
+
+def resolve_chat_config(args: argparse.Namespace) -> tuple[OpenAI, str]:
+    api_key = first_nonempty(
+        getattr(args, "api_key", None),
+        os.getenv("GROQ_API_KEY"),
+        os.getenv("OPENAI_CHAT_API_KEY"),
+        os.getenv("OPENAI_API_KEY"),
+    )
+    base_url = first_nonempty(
+        getattr(args, "base_url", None),
+        os.getenv("GROQ_CHAT_BASE_URL"),
+        os.getenv("GROQ_BASE_URL"),
+        os.getenv("OPENAI_CHAT_BASE_URL"),
+        os.getenv("OPENAI_BASE_URL"),
+    )
     if not api_key:
-        raise RuntimeError("Thiếu LLM API key. Hãy đặt OPENAI_API_KEY/OPENAI_CHAT_API_KEY hoặc truyền --api-key.")
-    if api_key.startswith("gsk_") and not base_url:
         raise RuntimeError(
-            "API key có dạng Groq (gsk_...) nhưng chưa có base URL. "
-            "Hãy đặt OPENAI_BASE_URL/OPENAI_CHAT_BASE_URL tới endpoint OpenAI-compatible của provider đó."
+            "Thiếu LLM API key. Hãy đặt GROQ_API_KEY, OPENAI_CHAT_API_KEY/OPENAI_API_KEY "
+            "hoặc truyền --api-key."
         )
+
+    use_groq = looks_like_groq_key(api_key) or is_groq_base_url(base_url)
+    if use_groq and not base_url:
+        base_url = GROQ_OPENAI_BASE_URL
+
+    chat_model = first_nonempty(getattr(args, "chat_model", None))
+    groq_env_model = env_first("GROQ_CHAT_MODEL", "GROQ_MODEL")
+    openai_env_model = env_first("OPENAI_CHAT_MODEL", "OPENAI_MODEL")
+    if use_groq and (
+        not chat_model
+        or chat_model in OPENAI_DEFAULT_CHAT_MODELS
+        or (groq_env_model and chat_model == DEFAULT_GROQ_CHAT_MODEL)
+    ):
+        chat_model = groq_env_model or DEFAULT_GROQ_CHAT_MODEL
+    elif not chat_model or (not base_url and chat_model == DEFAULT_GROQ_CHAT_MODEL):
+        chat_model = openai_env_model or DEFAULT_OPENAI_CHAT_MODEL
+
     if base_url:
-        return OpenAI(api_key=api_key, base_url=base_url)
-    return OpenAI(api_key=api_key)
+        return OpenAI(api_key=api_key, base_url=base_url), chat_model
+    return OpenAI(api_key=api_key), chat_model
 
 
 def normalize_space(text: str | None) -> str:
@@ -63,9 +120,19 @@ def build_retrieval_args(args: argparse.Namespace, retrieval_query: str) -> argp
         chunk_k=args.chunk_k,
         relation_k=args.relation_k,
         relations_per_entity=args.relations_per_entity,
+        graph_hops=getattr(args, "graph_hops", 2),
         embedding_model=args.embedding_model,
         embedding_api_key=args.embedding_api_key,
         embedding_base_url=args.embedding_base_url,
+        es_url=getattr(args, "es_url", None),
+        es_user=getattr(args, "es_user", None),
+        es_password=getattr(args, "es_password", None),
+        es_api_key=getattr(args, "es_api_key", None),
+        es_ca_certs=getattr(args, "es_ca_certs", None),
+        es_chunks_index=getattr(args, "es_chunks_index", None),
+        es_num_candidates=getattr(args, "es_num_candidates", None),
+        no_es=getattr(args, "no_es", False),
+        neo4j_vector=getattr(args, "neo4j_vector", False),
         no_vector=args.no_vector,
     )
 
@@ -88,9 +155,11 @@ def build_context(result: dict[str, Any], max_chars: int, chunk_char_limit: int)
     if relations:
         parts.append("\nRELATIONS:")
         for index, relation in enumerate(relations[:12], start=1):
+            path = " -> ".join(relation.get("path_names") or [])
+            path_text = f"; path={path}" if path else ""
             parts.append(
                 f"R{index}. {relation.get('seed_name')} -- {relation.get('neighbor_name')}; "
-                f"weight={relation.get('weight')}; "
+                f"hops={relation.get('hops', 1)}; weight={relation.get('weight')}{path_text}; "
                 f"description={compact_text(relation.get('description'), 240)}"
             )
 
@@ -104,6 +173,7 @@ def build_context(result: dict[str, Any], max_chars: int, chunk_char_limit: int)
             block = (
                 f"[{source_id}] chunk_id={chunk.get('id')}; "
                 f"file_path={chunk.get('file_path')}; "
+                f"retrieval_source={chunk.get('source')}; "
                 f"score={float(chunk.get('score') or 0):.4f}; "
                 f"content={content}"
             )
@@ -118,6 +188,8 @@ def build_context(result: dict[str, Any], max_chars: int, chunk_char_limit: int)
                     "file_path": chunk.get("file_path"),
                     "full_doc_id": chunk.get("full_doc_id"),
                     "score": chunk.get("score"),
+                    "retrieval_source": chunk.get("source"),
+                    "storage_layer": chunk.get("storage_layer"),
                 }
             )
 
@@ -142,10 +214,10 @@ def build_messages(
 
 
 def call_llm(args: argparse.Namespace, messages: list[dict[str, str]]) -> tuple[str, dict[str, Any]]:
-    client = get_client(args)
+    client, chat_model = resolve_chat_config(args)
     try:
         response = client.chat.completions.create(
-            model=args.chat_model,
+            model=chat_model,
             messages=messages,
             temperature=args.temperature,
         )
@@ -238,7 +310,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--base-url", default=None, help="Optional OpenAI-compatible base URL.")
     parser.add_argument(
         "--chat-model",
-        default=os.getenv("OPENAI_CHAT_MODEL") or os.getenv("OPENAI_MODEL") or "gpt-4o-mini",
+        default=None,
+        help=(
+            "Chat model. Defaults to GROQ_CHAT_MODEL/GROQ_MODEL or "
+            f"{DEFAULT_GROQ_CHAT_MODEL} with Groq, otherwise OPENAI_CHAT_MODEL/OPENAI_MODEL "
+            f"or {DEFAULT_OPENAI_CHAT_MODEL}."
+        ),
     )
     parser.add_argument("--embedding-model", default=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"))
     parser.add_argument("--embedding-api-key", default=None)
@@ -248,7 +325,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--chunk-k", type=int, default=8)
     parser.add_argument("--relation-k", type=int, default=20)
     parser.add_argument("--relations-per-entity", type=int, default=5)
+    parser.add_argument("--graph-hops", type=int, default=2)
     parser.add_argument("--no-vector", action="store_true")
+    parser.add_argument("--no-es", action="store_true", help="Do not query Elasticsearch Vector DB.")
+    parser.add_argument("--neo4j-vector", action="store_true", help="Also use Neo4j vector indexes if available.")
+    parser.add_argument("--es-url", default=None)
+    parser.add_argument("--es-user", default=None)
+    parser.add_argument("--es-password", default=None)
+    parser.add_argument("--es-api-key", default=None)
+    parser.add_argument("--es-ca-certs", default=None)
+    parser.add_argument("--es-chunks-index", default=None)
+    parser.add_argument("--es-num-candidates", type=int, default=None)
 
     parser.add_argument("--max-context-chars", type=int, default=12000)
     parser.add_argument("--chunk-char-limit", type=int, default=1200)

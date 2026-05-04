@@ -2,3 +2,5 @@ neo4j>=5.18
 numpy>=1.26
 openai>=1.0
 flask>=3.0
+elasticsearch>=8.12
+requests>=2.31

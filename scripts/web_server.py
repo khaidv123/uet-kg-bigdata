@@ -11,7 +11,7 @@ from typing import Any
 
 from flask import Flask, jsonify, request, send_from_directory
 
-from chatbot_neo4j import answer_question
+from chatbot_neo4j import DEFAULT_GROQ_CHAT_MODEL, answer_question
 
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -64,26 +64,49 @@ def clean_history(raw_history: Any) -> list[dict[str, str]]:
 
 
 def build_args(settings: dict[str, Any]) -> argparse.Namespace:
-    vector_enabled = bool_value(settings.get("vectorSearch"), default=False)
+    vector_enabled = bool_value(settings.get("vectorSearch"), default=True)
     return argparse.Namespace(
         uri=settings.get("neo4jUri") or os.getenv("NEO4J_URI", "bolt://localhost:7687"),
         user=settings.get("neo4jUser") or os.getenv("NEO4J_USER", "neo4j"),
         password=settings.get("neo4jPassword") or os.getenv("NEO4J_PASSWORD"),
         database=settings.get("neo4jDatabase") or os.getenv("NEO4J_DATABASE", "neo4j"),
-        api_key=settings.get("apiKey") or os.getenv("OPENAI_CHAT_API_KEY") or os.getenv("OPENAI_API_KEY"),
-        base_url=settings.get("baseUrl") or os.getenv("OPENAI_CHAT_BASE_URL") or os.getenv("OPENAI_BASE_URL"),
+        api_key=settings.get("apiKey")
+        or os.getenv("GROQ_API_KEY")
+        or os.getenv("OPENAI_CHAT_API_KEY")
+        or os.getenv("OPENAI_API_KEY"),
+        base_url=settings.get("baseUrl")
+        or os.getenv("GROQ_CHAT_BASE_URL")
+        or os.getenv("GROQ_BASE_URL")
+        or os.getenv("OPENAI_CHAT_BASE_URL")
+        or os.getenv("OPENAI_BASE_URL"),
         chat_model=settings.get("chatModel")
+        or os.getenv("GROQ_CHAT_MODEL")
+        or os.getenv("GROQ_MODEL")
         or os.getenv("OPENAI_CHAT_MODEL")
         or os.getenv("OPENAI_MODEL")
-        or "gpt-4o-mini",
+        or DEFAULT_GROQ_CHAT_MODEL,
         embedding_model=settings.get("embeddingModel") or os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"),
-        embedding_api_key=settings.get("embeddingApiKey") or os.getenv("OPENAI_EMBEDDING_API_KEY"),
-        embedding_base_url=settings.get("embeddingBaseUrl") or os.getenv("OPENAI_EMBEDDING_BASE_URL"),
+        embedding_api_key=settings.get("embeddingApiKey")
+        or os.getenv("EMBEDDING_API_KEY")
+        or os.getenv("OPENAI_EMBEDDING_API_KEY"),
+        embedding_base_url=settings.get("embeddingBaseUrl")
+        or os.getenv("EMBEDDING_BASE_URL")
+        or os.getenv("OPENAI_EMBEDDING_BASE_URL"),
+        es_url=settings.get("esUrl") or os.getenv("ELASTICSEARCH_URL"),
+        es_user=settings.get("esUser") or os.getenv("ELASTICSEARCH_USER"),
+        es_password=settings.get("esPassword") or os.getenv("ELASTICSEARCH_PASSWORD"),
+        es_api_key=settings.get("esApiKey") or os.getenv("ELASTICSEARCH_API_KEY"),
+        es_ca_certs=settings.get("esCaCerts") or os.getenv("ELASTICSEARCH_CA_CERTS"),
+        es_chunks_index=settings.get("esChunksIndex") or os.getenv("ES_CHUNKS_INDEX") or "uet_kg_chunks",
+        es_num_candidates=int_value(settings.get("esNumCandidates"), 80),
         entity_k=int_value(settings.get("entityK"), 8),
         chunk_k=int_value(settings.get("chunkK"), 8),
         relation_k=int_value(settings.get("relationK"), 20),
         relations_per_entity=int_value(settings.get("relationsPerEntity"), 5),
+        graph_hops=int_value(settings.get("graphHops"), 2),
         no_vector=not vector_enabled,
+        no_es=not vector_enabled,
+        neo4j_vector=bool_value(settings.get("neo4jVector"), default=False),
         max_context_chars=int_value(settings.get("maxContextChars"), 12000),
         chunk_char_limit=int_value(settings.get("chunkCharLimit"), 1200),
         history_turns=int_value(settings.get("historyTurns"), 3),
@@ -129,9 +152,15 @@ def chat() -> Any:
             "retrieval": {
                 "query": retrieval.get("query"),
                 "vector_used": retrieval.get("vector_used"),
+                "vector_db": retrieval.get("vector_db"),
+                "embedding_created": retrieval.get("embedding_created"),
+                "graph_db": retrieval.get("graph_db"),
+                "graph_hops": retrieval.get("graph_hops"),
+                "semantic_chunk_count": retrieval.get("semantic_chunk_count"),
                 "entity_count": len(retrieval.get("entities") or []),
                 "relation_count": len(retrieval.get("relations") or []),
                 "chunk_count": len(retrieval.get("chunks") or []),
+                "warnings": retrieval.get("warnings") or [],
             },
         }
     )
