@@ -1,0 +1,11 @@
+{
+  "total": 100,
+  "completed": 100,
+  "errors": 0,
+  "answer_semantic_similarity": 0.8335560264579222,
+  "llm_correctness_score": 3.86,
+  "llm_faithfulness_score": 4.0,
+  "llm_completeness_score": 3.93,
+  "reference_chunk_f1": 0.682837679291195,
+  "avg_latency_seconds": 7.84416
+}
