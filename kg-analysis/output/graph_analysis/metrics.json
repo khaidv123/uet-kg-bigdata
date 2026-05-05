@@ -1,0 +1,355 @@
+{
+  "total_triplets": 218685,
+  "stage_distribution": {
+    "event_entity": 102333,
+    "entity_relation": 89786,
+    "event_relation": 26566
+  },
+  "source_distribution": {
+    "uet_news": 213770,
+    "van_ban": 2888,
+    "docs": 2027
+  },
+  "num_vertices": 157635,
+  "num_edges": 218685,
+  "num_distinct_edges": 205933,
+  "degree_max": 5943,
+  "degree_avg": 2.77,
+  "degree_median": 1,
+  "degree_p95": 6,
+  "degree_p99": 18,
+  "max_in_degree": 4438,
+  "max_out_degree": 1505,
+  "top10_pagerank": [
+    {
+      "name": "Trường Đại học Công nghệ",
+      "pagerank": 0.006127
+    },
+    {
+      "name": "Đại học Quốc gia Hà Nội",
+      "pagerank": 0.003347
+    },
+    {
+      "name": "sinh viên",
+      "pagerank": 0.002639
+    },
+    {
+      "name": "ĐHQGHN",
+      "pagerank": 0.00198
+    },
+    {
+      "name": "Sinh viên",
+      "pagerank": 0.001928
+    },
+    {
+      "name": "Nhà trường",
+      "pagerank": 0.001607
+    },
+    {
+      "name": "Nhật Bản",
+      "pagerank": 0.000983
+    },
+    {
+      "name": "Tuyết Nga",
+      "pagerank": 0.000981
+    },
+    {
+      "name": "Việt Nam",
+      "pagerank": 0.000932
+    },
+    {
+      "name": "người học",
+      "pagerank": 0.000924
+    }
+  ],
+  "num_connected_components": 22117,
+  "giant_component_size": 105598,
+  "giant_component_pct": 66.99,
+  "num_scc": 151250,
+  "largest_scc_size": 5967,
+  "total_triangles": 27645,
+  "avg_clustering_coefficient": 0.057869,
+  "num_communities_lpa": 49426,
+  "top10_betweenness": [
+    {
+      "name": "Trường Đại học Công nghệ",
+      "score": 0.016639
+    },
+    {
+      "name": "sinh viên",
+      "score": 0.011968
+    },
+    {
+      "name": "ĐHQGHN",
+      "score": 0.006777
+    },
+    {
+      "name": "Nhà trường",
+      "score": 0.005784
+    },
+    {
+      "name": "Sinh viên",
+      "score": 0.004987
+    },
+    {
+      "name": "Đại học Quốc gia Hà Nội",
+      "score": 0.004588
+    },
+    {
+      "name": "Trường ĐH Công nghệ",
+      "score": 0.00308
+    },
+    {
+      "name": "Trường ĐHCN",
+      "score": 0.002485
+    },
+    {
+      "name": "Việt Nam",
+      "score": 0.002369
+    },
+    {
+      "name": "Tuyết Nga",
+      "score": 0.002255
+    }
+  ],
+  "top10_hubs": [
+    {
+      "name": "Trường Đại học Công nghệ",
+      "score": 0.073846
+    },
+    {
+      "name": "Trường ĐH Công nghệ",
+      "score": 0.013273
+    },
+    {
+      "name": "Trường ĐHCN",
+      "score": 0.003309
+    },
+    {
+      "name": "Đại học Công nghệ",
+      "score": 0.002847
+    },
+    {
+      "name": "ĐHQGHN",
+      "score": 0.002469
+    },
+    {
+      "name": "Đại học Quốc gia Hà Nội",
+      "score": 0.002317
+    },
+    {
+      "name": "Trường Đại học Công nghệ – ĐHQGHN",
+      "score": 0.002002
+    },
+    {
+      "name": "Nhà trường",
+      "score": 0.001871
+    },
+    {
+      "name": "trường Đại học Công nghệ",
+      "score": 0.001837
+    },
+    {
+      "name": "Phòng Đào tạo",
+      "score": 0.001423
+    }
+  ],
+  "top10_authorities": [
+    {
+      "name": "Đại học Quốc gia Hà Nội",
+      "score": 0.100234
+    },
+    {
+      "name": "ĐHQGHN",
+      "score": 0.067175
+    },
+    {
+      "name": "Hội đồng Giáo sư cơ sở",
+      "score": 0.02166
+    },
+    {
+      "name": "xét tuyển thẳng",
+      "score": 0.005753
+    },
+    {
+      "name": "ưu tiên xét tuyển",
+      "score": 0.00573
+    },
+    {
+      "name": "Hội đồng Giáo sư",
+      "score": 0.005693
+    },
+    {
+      "name": "xét tuyển bằng chứng chỉ quốc tế",
+      "score": 0.005683
+    },
+    {
+      "name": "VNU-UET",
+      "score": 0.005245
+    },
+    {
+      "name": "xét tuyển theo kết quả bài thi ĐGNL",
+      "score": 0.005113
+    },
+    {
+      "name": "sinh viên",
+      "score": 0.005111
+    }
+  ],
+  "num_relation_types": 16375,
+  "rare_relations_count1": 10056,
+  "reciprocal_edge_pairs": 1773,
+  "self_loops": 86,
+  "leaf_nodes": 84960,
+  "leaf_node_pct": 53.9,
+  "graph_density": 8.8e-06,
+  "nodes_only_as_head": 62180,
+  "nodes_only_as_tail": 73110,
+  "pagerank_per_stage": {
+    "entity_relation": [
+      {
+        "name": "sinh viên",
+        "pagerank": 0.002999
+      },
+      {
+        "name": "Trường Đại học Công nghệ",
+        "pagerank": 0.002936
+      },
+      {
+        "name": "ĐHQGHN",
+        "pagerank": 0.002181
+      },
+      {
+        "name": "Đại học Quốc gia Hà Nội",
+        "pagerank": 0.001499
+      },
+      {
+        "name": "Nhật Bản",
+        "pagerank": 0.001216
+      },
+      {
+        "name": "Việt Nam",
+        "pagerank": 0.001086
+      },
+      {
+        "name": "Nhà trường",
+        "pagerank": 0.000968
+      },
+      {
+        "name": "Trường ĐH Công nghệ",
+        "pagerank": 0.000925
+      },
+      {
+        "name": "Hà Nội",
+        "pagerank": 0.000899
+      },
+      {
+        "name": "Trường ĐHCN",
+        "pagerank": 0.000843
+      }
+    ],
+    "event_entity": [
+      {
+        "name": "Trường Đại học Công nghệ",
+        "pagerank": 0.011509
+      },
+      {
+        "name": "Đại học Quốc gia Hà Nội",
+        "pagerank": 0.005646
+      },
+      {
+        "name": "Sinh viên",
+        "pagerank": 0.005004
+      },
+      {
+        "name": "Nhà trường",
+        "pagerank": 0.00311
+      },
+      {
+        "name": "sinh viên",
+        "pagerank": 0.002425
+      },
+      {
+        "name": "Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội",
+        "pagerank": 0.001686
+      },
+      {
+        "name": "Phòng Đào tạo",
+        "pagerank": 0.001656
+      },
+      {
+        "name": "Tuyết Nga",
+        "pagerank": 0.001279
+      },
+      {
+        "name": "người học",
+        "pagerank": 0.001276
+      },
+      {
+        "name": "Người học",
+        "pagerank": 0.001275
+      }
+    ],
+    "event_relation": [
+      {
+        "name": "Công nhận tốt nghiệp và cấp văn bằng cử nhân/kỹ sư đợt tháng 6 năm 2024.",
+        "pagerank": 0.000282
+      },
+      {
+        "name": "Khu vực cầu đi bộ Mai Dịch.",
+        "pagerank": 0.000281
+      },
+      {
+        "name": "Điểm rèn luyện toàn khóa của sinh viên tốt nghiệp đợt tháng 06 năm 2024.",
+        "pagerank": 0.000168
+      },
+      {
+        "name": "Sinh viên tốt nghiệp đợt tháng 06 năm 2024.",
+        "pagerank": 0.000157
+      },
+      {
+        "name": "Phòng Đào tạo xử lý đơn xin xem lại điểm môn học học kỳ I năm học 2020-2021 của sinh viên theo quy định.",
+        "pagerank": 0.000157
+      },
+      {
+        "name": "Phối hợp tuyên truyền, vận động sinh viên và học viên trong giai đoạn tương ứng.",
+        "pagerank": 0.000155
+      },
+      {
+        "name": "Sinh viên tốt nghiệp đợt tháng 6 năm 2024.",
+        "pagerank": 0.000146
+      },
+      {
+        "name": "Tổ chức Lễ bế giảng và trao bằng tốt nghiệp đợt 1 năm 2024.",
+        "pagerank": 0.000136
+      },
+      {
+        "name": "Kết quả điểm rèn luyện toàn khóa của sinh viên tốt nghiệp đợt tháng 06 năm 2024.",
+        "pagerank": 0.000131
+      },
+      {
+        "name": "Microelectromechanical Systems được liệt kê là học phần EMA 6148.",
+        "pagerank": 0.000127
+      }
+    ]
+  },
+  "estimated_diameter": 19,
+  "timing_seconds": {
+    "01_load_csv": 0.81,
+    "02_build_graph": 11.74,
+    "03_degree_distribution": 0.85,
+    "04_pagerank": 1.05,
+    "05_connected_components": 2.48,
+    "06_strongly_connected_components": 0.99,
+    "07_triangles_clustering": 14.2,
+    "08_community_detection": 9.39,
+    "09_betweenness_centrality": 151.58,
+    "10_hits": 0.91,
+    "11_relation_analysis": 8.76,
+    "12_reciprocal_edges": 0.17,
+    "13_quality_checks": 2.31,
+    "14_pagerank_per_stage": 9.47,
+    "15_diameter_estimation": 3.63,
+    "_total": 218.34
+  }
+}

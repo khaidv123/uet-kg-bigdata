@@ -1,0 +1,105 @@
+# ============================================================
+# GraphX / GraphFrames Analysis Stack
+# Spark 3.5.1 cluster for Knowledge Graph analysis
+# Uses non-conflicting ports (7078, 8092, 8093)
+# ============================================================
+
+services:
+  spark-master-graphx:
+    image: apache/spark:3.5.1
+    container_name: spark-master-graphx
+    environment:
+      SPARK_MASTER_HOST: spark-master-graphx
+      SPARK_MASTER_PORT: 7078
+      SPARK_MASTER_WEBUI_PORT: 8092
+    command:
+      - /bin/bash
+      - -lc
+      - >
+        /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+        --host spark-master-graphx
+        --port 7078
+        --webui-port 8092
+    ports:
+      - "7078:7078"
+      - "8092:8092"
+    volumes:
+      - ./:/workspace/analysis
+      - ./output:/data/output
+      - ../batch-prompt/output:/data/input:ro
+    working_dir: /workspace
+    networks:
+      - graphx-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8092/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  spark-worker-graphx:
+    image: apache/spark:3.5.1
+    container_name: spark-worker-graphx
+    depends_on:
+      spark-master-graphx:
+        condition: service_healthy
+    environment:
+      SPARK_WORKER_CORES: ${GRAPHX_WORKER_CORES:-4}
+      SPARK_WORKER_MEMORY: ${GRAPHX_WORKER_MEMORY:-8g}
+      SPARK_WORKER_WEBUI_PORT: 8093
+    command:
+      - /bin/bash
+      - -lc
+      - >
+        /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
+        --webui-port 8093
+        --cores ${GRAPHX_WORKER_CORES:-4}
+        --memory ${GRAPHX_WORKER_MEMORY:-8g}
+        spark://spark-master-graphx:7078
+    ports:
+      - "8093:8093"
+    volumes:
+      - ./:/workspace/analysis
+      - ./output:/data/output
+      - ../batch-prompt/output:/data/input:ro
+    working_dir: /workspace
+    networks:
+      - graphx-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8093/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+  spark-submit-graphx:
+    image: apache/spark:3.5.1
+    container_name: spark-submit-graphx
+    profiles:
+      - tools
+    depends_on:
+      spark-master-graphx:
+        condition: service_healthy
+      spark-worker-graphx:
+        condition: service_healthy
+    environment:
+      SPARK_MASTER_URL: spark://spark-master-graphx:7078
+      SPARK_DRIVER_MEMORY: ${GRAPHX_DRIVER_MEMORY:-4g}
+      SPARK_EXECUTOR_MEMORY: ${GRAPHX_EXECUTOR_MEMORY:-4g}
+      SPARK_EXECUTOR_CORES: ${GRAPHX_EXECUTOR_CORES:-2}
+      GRAPHFRAMES_PKG: "graphframes:graphframes:0.8.3-spark3.5-s_2.12"
+    command:
+      - /bin/bash
+      - -lc
+      - sleep infinity
+    volumes:
+      - ./:/workspace/analysis
+      - ./output:/data/output
+      - ../batch-prompt/output:/data/input:ro
+    working_dir: /workspace
+    networks:
+      - graphx-net
+
+networks:
+  graphx-net:
+    driver: bridge
