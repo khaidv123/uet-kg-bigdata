@@ -28,6 +28,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 
 DEFAULT_ES_CHUNKS_INDEX = "uet_kg_chunks"
+RRF_K = 60
 
 
 def ascii_fold(value: str) -> str:
@@ -256,7 +257,47 @@ def vector_chunks(session: Any, embedding: list[float], limit: int) -> list[dict
         return []
 
 
+def merge_ranked_groups(
+    groups: list[list[dict[str, Any]]],
+    key: str,
+    limit: int,
+    weights: list[float] | None = None,
+) -> list[dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+    for group_index, items in enumerate(groups):
+        weight = weights[group_index] if weights and group_index < len(weights) else 1.0
+        for rank, item in enumerate(items, start=1):
+            item_key = item.get(key)
+            if not item_key:
+                continue
+            source = item.get("source") or f"source_{group_index}"
+            rrf_score = weight / (RRF_K + rank)
+            current = merged.get(item_key)
+            if current is None:
+                current = dict(item)
+                current["score"] = rrf_score
+                current["rrf_score"] = rrf_score
+                current["raw_scores"] = {source: item.get("score")}
+                current["source"] = source
+                merged[item_key] = current
+                continue
+
+            current["score"] = float(current.get("score") or 0.0) + rrf_score
+            current["rrf_score"] = float(current.get("rrf_score") or 0.0) + rrf_score
+            raw_scores = current.setdefault("raw_scores", {})
+            if isinstance(raw_scores, dict):
+                raw_scores[source] = item.get("score")
+            sources = set(str(current.get("source") or "").split("+"))
+            sources.add(str(source))
+            current["source"] = "+".join(sorted(source for source in sources if source))
+    return sorted(merged.values(), key=lambda x: float(x.get("score") or 0), reverse=True)[:limit]
+
+
 def merge_ranked(items: list[dict[str, Any]], key: str, limit: int) -> list[dict[str, Any]]:
+    return merge_ranked_groups([items], key, limit)
+
+
+def merge_ranked_by_raw_score(items: list[dict[str, Any]], key: str, limit: int) -> list[dict[str, Any]]:
     merged: dict[str, dict[str, Any]] = {}
     for item in items:
         item_key = item.get(key)
@@ -355,13 +396,20 @@ def retrieve_graph(args: argparse.Namespace, embedding: list[float] | None = Non
     driver = GraphDatabase.driver(uri, auth=(user, password))
     try:
         with driver.session(database=args.database or os.getenv("NEO4J_DATABASE", "neo4j")) as session:
-            entity_hits = fulltext_entities(session, args.query, args.entity_k)
-            chunk_hits = fulltext_chunks(session, args.query, args.chunk_k)
+            entity_fulltext_hits = fulltext_entities(session, args.query, args.entity_k)
+            entity_vector_hits: list[dict[str, Any]] = []
+            chunk_fulltext_hits = fulltext_chunks(session, args.query, args.chunk_k)
+            chunk_vector_hits: list[dict[str, Any]] = []
             if embedding is not None and getattr(args, "neo4j_vector", False):
-                entity_hits.extend(vector_entities(session, embedding, args.entity_k))
-                chunk_hits.extend(vector_chunks(session, embedding, args.chunk_k))
+                entity_vector_hits = vector_entities(session, embedding, args.entity_k)
+                chunk_vector_hits = vector_chunks(session, embedding, args.chunk_k)
 
-            entities = merge_ranked(entity_hits, "id", args.entity_k)
+            entities = merge_ranked_groups(
+                [entity_fulltext_hits, entity_vector_hits],
+                "id",
+                args.entity_k,
+                [getattr(args, "rrf_entity_fulltext_weight", 1.0), getattr(args, "rrf_entity_vector_weight", 1.0)],
+            )
             seed_ids = [item["id"] for item in entities]
             relations = entity_neighborhood(
                 session,
@@ -376,15 +424,27 @@ def retrieve_graph(args: argparse.Namespace, embedding: list[float] | None = Non
                 relation_chunk_ids.extend(relation.get("source_ids") or [])
                 relation_chunk_ids.extend(relation.get("chunk_ids") or [])
 
-            chunk_hits.extend(chunks_for_entities(session, seed_ids, args.chunk_k))
-            chunk_hits.extend(chunks_by_ids(session, list(dict.fromkeys(relation_chunk_ids)), args.chunk_k))
-            chunks = merge_ranked(chunk_hits, "id", args.chunk_k)
+            entity_chunks = chunks_for_entities(session, seed_ids, args.chunk_k)
+            relation_chunks = chunks_by_ids(session, list(dict.fromkeys(relation_chunk_ids)), args.chunk_k)
+            chunks = merge_ranked_groups(
+                [chunk_fulltext_hits, chunk_vector_hits, entity_chunks, relation_chunks],
+                "id",
+                args.chunk_k,
+                [
+                    getattr(args, "rrf_chunk_fulltext_weight", 1.0),
+                    getattr(args, "rrf_chunk_vector_weight", 1.0),
+                    getattr(args, "rrf_entity_mentions_weight", 1.0),
+                    getattr(args, "rrf_relation_evidence_weight", 1.0),
+                ],
+            )
 
             return {
                 "query": args.query,
                 "entities": entities,
                 "relations": relations[: args.relation_k],
                 "chunks": chunks,
+                "neo4j_vector_chunk_count": len(chunk_vector_hits),
+                "neo4j_vector_entity_count": len(entity_vector_hits),
                 "graph_hops": getattr(args, "graph_hops", 2),
             }
     finally:
@@ -421,15 +481,30 @@ def retrieve(args: argparse.Namespace) -> dict[str, Any]:
             vector_chunks = []
             warnings.append(f"Elasticsearch semantic search skipped: {exc}")
 
-    chunks = merge_ranked([*(graph_result.get("chunks") or []), *vector_chunks], "id", args.chunk_k)
+    chunks = merge_ranked_groups(
+        [graph_result.get("chunks") or [], vector_chunks],
+        "id",
+        args.chunk_k,
+        [getattr(args, "rrf_neo4j_graph_weight", 1.0), getattr(args, "rrf_es_vector_weight", 1.0)],
+    )
     return {
         "query": args.query,
         "embedding_created": embedding is not None,
-        "vector_used": bool(vector_chunks),
-        "vector_db": "elasticsearch" if vector_chunks else None,
+        "vector_used": bool(vector_chunks) or bool(graph_result.get("neo4j_vector_chunk_count")),
+        "vector_db": "+".join(
+            source
+            for source, used in [
+                ("neo4j", bool(graph_result.get("neo4j_vector_chunk_count"))),
+                ("elasticsearch", bool(vector_chunks)),
+            ]
+            if used
+        )
+        or None,
         "graph_db": "neo4j",
         "graph_hops": getattr(args, "graph_hops", 2),
         "semantic_chunk_count": len(vector_chunks),
+        "neo4j_vector_chunk_count": graph_result.get("neo4j_vector_chunk_count", 0),
+        "neo4j_vector_entity_count": graph_result.get("neo4j_vector_entity_count", 0),
         "entities": graph_result.get("entities") or [],
         "relations": graph_result.get("relations") or [],
         "chunks": chunks,
@@ -497,6 +572,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--es-num-candidates", type=int, default=None)
     parser.add_argument("--no-es", action="store_true", help="Do not query Elasticsearch Vector DB.")
     parser.add_argument("--neo4j-vector", action="store_true", help="Also use Neo4j vector indexes if available.")
+    parser.add_argument("--rrf-entity-fulltext-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-entity-vector-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-chunk-fulltext-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-chunk-vector-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-entity-mentions-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-relation-evidence-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-neo4j-graph-weight", type=float, default=1.0)
+    parser.add_argument("--rrf-es-vector-weight", type=float, default=1.0)
     parser.add_argument("--no-vector", action="store_true")
     parser.add_argument("--json", action="store_true", help="Print raw JSON instead of a human-readable report.")
     return parser.parse_args()

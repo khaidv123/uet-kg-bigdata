@@ -1,0 +1,506 @@
+# Benchmark Metrics
+
+File này giải thích các metric đang được tính trong `scripts/benchmark_chatbot.py`, gồm cách đọc `results.jsonl`, `summary.json`, các metric retrieval, answer, semantic embedding và LLM judge.
+
+## Tổng Quan
+
+Benchmark chạy trên dataset JSON có dạng:
+
+```json
+{
+  "id": "dt_000",
+  "question": "...",
+  "answer": "...",
+  "reference": "...",
+  "topic": ["..."],
+  "question_type": "...",
+  "domain": "..."
+}
+```
+
+Với mỗi mẫu, script thực hiện:
+
+1. Đưa `question` vào retriever Neo4j.
+2. Lấy các `chunks` làm context.
+3. Nếu không dùng `--retrieval-only`, gọi LLM để sinh `answer`.
+4. Tính metric so sánh answer/context/retrieval với `answer` và `reference` chuẩn.
+5. Nếu bật `--semantic-answer`, gọi embedding model để tính semantic similarity.
+6. Nếu bật `--llm-judge`, gọi LLM judge để chấm correctness, faithfulness, completeness.
+7. Ghi từng mẫu vào `results.jsonl`, sau đó tính trung bình trong `summary.json`.
+
+## total
+
+Tổng số mẫu được đưa vào benchmark sau khi áp dụng `--limit`, `--offset`, `--domain`, `--topic`, `--question-type`.
+
+Ví dụ:
+
+```json
+"total": 100
+```
+
+Nghĩa là benchmark chạy trên 100 câu hỏi.
+
+## completed
+
+Số mẫu chạy xong không có trường `error`.
+
+Ví dụ:
+
+```json
+"completed": 99
+```
+
+Nghĩa là 99 mẫu chạy thành công.
+
+## errors
+
+Số mẫu bị lỗi.
+
+Cách tính:
+
+```text
+errors = total - completed
+```
+
+Lỗi có thể đến từ Neo4j, LLM API, embedding API, LLM judge, rate limit, timeout, thiếu API key hoặc lỗi mạng.
+
+Trong `results.jsonl`, mẫu lỗi sẽ có:
+
+```json
+"error": "..."
+```
+
+Các mẫu lỗi không được dùng khi tính trung bình metric.
+
+## answer_token_f1
+
+Đo độ trùng token giữa câu trả lời chatbot và đáp án chuẩn trong dataset.
+
+So sánh:
+
+```text
+answer chatbot
+vs
+answer chuẩn
+```
+
+Cách tính trong code:
+
+1. Normalize text bằng `normalize_text()`:
+   - Unicode normalize `NFKC`
+   - chuyển về lowercase bằng `casefold()`
+   - bỏ dấu câu/ký tự không phải chữ-số
+   - gom khoảng trắng
+2. Tách token bằng `.split()`.
+3. Đếm số token trùng có xét số lần xuất hiện.
+4. Tính:
+
+```text
+precision = overlap / số token của answer chatbot
+recall    = overlap / số token của answer chuẩn
+F1        = 2 * precision * recall / (precision + recall)
+```
+
+Cách đọc:
+
+```text
+1.0 = gần như trùng hoàn toàn theo token
+0.5 = trùng tương đối nhiều token
+0.0 = gần như không trùng token
+```
+
+Lưu ý:
+
+- Metric này không hiểu ngữ nghĩa sâu.
+- Answer đúng ý nhưng diễn đạt khác nhiều có thể bị điểm thấp.
+- Khi chạy `--retrieval-only`, metric này là `null` vì không có answer chatbot.
+
+## answer_semantic_similarity
+
+Đo độ giống nhau về ngữ nghĩa giữa câu trả lời chatbot và đáp án chuẩn bằng embedding cosine similarity.
+
+Chỉ có khi bật:
+
+```powershell
+--semantic-answer
+```
+
+So sánh:
+
+```text
+embedding(answer chatbot)
+vs
+embedding(answer chuẩn)
+```
+
+Cách tính:
+
+```text
+cosine_similarity = dot(a, b) / (norm(a) * norm(b))
+```
+
+Cách đọc:
+
+```text
+gần 1.0 = rất giống về nghĩa
+0.7-0.9 = thường là khá liên quan hoặc đúng phần lớn
+thấp hơn = khác nghĩa hoặc thiếu nhiều ý
+null = không bật semantic, thiếu answer, thiếu gold answer hoặc embedding lỗi
+```
+
+Lưu ý:
+
+- Metric này hiểu paraphrase tốt hơn `answer_token_f1`.
+- Vẫn có thể cao dù answer sai một chi tiết số liệu nhỏ, vì embedding đo nghĩa tổng quát.
+- Khi dùng OpenAI embedding, cần API key qua `--semantic-embedding-api-key` hoặc biến môi trường tương ứng.
+
+## llm_correctness_score
+
+Điểm LLM judge chấm độ đúng của câu trả lời chatbot so với câu trả lời chuẩn và tài liệu tham chiếu.
+
+Chỉ có khi bật:
+
+```powershell
+--llm-judge
+```
+
+Thang điểm:
+
+```text
+5 = đúng đầy đủ
+4 = đúng phần lớn, thiếu chi tiết nhỏ
+3 = đúng một phần, thiếu ý quan trọng
+2 = có liên quan nhưng sai hoặc thiếu nhiều
+1 = hầu như sai
+0 = không trả lời hoặc hoàn toàn sai
+```
+
+Cách tính trong summary:
+
+```text
+llm_correctness_score = trung bình correctness_score của các mẫu không lỗi và có điểm
+```
+
+Lưu ý:
+
+- Đây là metric gần với đánh giá con người nhất trong bộ hiện tại.
+- Có chi phí và latency cao vì gọi thêm một LLM.
+- Kết quả phụ thuộc prompt judge và model judge, nên nên giữ cùng model/prompt khi so sánh các lần chạy.
+
+## llm_faithfulness_score
+
+Điểm LLM judge chấm câu trả lời có được hỗ trợ bởi tài liệu/context hay không.
+
+Nói đơn giản:
+
+```text
+answer có dựa trên reference/context không, hay tự bịa?
+```
+
+Cách đọc:
+
+```text
+5 = mọi ý chính đều được tài liệu/context hỗ trợ
+3 = có phần được hỗ trợ, có phần thiếu căn cứ
+0 = không có căn cứ hoặc trái tài liệu
+```
+
+Lưu ý:
+
+- Faithfulness cao không đảm bảo answer đầy đủ.
+- Answer có thể faithful nhưng incomplete nếu chỉ trả lời một phần nhỏ đúng theo context.
+- Nếu retrieval sai, faithfulness có thể thấp hoặc judge gắn nhãn `unsupported`.
+
+## llm_completeness_score
+
+Điểm LLM judge chấm mức độ đầy đủ của câu trả lời.
+
+Nói đơn giản:
+
+```text
+answer có trả lời đủ các ý mà câu hỏi cần không?
+```
+
+Cách đọc:
+
+```text
+5 = đủ ý chính
+3 = thiếu một hoặc vài ý quan trọng
+0 = không trả lời được nội dung cần hỏi
+```
+
+Lưu ý:
+
+- Completeness khác correctness: một câu trả lời có thể đúng nhưng thiếu ý.
+- Với câu hỏi multi-intent, metric này thường quan trọng hơn token-F1.
+
+## llm_judge_label
+
+Nhãn ngắn do LLM judge trả về cho từng mẫu trong `results.jsonl` và `retrieval_ranking`.
+
+Các nhãn hiện dùng:
+
+```text
+correct
+mostly_correct
+partially_correct
+wrong
+unsupported
+```
+
+Nhãn này không được lấy trung bình trong summary, nhưng hữu ích để lọc nhanh các case cần debug.
+
+## llm_judge_reason
+
+Giải thích ngắn bằng tiếng Việt từ LLM judge.
+
+Metric này chỉ có trong từng dòng `results.jsonl`, không đưa vào `summary.json`.
+
+Dùng để xem vì sao một câu bị chấm thấp.
+
+## answer_context_f1
+
+Đo câu trả lời chatbot trùng token với context retrieved đến mức nào.
+
+So sánh:
+
+```text
+answer chatbot
+vs
+toàn bộ content của retrieved chunks
+```
+
+Cách tính:
+
+1. Ghép tất cả `chunk.content` thành một đoạn context lớn.
+2. Tính:
+
+```text
+answer_context_f1 = token_f1(answer, context)
+```
+
+Cách đọc:
+
+```text
+cao hơn = answer dùng nhiều từ/cụm từ có trong context
+thấp hơn = answer ít trùng token với context
+null = không có answer
+```
+
+Lưu ý:
+
+- Đây chỉ là heuristic, không phải kiểm chứng logic.
+- Context thường dài, answer thường ngắn, nên điểm có thể thấp dù answer đúng.
+- Không nên dùng metric này một mình để kết luận hallucination.
+
+## reference_chunk_f1
+
+Đo chất lượng retrieval: trong các chunk retrieve được, chunk tốt nhất khớp với `reference` chuẩn đến đâu.
+
+So sánh:
+
+```text
+reference chuẩn
+vs
+từng retrieved chunk
+```
+
+Cách tính:
+
+```python
+reference_chunk_f1 = max(token_f1(chunk.content, reference) for chunk in chunks)
+```
+
+Nghĩa là:
+
+1. Tính token-F1 giữa `reference` và từng chunk.
+2. Lấy điểm cao nhất.
+
+Cách đọc:
+
+```text
+1.0 = có chunk gần như chứa đúng reference
+0.5 = chunk liên quan tương đối tốt
+0.0 = retrieve sai hoặc không có chunk liên quan
+```
+
+Đây là metric quan trọng nhất khi chạy `--retrieval-only`.
+
+Lưu ý:
+
+- Metric này đo trùng token, không đo semantic sâu.
+- Nếu chunk đúng nhưng diễn đạt khác reference, điểm có thể thấp.
+- Nếu reference rất dài còn chunk chỉ chứa một đoạn đúng, điểm có thể không cao.
+
+## avg_latency_seconds
+
+Thời gian trung bình để xử lý một mẫu thành công, tính bằng giây.
+
+Cách tính từng mẫu:
+
+```text
+latency_seconds = time.perf_counter() sau xử lý - time.perf_counter() trước xử lý
+```
+
+Cách tính summary:
+
+```text
+avg_latency_seconds = mean(latency_seconds của các mẫu completed)
+```
+
+Nếu chạy `--retrieval-only`, latency gồm chủ yếu:
+
+```text
+Neo4j retrieval
+```
+
+Nếu chạy đầy đủ với LLM judge và semantic:
+
+```text
+Neo4j retrieval + gọi LLM sinh answer + embedding similarity + LLM judge
+```
+
+Lưu ý:
+
+- `--sleep-between` không nằm trong `latency_seconds` của từng mẫu vì sleep diễn ra trước khi bắt đầu đo mẫu tiếp theo.
+- LLM judge và embedding làm latency tăng rõ rệt.
+- Rate limit/retry có thể làm một số mẫu mất rất lâu.
+
+## retrieval_ranking
+
+Danh sách các mẫu chạy thành công, được sắp xếp theo `reference_chunk_f1` giảm dần.
+
+Nghĩa là:
+
+```text
+đầu danh sách = retrieval tốt nhất
+cuối danh sách = retrieval kém nhất
+```
+
+Mỗi item giữ metadata gốc và thêm `metrics`:
+
+```json
+{
+  "metrics": {
+    "reference_chunk_f1": 0.93,
+    "answer_token_f1": 0.52,
+    "answer_context_f1": 0.04,
+    "answer_semantic_similarity": 0.84,
+    "llm_correctness_score": 4.0,
+    "llm_faithfulness_score": 5.0,
+    "llm_completeness_score": 4.0,
+    "llm_judge_label": "mostly_correct",
+    "latency_seconds": 1.95
+  }
+}
+```
+
+Dùng `retrieval_ranking` để:
+
+- xem câu nào retrieve tốt nhất/kém nhất
+- chọn case để debug retrieval
+- so sánh câu retrieval tốt nhưng answer vẫn sai
+- phát hiện câu answer đúng dù retrieval không tốt
+
+## Tạo Lại Summary Từ results.jsonl
+
+Khi đã gộp nhiều file `results.jsonl`, có thể tạo lại `summary.json` mà không cần chạy lại benchmark:
+
+```powershell
+python scripts\benchmark_chatbot.py --summarize-results benchmarks\chatbot_100_judge_semantic_retry\results.jsonl
+```
+
+Mặc định command này ghi:
+
+```text
+benchmarks\chatbot_100_judge_semantic_retry\summary.json
+```
+
+Nếu muốn ghi ra file khác:
+
+```powershell
+python scripts\benchmark_chatbot.py --summarize-results benchmarks\chatbot_100_judge_semantic_retry\results.jsonl --summary-output benchmarks\chatbot_100_judge_semantic_retry\summary_new.json
+```
+
+## Cách Đọc Kết Quả
+
+Khi đánh giá retrieval-only, ưu tiên xem:
+
+```text
+errors
+reference_chunk_f1
+avg_latency_seconds
+retrieval_ranking
+```
+
+Khi đánh giá chatbot đầy đủ không có semantic/judge, xem:
+
+```text
+errors
+reference_chunk_f1
+answer_token_f1
+answer_context_f1
+avg_latency_seconds
+```
+
+Khi đánh giá chatbot đầy đủ có semantic và LLM judge, xem:
+
+```text
+errors
+reference_chunk_f1
+answer_semantic_similarity
+llm_correctness_score
+llm_faithfulness_score
+llm_completeness_score
+avg_latency_seconds
+```
+
+Một kết quả tốt thường có:
+
+```text
+errors thấp
+reference_chunk_f1 cao
+answer_semantic_similarity cao
+llm_correctness_score cao
+llm_faithfulness_score cao
+llm_completeness_score cao
+latency chấp nhận được
+```
+
+## Giới Hạn Hiện Tại
+
+Không có metric nào đủ để kết luận một mình.
+
+Các metric token overlap như `answer_token_f1`, `answer_context_f1`, `reference_chunk_f1` nhanh và dễ chạy, nhưng không hiểu ngữ nghĩa sâu.
+
+`answer_semantic_similarity` hiểu paraphrase tốt hơn, nhưng có thể bỏ qua sai khác nhỏ về số liệu, ngày tháng hoặc điều kiện.
+
+LLM judge gần với đánh giá con người hơn, nhưng tốn chi phí, chậm hơn và phụ thuộc model/prompt.
+
+Nên đọc theo tầng:
+
+1. `errors` để kiểm tra run có sạch không.
+2. `reference_chunk_f1` để xem retrieval có lấy đúng tài liệu không.
+3. `answer_semantic_similarity` và `llm_correctness_score` để xem answer có đúng không.
+4. `llm_faithfulness_score` để xem answer có dựa trên tài liệu không.
+5. `llm_completeness_score` để xem answer có đủ ý không.
+6. `retrieval_ranking` và `llm_judge_reason` để debug từng case.
+
+## Bảng Tổng Hợp Metric
+
+| Metric | Có trong summary | Bật bằng option | Cách tính ngắn gọn | Giá trị tốt | Dùng để nhớ nhanh |
+|---|---:|---|---|---|---|
+| `total` | Có | mặc định | số mẫu được chọn để chạy | đúng bằng số mẫu mong muốn | Benchmark chạy bao nhiêu câu |
+| `completed` | Có | mặc định | số mẫu không có `error` | càng gần `total` càng tốt | Bao nhiêu câu chạy xong |
+| `errors` | Có | mặc định | `total - completed` | 0 là tốt nhất | Có lỗi API/Neo4j/rate limit không |
+| `answer_token_f1` | Có | chatbot mode | token-F1 giữa answer chatbot và answer chuẩn | càng cao càng tốt | Trùng chữ với đáp án chuẩn |
+| `answer_semantic_similarity` | Có nếu bật | `--semantic-answer` | cosine giữa embedding answer chatbot và answer chuẩn | gần 1.0 | Giống nghĩa với đáp án chuẩn |
+| `llm_correctness_score` | Có nếu bật | `--llm-judge` | trung bình điểm đúng/sai do LLM judge chấm, thang 0-5 | gần 5 | Answer đúng không |
+| `llm_faithfulness_score` | Có nếu bật | `--llm-judge` | trung bình điểm có căn cứ trong reference/context, thang 0-5 | gần 5 | Answer có bịa không |
+| `llm_completeness_score` | Có nếu bật | `--llm-judge` | trung bình điểm đủ ý, thang 0-5 | gần 5 | Answer đủ ý không |
+| `answer_context_f1` | Có | chatbot mode | token-F1 giữa answer chatbot và retrieved context | tham khảo, không cần quá cao | Answer có dùng chữ từ context không |
+| `reference_chunk_f1` | Có | mặc định | max token-F1 giữa reference và từng retrieved chunk | càng cao càng tốt | Retrieval có lấy đúng chunk không |
+| `avg_latency_seconds` | Có | mặc định | trung bình `latency_seconds` của mẫu completed | càng thấp càng tốt | Mỗi câu mất bao lâu |
+| `retrieval_ranking` | Có | mặc định | completed cases sort theo `reference_chunk_f1` giảm dần | đầu bảng cao, cuối bảng thấp | Danh sách case để debug retrieval |
+| `llm_judge_label` | Trong từng case | `--llm-judge` | nhãn judge: `correct`, `mostly_correct`, `partially_correct`, `wrong`, `unsupported` | `correct` hoặc `mostly_correct` | Lọc nhanh câu đúng/sai |
+| `llm_judge_reason` | Chỉ trong `results.jsonl` | `--llm-judge` | giải thích ngắn từ judge | giải thích rõ, nhất quán | Biết vì sao câu bị chấm thấp |

@@ -1,0 +1,2524 @@
+{
+  "total": 100,
+  "completed": 100,
+  "errors": 0,
+  "answer_token_f1": 0.38334464818353475,
+  "answer_semantic_similarity": 0.7335560264579222,
+  "llm_correctness_score": 2.86,
+  "llm_faithfulness_score": 3.0,
+  "llm_completeness_score": 2.93,
+  "answer_context_f1": 0.14172138194545597,
+  "reference_chunk_f1": 0.582837679291195,
+  "avg_latency_seconds": 5.84416,
+  "retrieval_ranking": [
+    {
+      "id": "dt_077",
+      "question": "Năm 2017, Đại học Quốc gia Hà Nội (ĐHQGHN) có bao nhiêu chỉ tiêu tuyển sinh đại học chính quy?",
+      "answer": "Năm 2017, ĐHQGHN có 7.345 chỉ tiêu tuyển sinh đại học chính quy.",
+      "reference": "Năm 2017, ĐHQGHN tuyển sinh đại học chính quy với 7.345 chỉ tiêu của 99 ngành/chương trình đào tạo (CTĐT) bậc đại học thuộc nhiều lĩnh vực khác nhau.\n\nNhằm giúp các em học sinh có những hiểu biết đầy đủ hơn, từ đó đưa ra những quyết định chọn ngành đào tạo phù hợp, ĐHQGHN tóm lược những thông tin cơ bản của các đơn vị đào tạo thuộc ĐHQGHN xét tuyển đại học chính quy năm 2017 cũng như cung cấp thông tin về cơ hội học tập hai chương trình đào tạo cùng thời điểm để tốt nghiệp hai bằng cử nhân khoa học sau khi kết thúc khóa học.\n\nNăm 2017, 9 đơn vị thuộc ĐHQGHN tuyển sinh đại học chính quy gồm:\n\nTrường Đại học Công nghệ:tuyển sinh 1.120 chỉ tiêu, 13 ngành/CTĐT\n\nTrường ĐH Khoa học Tự nhiên: 1.420 chỉ tiêu, 25 ngành/CTĐT\n\nTrường ĐH Khoa học Xã hội & Nhân văn:1.610 chỉ tiêu, 23 ngành/CTĐT\n\nTrường Đại học Ngoại Ngữ: 1.225 chỉ tiêu, 14 ngành/CTĐT\n\nTrường Đại học Kinh tế:680 chỉ tiêu, 9 ngành/CTĐT\n\nTrường Đại học Giáo dục: 300 chỉ tiêu, 6 ngành đào tạo\n\nKhoa Luật: 400 chỉ tiêu, 2 ngành đào tạo\n\nKhoa Y Dược: 190 chỉ tiêu, 3 ngành đào tạo\n\nKhoa Quốc tế: 400 chỉ tiêu, 3 ngành đào tạo",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.9371196754563895,
+        "answer_token_f1": 0.5090909090909091,
+        "answer_context_f1": 0.035967818267865596,
+        "answer_semantic_similarity": 0.8094587225755389,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.281
+      }
+    },
+    {
+      "id": "dt_038",
+      "question": "Có bao nhiêu tập thể và cá nhân của Trường Đại học Công nghệ được khen thưởng trong phong trào “Giỏi việc trường – Đảm việc nhà” giai đoạn 2016-2020?",
+      "answer": "Có 2 tập thể và 6 cá nhân được khen thưởng cấp ĐHQGHN; 10 tập thể và 30 cá nhân nhận khen thưởng cấp Trường.",
+      "reference": "Để ghi nhận thành tích của các tập thể và cá nhân trường ĐHCN trong phong trào thi đua “Giỏi việc trường – Đảm việc nhà” giai đoạn 2016-2020, 02 tập thể (khối Hiệu bộ và khoa Vật lý kỹ thuật & Công nghệ nano) và 06 cá nhân nhận được khen thưởng cấp ĐHQGHN; 10 tập thể và 30 cá nhân nhận khen thưởng cấp Trường.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.9279999999999999,
+        "answer_token_f1": 0.71875,
+        "answer_context_f1": 0.04262672811059908,
+        "answer_semantic_similarity": 0.7602248979484705,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.05
+      }
+    },
+    {
+      "id": "dt_044",
+      "question": "Trường có những loại học bổng nào dành cho sinh viên?",
+      "answer": "Trường có ba loại học bổng chính:\n1.  **Học bổng khuyến khích học tập:** Trích tối thiểu 8% từ học phí, xét dựa trên kết quả học tập và điểm rèn luyện.\n2.  **Học bổng hỗ trợ sinh viên có hoàn cảnh khó khăn:** Dành cho sinh viên hộ nghèo, cận nghèo, vùng khó khăn, với mức 1-2 triệu đồng/sinh viên/đợt.\n3.  **Học bổng khác:** Từ các doanh nghiệp, đơn vị đối tác theo tiêu chuẩn của họ.\nNgoài ra, còn có học bổng cho thủ khoa đầu vào và sinh viên đạt giải Olympic.",
+      "reference": "14.\tHọc bổng\n\tHọc bổng khuyến khích học tập: Nhà trường trích tối thiểu 8% từ nguồn thu học phí hàng năm làm quỹ học bổng Khuyến khích học tập. Điều kiện được nhận học bổng từ quỹ này được xét theo kết quả học tập và điểm rèn luyện. \n\tHọc bổng hỗ trợ sinh viên có hoàn cảnh khó khăn: Dành cho sinh viên thuộc hộ nghèo, cận nghèo, sinh viên ở vùng kinh tế đặc biệt khó khăn. Mức học bổng 1,000,000đ – 2,000,000đ/sinh viên/đợt. Nguồn học bổng từ Ngân sách của Nhà trường. \n\tHọc bổng khác: Đối tượng nhận học bổng theo tiêu chuẩn các doanh nghiệp, các đơn vị đối tác yêu cầu. Mức học bổng Theo quy định của các doanh nghiệp, các đơn vị đối tác. Nguồn học bổng từ Các doanh nghiệp, các đơn vị đối tác.\n\tNgoài ra, Trường ĐHCN còn có học bổng dành cho sinh viên là thủ khoa đầu vào, sinh viên đạt giải tại các kỳ thi học sinh giỏi/Olympic cấp khu vực và quốc tế...",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Chương trình học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.8992628992628993,
+        "answer_token_f1": 0.07156308851224105,
+        "answer_context_f1": 0.36884236453201974,
+        "answer_semantic_similarity": 0.5378270896644404,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 6.429
+      }
+    },
+    {
+      "id": "dt_015",
+      "question": "Trong bảng xếp hạng QS WUR 2025, tiêu chí nào của ĐHQGHN được đánh giá cao nhất và đạt vị trí bao nhiêu trên thế giới?",
+      "answer": "Tiêu chí Kết quả tuyển dụng của ĐHQGHN được đánh giá cao nhất và đạt vị trí 202 thế giới.",
+      "reference": "Đối với các tiêu chí xếp hạng của QS WUR 2025, ĐHQGHN tiếp tục được đánh giá cao bởi nhà tuyển dụng khi 2 tiêu chí có mức điểm cao nhất là Uy tín tuyển dụng (xếp hạng 472 thế giới – 18,7 điểm) và Kết quả tuyển dụng (xếp hạng 202 thế giới – 60,1 điểm, tăng 49,3 điểm so với kỳ xếp hạng trước). Đặc biệt, tiêu chí Kết quả tuyển dụng (Employment Outcomes) của ĐHQGHN được xếp ở vị trí 202 thế giới (gia tăng 197 bậc so với lần xếp hạng trước) – cũng là vị trí xếp hạng cao nhất ở Việt Nam, thể hiện vị thế của ĐHQGHN về chất lượng người học tốt nghiệp.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.8745247148288974,
+        "answer_token_f1": 0.21052631578947367,
+        "answer_context_f1": 0.1691648822269807,
+        "answer_semantic_similarity": 0.8493418118824191,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 6.418
+      }
+    },
+    {
+      "id": "dt_016",
+      "question": "Công đoàn Trường Đại học Công nghệ đã thực hiện những hoạt động nổi bật nào trong giai đoạn 2016-2017?",
+      "answer": "Công đoàn đã đảm bảo quyền lợi người lao động về chế độ chính sách, thi đua khen thưởng; tổ chức thành công bếp ăn trưa nội bộ; phát động quyên góp giúp đỡ công đoàn viên ốm đau; tổ chức du xuân và kế hoạch nghỉ hè; chú trọng đổi mới hoạt động nữ công và phối hợp với Đoàn thanh niên, Hội sinh viên tổ chức hoạt động tập thể.",
+      "reference": "Theo báo cáo tổng kết, hoạt động công đoàn giai đoạn 2016-2017 đã đảm bảo quyền lợi của người lao động về chế độ chính sách, thi đua khen thưởng; tổ chức thành công bếp ăn trưa nội bộ, đảm bảo dinh dưỡng, vệ sinh an toàn và tiết kiệm thời gian cho cán bộ viên chức; phát động quyên góp tự nguyện hiệu quả giúp đỡ 01 công đoàn viên phải phẫu thuật đặc biệt với số tiền là 62 triệu đồng; tổ chức du xuân đầu năm và kế hoạch nghỉ hè; công tác nữ công được chú trọng đổi mới hình thức hoạt động cùng với việc phối hợp với Đoàn thanh niên và Hội sinh viên tổ chức các hoạt động tập thể…",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.8311688311688311,
+        "answer_token_f1": 0.411764705882353,
+        "answer_context_f1": 0.22718446601941747,
+        "answer_semantic_similarity": 0.7834543867302205,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.744
+      }
+    },
+    {
+      "id": "dt_099",
+      "question": "Sinh viên cần tích lũy bao nhiêu tín chỉ để tốt nghiệp các chương trình đào tạo chuẩn tại ĐHQGHN năm 2017?",
+      "answer": "Tùy theo chương trình đào tạo, sinh viên phải tích lũy khoảng 120-160 tín chỉ (chưa kể các học phần điều kiện, chương trình Dược học 173 tín chỉ, Y – Đa khoa 224 tín chỉ) để tốt nghiệp.",
+      "reference": "Tùy theo từng chương trình đào tạo, sinh viên phải tích lũy khoảng 120-160 tín chỉ (chưa kể các học phần điều kiện, chương trình Dược học 173 tín chỉ, Y – Đa khoa 224 tín chỉ) để tốt nghiệp và được công nhận học vị cử nhân/ kỹ sư. Đối với các chương trình đào tạo tài năng, tiên tiến, chất lượng cao sinh viên tích lũy số tín chỉ nhiều hơn 135 tín chỉ. Thời gian đào tạo của một khóa tuyển sinh được thiết kế là 4 năm học (8 học kỳ chính thức). Sinh viên tích lũy đủ số tín chỉ của chương trình đào tạo cũng như các học phần điều kiện khác được xét tốt nghiệp sớm. Theo thống kê, hàng năm luôn có một tỉ lệ nhất định sinh viên tốt nghiệp trước thời hạn.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tốt nghiệp & Công nhận học vị"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.8297872340425531,
+        "answer_token_f1": 0.4186046511627907,
+        "answer_context_f1": 0.04011461318051576,
+        "answer_semantic_similarity": 0.6710769565588093,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 1.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.435
+      }
+    },
+    {
+      "id": "dt_052",
+      "question": "Nếu em có TOEFL iBT 105 thì điểm quy đổi để xét tuyển kết hợp là bao nhiêu?",
+      "answer": "Với điểm TOEFL iBT là 105, nằm trong khoảng 102-109, điểm quy đổi của thí sinh là 9.75 điểm.",
+      "reference": "Bảng 5. Bảng quy đổi điểm chứng chỉ tiếng Anh IELTS, TOEFL iBT\nsang thang điểm 10 áp dụng cho xét tuyển theo chứng chỉ quốc tế\n| STT | IELTS | TOEFL iBT | Quy đổi điểm ... |\n|---|---|---|---|\n| 1 | 5.5 | 65-78 | 8.50 |\n| 2 | 6.0 | 79-87 | 9.00 |\n| 3 | 6.5 | 88-95 | 9.25 |\n| 4 | 7.0 | 96-101 | 9.50 |\n| 5 | 7.5 | 102-109 | 9.75 |\n| 6 | 8.0-9.0 | 110-120 | 10.00 |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XT kết hợp"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.8220858895705521,
+        "answer_token_f1": 0.23255813953488372,
+        "answer_context_f1": 0.1008498583569405,
+        "answer_semantic_similarity": 0.7262715912367276,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.023
+      }
+    },
+    {
+      "id": "dt_059",
+      "question": "Em tốt nghiệp THPT năm 2022, bây giờ muốn xét tuyển vào trường bằng điểm thi THPT thì có được cộng điểm ưu tiên khu vực không?",
+      "answer": "Không. Theo quy định, thí sinh chỉ được hưởng chính sách ưu tiên khu vực trong năm tốt nghiệp THPT và một năm kế tiếp. Thí sinh tốt nghiệp từ năm 2022 trở về trước sẽ không được cộng điểm ưu tiên khu vực khi xét tuyển năm 2024.",
+      "reference": "Lưu ý: \n\t- ĐX được làm tròn đến hai chữ số thập phân;\n\t- Điểm chuẩn trúng tuyển vào các ngành tuyển sinh năm 2024 của Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội sẽ được công bố theo thang điểm 30.\n\t- Từ năm 2023, thí sinh được hưởng chính sách ưu tiên khu vực theo quy định trong năm tốt nghiệp THPT (hoặc trung cấp) và một năm kế tiếp. (Thí sinh tốt nghiệp từ năm 2022 trở về trước không được cộng điểm ưu tiên khu vực).\n\t- Điểm ưu tiên đối với thí sinh đạt tổng điểm từ 22.5 trở lên (khi quy đổi về điểm theo thang 10 và tổng điểm 3 môn tối đa là 30) được xác định theo công thức sau:\nĐiểm ƯT = [(30 – Tổng điểm đạt được)/7.5] x Mức điểm ưu tiên theo quy định của Bộ",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.8015873015873016,
+        "answer_token_f1": 0.15343915343915343,
+        "answer_context_f1": 0.2782437099161322,
+        "answer_semantic_similarity": 0.5963503985317153,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.328
+      }
+    },
+    {
+      "id": "dt_002",
+      "question": "Yêu cầu lưu trữ tài liệu đối với quyết định trúng tuyển có khác gì so với các tài liệu liên quan khác trong quá trình đào tạo?",
+      "answer": "Quyết định trúng tuyển được bảo quản vĩnh viễn tại đơn vị đào tạo, trong khi các tài liệu khác liên quan đến quá trình đào tạo chỉ cần được lưu trữ và bảo quản trong suốt thời gian đào tạo hoặc theo thời gian lưu trữ được quy định bởi nhà nước",
+      "reference": "2. Đơn vị đào tạo có trách nhiệm lưu trữ, bảo quản an toàn các tài liệu liên quan tới công tác đào tạo theo các quy định do Bộ Giáo dục và Đào tạo ban hành.\na) Quyết định trúng tuyển, Phục lục văn bằng (bản gốc), quyết định công nhận tốt nghiệp, sổ gốc cấp phát bằng tốt nghiệp cho sinh viên là tài liệu lưu trữ được bảo quản vĩnh viễn tại đơn vị đào tạo;\nb) Tài liệu khác liên quan đến tuyển sinh, đào tạo được lưu trữ, bảo quản trong suốt quá trình đào tạo;\nc) Việc tiêu hủy tài liệu liên quan tuyển sinh, đào tạo hết thời gian lưu trữ được thực hiện theo quy định hiện hành của nhà nước.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.7940074906367042,
+        "answer_token_f1": 0.40414507772020725,
+        "answer_context_f1": 0.16166883963494133,
+        "answer_semantic_similarity": 0.8408786451727869,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 5.513
+      }
+    },
+    {
+      "id": "dt_011",
+      "question": "Khi phát hiện quy định mới của nhà nước về lưu trữ tài liệu, đơn vị đào tạo nên xử lý như thế nào đối với các tài liệu đã hết hạn lưu trữ?",
+      "answer": "Khi phát hiện quy định mới của nhà nước về lưu trữ tài liệu, đơn vị đào tạo cần tiêu hủy các tài liệu đã hết thời gian lưu trữ theo quy định hiện hành của nhà nước.",
+      "reference": "2. Đơn vị đào tạo có trách nhiệm lưu trữ, bảo quản an toàn các tài liệu liên quan tới công tác đào tạo theo các quy định do Bộ Giáo dục và Đào tạo ban hành.\na) Quyết định trúng tuyển, Phục lục văn bằng (bản gốc), quyết định công nhận tốt nghiệp, sổ gốc cấp phát bằng tốt nghiệp cho sinh viên là tài liệu lưu trữ được bảo quản vĩnh viễn tại đơn vị đào tạo;\nb) Tài liệu khác liên quan đến tuyển sinh, đào tạo được lưu trữ, bảo quản trong suốt quá trình đào tạo;\nc) Việc tiêu hủy tài liệu liên quan tuyển sinh, đào tạo hết thời gian lưu trữ được thực hiện theo quy định hiện hành của nhà nước.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.7940074906367042,
+        "answer_token_f1": 0.31092436974789917,
+        "answer_context_f1": 0.2087067861715749,
+        "answer_semantic_similarity": 0.8353597165687221,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 5.409
+      }
+    },
+    {
+      "id": "dt_090",
+      "question": "Thời gian bảo quản các tài liệu liên quan đến tốt nghiệp trong bao lâu?",
+      "answer": "Các tài liệu liên quan đến tốt nghiệp, như quyết định trúng tuyển, phụ lục văn bằng (bản gốc), quyết định công nhận tốt nghiệp và sổ gốc cấp phát bằng tốt nghiệp cho sinh viên, được lưu trữ và bảo quản vĩnh viễn tại đơn vị đào tạo.",
+      "reference": "2. Đơn vị đào tạo có trách nhiệm lưu trữ, bảo quản an toàn các tài liệu liên quan tới công tác đào tạo theo các quy định do Bộ Giáo dục và Đào tạo ban hành.\na) Quyết định trúng tuyển, Phục lục văn bằng (bản gốc), quyết định công nhận tốt nghiệp, sổ gốc cấp phát bằng tốt nghiệp cho sinh viên là tài liệu lưu trữ được bảo quản vĩnh viễn tại đơn vị đào tạo;\nb) Tài liệu khác liên quan đến tuyển sinh, đào tạo được lưu trữ, bảo quản trong suốt quá trình đào tạo;\nc) Việc tiêu hủy tài liệu liên quan tuyển sinh, đào tạo hết thời gian lưu trữ được thực hiện theo quy định hiện hành của nhà nước.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tốt nghiệp & Công nhận học vị"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.7940074906367042,
+        "answer_token_f1": 0.4036697247706422,
+        "answer_context_f1": 0.05891805034815211,
+        "answer_semantic_similarity": 0.7586801721789385,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 1.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.366
+      }
+    },
+    {
+      "id": "dt_095",
+      "question": "Sinh viên khóa QH-2022-I/CQ trở về trước, thuộc chương trình đào tạo chuẩn, có được phép đăng ký những lớp học phần dành cho chương trình chất lượng cao trong học kỳ II năm học 2023-2024 không?",
+      "answer": "Sinh viên thuộc chương trình đào tạo chuẩn không được đăng ký các lớp học phần dành cho chương trình chất lượng cao.",
+      "reference": "5. Sinh viênlưuý:\n\n– Đọc và nghiên cứu kỹ Khung chương trình đào tạo;\n\n– Xem kỹ Thời khóa biểu học kỳ II năm học 2023-2024 và ghi chú (kèm theo) kết hợp với Sổ tay học vụ, tư vấn của Cố vấn học tập để lựa chọn học phần/lớp học phần phù hợp.\n\n– Đăng ký đúng đối tượng:\n\n+Đối với khóa QH-2023-I/CQ:Tất cả các lớp học phần tư vấn cho sinh viên khóa QH-2023-I/CQ đều là lớp học phần thuộc chương trình đào tạo chuẩn.\n\n+ Đối với khóa QH-2022-I/CQ trở về trước: Sinh viên thuộc chương trình đào tạo chuẩn không được đăng ký các lớp học phần dành cho chương trình chất lượng cao và ngược lại. Quy định mã lớp học phần dành cho CTĐT tương ứng:\n\n– Số tín chỉ đăng ký học của mỗi sinh viên phải đảm bảo điều kiện tối thiểu và tối đa được quy định trong Quy chế đào tạo đại học tại ĐHQGHN(chi tiết trong Sổ tay học vụ).Trường hợp sinh viên có nguyện vọng đăng ký ít hơn số tối thiểu hoặc nhiều hơn số tối đa phải được sự đồng ý của Nhà trường.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Có/Không",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.7582089552238805,
+        "answer_token_f1": 0.45999999999999996,
+        "answer_context_f1": 0.08486238532110092,
+        "answer_semantic_similarity": 0.7389482537958896,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.041
+      }
+    },
+    {
+      "id": "dt_091",
+      "question": "Em đạt giải Nhất học sinh giỏi quốc gia môn Tin và giải Nhì cấp tỉnh môn Toán. Em nên dùng giải nào để đăng ký vào ngành Khoa học máy tính để có lợi nhất?",
+      "answer": "Giải Nhất học sinh giỏi quốc gia môn Tin học thuộc nhóm đối tượng 1, được phép xét tuyển thẳng. Đây là quyền lợi cao nhất và chắc chắn trúng tuyển nếu hồ sơ hợp lệ. Trong khi đó, giải Nhì cấp tỉnh môn Toán chỉ thuộc diện ưu tiên xét tuyển (nhóm đối tượng 4), vẫn phải qua bước xét tuyển và phụ thuộc vào chỉ tiêu. Do đó, thí sinh nên sử dụng giải Nhất quốc gia môn Tin học để đăng ký xét tuyển thẳng vào ngành Khoa học máy tính để đảm bảo quyền lợi tốt nhất.",
+      "reference": "8.1. Nhóm đối tượng 1: Xét tuyển thẳng theo Quy chế tuyển sinh của Bộ GD&ĐT\nThí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế hoặc thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia; thời gian đoạt giải không quá 3 năm tính tới thời điểm xét tuyển thẳng và tốt nghiệp THPT năm 2024 được xét tuyển thẳng vào bậc đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đã đoạt giải.\n...\n8.4. Nhóm đối tượng 4: Ưu tiên xét tuyển theo Quy định của ĐHQGHN\n8.4.1. Thí sinh là học sinh các trường THPT trên toàn quốc tốt nghiệp THPT năm 2024, có học lực Giỏi, hạnh kiểm Tốt trong 3 năm học THPT và đáp ứng một trong các tiêu chí sau:\na) Đạt giải Nhất, Nhì, Ba trong kỳ thi học sinh giỏi cấp tỉnh/thành phố trực thuộc trung ương và điểm trung bình chung học tập bậc THPT đạt từ 8,5 trở lên được ưu tiên xét tuyển vào đại học theo ngành phù hợp với môn thi mà thí sinh đạt giải (Phụ lục 1);\n...\n8.5. Nguyên tắc ưu tiên\n- Ưu tiên 1 (theo nhóm đối tượng): Nhóm đối tượng 1 là nhóm đối tượng ưu tiên cao nhất, lần lượt đến nhóm đối tượng 4...",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 2,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.7539062500000001,
+        "answer_token_f1": 0.37545126353790614,
+        "answer_context_f1": 0.14477468839884947,
+        "answer_semantic_similarity": 0.7084374769183923,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 1.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.167
+      }
+    },
+    {
+      "id": "dt_021",
+      "question": "Ngành Công nghệ nông nghiệp có xét tuyển tổ hợp B00 (Toán, Hóa, Sinh) không?",
+      "answer": "Có. Ngành Công nghệ nông nghiệp (mã xét tuyển CN10) có xét tuyển tổ hợp B00 (Toán, Hóa, Sinh) bên cạnh các tổ hợp A00 và A01.",
+      "reference": "6.3.\tTổ hợp môn xét tuyển theo kết quả thi tốt nghiệp THPT năm 2024  \n❖\tToán, Lý, Hóa (A00); \n❖\tToán, Anh, Lý (A01); \n❖\tToán, Anh, Văn (Toán, Anh hệ số 2) (D01);\n❖\tRiêng đối với ngành Công nghệ nông nghiệp xét tuyển các tổ hợp: Toán, Lý, Hóa (A00); Toán, Anh, Lý (A01); Toán, Hóa, Sinh (B00); \nLưu ý: Thí sinh có chứng chỉ tiếng Anh theo danh mục chứng chỉ ngoại ngữ được sử dụng để miễn thi bài thi ngoại ngữ trong xét công nhận tốt nghiệp THPT Ban hành kèm theo Thông tư số 02/2024/TT-BGDĐT ngày 06 tháng 3 năm 2024 của Bộ trưởng Bộ Giáo dục và Đào tạo, được quy đổi điểm theo thang điểm 10 (cụ thể theo Phụ lục 2) thay cho điểm thi môn tiếng Anh trong tổ hợp A01, D01 để xét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024;",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.7425742574257426,
+        "answer_token_f1": 0.23350253807106597,
+        "answer_context_f1": 0.17746325530756668,
+        "answer_semantic_similarity": 0.8426318688887522,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.802
+      }
+    },
+    {
+      "id": "dt_049",
+      "question": "Luận án Tiến sĩ của NCS Bùi Thị Hồng Nhung tập trung vào lĩnh vực nào của Hệ thống Thông tin?",
+      "answer": "Luận án tập trung vào nghiên cứu kỹ thuật biểu diễn và phân cụm vết trong phát hiện mô hình quy trình.",
+      "reference": "Tên đề tài luận án: Nghiên cứu kỹ thuật biểu diễn và phân cụm vết trong phát hiện mô hình quy trình. \n\n1. Họ và tên nghiên cứu sinh: Bùi Thị Hồng Nhung \n2. Giới tính:Nữ\n\n3. Ngày sinh:25/04/1979 \n4. Nơi sinh: Hà Nội\n\n5.Quyết định công nhận NCS số 642/QĐ-CTSV ngày 15 tháng 09 năm 2014 của Hiệu trưởng Trường Đại học Công nghệ, Đại học Quốc gia Hà nội.\n\n6. Các thay đổi trong quá trình đào tạo:\n\n7. Tên đề tài luận án:Nghiên cứu kỹ thuật biểu diễn và phân cụm vết trong phát hiện mô hình quy trình.\n\n8. Chuyên ngành: Hệ thống Thông tin \n9. Mã số: 9480104.01\n\n10. Cán bộ hướng dẫn khoa học:\n\nHướng dẫn chính: PGS.TS Nguyễn Trí Thành\n\nHướng dẫn phụ: PGS.TS Nguyễn Cẩm Tú\n\nCơ quan công tác: Trường Đại học Công nghệ – ĐH Quốc Gia Hà Nội\n\nThông tin luận án tiến sĩ của NCS Bùi Thị Hồng Nhung",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.7409090909090909,
+        "answer_token_f1": 0.24858757062146894,
+        "answer_context_f1": 0.1379310344827586,
+        "answer_semantic_similarity": 0.6836029800246897,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 4.817
+      }
+    },
+    {
+      "id": "dt_074",
+      "question": "Em là học sinh lớp không chuyên của trường THPT chuyên Nguyễn Huệ, có học lực Giỏi, hạnh kiểm Tốt 3 năm và điểm thi ĐGNL của ĐHQGHN là 92 điểm. Em có được ưu tiên xét tuyển vào ngành Kỹ thuật điều khiển và tự động hóa không?",
+      "answer": "Chính sách ưu tiên xét tuyển dựa trên điểm thi Đánh giá năng lực (ĐGNL) chỉ áp dụng cho học sinh hệ không chuyên của các trường THPT chuyên thuộc ĐHQGHN. Trường THPT chuyên Nguyễn Huệ không thuộc ĐHQGHN, do đó trường hợp của thí sinh không thuộc diện được ưu tiên xét tuyển theo tiêu chí này. Thí sinh vẫn có thể sử dụng điểm ĐGNL để xét tuyển theo phương thức xét tuyển bằng kết quả thi ĐGNL thông thường.",
+      "reference": "8.4. Nhóm đối tượng 4: Ưu tiên xét tuyển theo Quy định của ĐHQGHN\n...\n8.4.2. Thí sinh là học sinh hệ không chuyên của các trường THPT chuyên thuộc ĐHQGHN tốt nghiệp THPT năm 2024, có học lực Giỏi, hạnh kiểm Tốt trong 3 năm học THPT và đáp ứng một trong các tiêu chí sau:\na)  Đạt giải chính thức trong kỳ thi chọn học sinh giỏi bậc THPT cấp ĐHQGHN được ưu tiên xét tuyển vào đại học theo ngành phù hợp với môn thi mà thí sinh đạt giải (Phụ lục 1);\nb) Đạt giải chính thức trong các kỳ thi sáng tạo, triển lãm khoa học kỹ thuật khu vực, quốc tế được ưu tiên xét tuyển vào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đạt giải;\nc) Có kết quả thi ĐGNL học sinh THPT do ĐHQGHN tổ chức đạt tối thiểu 90 điểm (thang 150), được ưu tiên xét tuyển vào đại học.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 2,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.7351598173515982,
+        "answer_token_f1": 0.3363914373088685,
+        "answer_context_f1": 0.23359173126614985,
+        "answer_semantic_similarity": 0.6532061200712529,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.737
+      }
+    },
+    {
+      "id": "dt_080",
+      "question": "Những ngành nào sinh viên phải học năm đầu tại cơ sở Hòa Lạc?",
+      "answer": "Sinh viên của 6 ngành sau sẽ học tập và ở ký túc xá tại cơ sở Hòa Lạc trong năm thứ nhất:\n1. Vật lý kỹ thuật (CN3)\n2. Cơ kỹ thuật (CN4)\n3. Công nghệ kỹ thuật xây dựng (CN5)\n4. Công nghệ hàng không vũ trụ (CN7)\n5. Kỹ thuật năng lượng (CN13)\n6. Công nghệ nông nghiệp (CN10)",
+      "reference": "6.1.\tĐịa điểm học\n- Trường ĐHCN có hai khu học tập chính:\na)\tKhu Cầu Giấy gồm: địa chỉ 144 Xuân Thủy, Cầu Giấy, Hà Nội; địa chỉ số 8 Tôn Thất Thuyết, Hà Nội. Hầu hết các ngành và hầu hết thời gian sinh viên học tập tại địa điểm này.\nb)\tKhu Hoà Lạc: địa chỉ cơ sở Đại học Quốc gia Hà Nội tại Hòa Lạc (Xã Thạch Hoà, huyện Thạch Thất, Hà Nội). Địa điểm này chỉ dành cho sinh viên của 6 ngành (thông tin có trong bảng 6) học và ở ký túc xá tập trung trong năm thứ nhất, từ năm thứ 2 trở đi, sinh viên sẽ quay trở lại học tập tại khu vực Cầu Giấy. \nBảng 6. Thông tin địa điểm học các ngành tuyển sinh năm 2024\n| Mã xét tuyển | ... | Địa điểm học tập | ... |\n|---|---|---|---|\n| CN3 | Vật lý kỹ thuật | Hòa Lạc năm 1 | ... |\n| CN4 | Cơ kỹ thuật | Hòa Lạc năm 1 | ... |\n| CN5 | Công nghệ kỹ thuật xây dựng | Hòa Lạc năm 1 | ... |\n| CN7 | Công nghệ hàng không vũ trụ | Hòa Lạc năm 1 | ... |\n| CN13 | Kỹ thuật năng lượng | Hòa Lạc năm 1 | ... |\n| CN10 | Công nghệ nông nghiệp | Hòa Lạc năm 1 | ... |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Chương trình học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.7235142118863049,
+        "answer_token_f1": 0.2201834862385321,
+        "answer_context_f1": 0.18114406779661016,
+        "answer_semantic_similarity": 0.7215787130452674,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.091
+      }
+    },
+    {
+      "id": "dt_050",
+      "question": "Năm 2022, những đối tượng nào được xét tuyển thẳng vào Trường Đại học Công nghệ?",
+      "answer": "Năm 2022, những đối tượng được xét tuyển thẳng bao gồm thí sinh được triệu tập tham dự kỳ thi chọn đội tuyển quốc gia dự thi Olympic quốc tế, thí sinh trong đội tuyển quốc gia dự Cuộc thi khoa học, kỹ thuật quốc tế đã tốt nghiệp THPT, thí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia hoặc Cuộc thi khoa học, kỹ thuật cấp quốc gia, và thí sinh là học sinh THPT hệ chuyên thuộc ĐHQGHN và hệ chuyên/lớp chuyên của các trường THPT chuyên cấp tỉnh, thành phố trực thuộc Trung ương, các trường THPT trọng điểm quốc gia đượcxét tuyển thẳng vào đại học theo ngành phù hợp với môn thi hoặc nội dung đề tài dự thi mà thí sinh đoạt giải nếu tốt nghiệp THPT năm 2022, có hạnh kiểm 3 năm học THPT đạt loại Tốt đáp ứng tiêu chí sau: Đạt giải chính thức trong kỳ thi chọn học sinh giỏi bậc THPT cấp ĐHQGHN hoặc trong các kỳ thi Olympic bậc THPT của ĐHQGHN hoặc trong các kỳ thi sáng tạo, triển lãm khoa học kỹ thuật (KHKT) khu vực, quốc tế.",
+      "reference": "II. Xét tuyển thẳng, ưu tiên xét tuyển\n\n1. Nhóm đối tượng 1:\n\na. Thí sinh được triệu tập tham dự kỳ thi chọn đội tuyển quốc gia dự thi Olympic quốc tế, trong đội tuyển quốc gia dự Cuộc thi khoa học, kĩ thuật quốc tế đã tốt nghiệp THPT năm 2022 đượcxét tuyển thẳngvào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi của thí sinh);\n\nb. Thí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia; thí sinh đoạt giải nhất, nhì, ba trong Cuộc thi khoa học, kỹ thuật cấp quốc gia, đã tốt nghiệp THPT năm 2022, đượcxét tuyển thẳngvào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đã đoạt giải);\n\n2. Nhóm đối tượng 2:\n\nThí sinh là học sinh THPT hệ chuyên thuộc ĐHQGHN và hệ chuyên/lớp chuyên của các trường THPT chuyên cấp tỉnh, thành phố trực thuộc Trung ương, các trường THPT trọng điểm quốc gia (Phụ lục 2) đượcxét tuyển thẳngvào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đoạt giải nếu tốt nghiệp THPT năm 2022, có hạnh kiểm 3 năm học THPT đạt loại Tốt và đáp ứng một trong các tiêu chí sau:\n\na. Đạt giải chính thức trong kỳ thi chọn học sinh giỏi bậc THPT cấp ĐHQGHN;\n\nb. Đạt giải chính thức trong các kỳ thi Olympic bậc THPT của ĐHQGHN;\n\nc. Đạt giải chính thức trong các kỳ thi sáng tạo, triển lãm khoa học kỹ thuật (KHKT) khu vực, quốc tế.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Ai",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.720292504570384,
+        "answer_token_f1": 0.5200845665961945,
+        "answer_context_f1": 0.25280624694973153,
+        "answer_semantic_similarity": 0.7440409804647625,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.921
+      }
+    },
+    {
+      "id": "dt_096",
+      "question": "Thời gian và hình thức đăng ký xét tuyển cho từng phương thức có giống nhau không?",
+      "answer": "Không. Thời gian và hình thức đăng ký khác nhau tùy theo phương thức:\n- Xét tuyển ĐGNL, SAT, A-Level, ACT, tuyển thẳng, dự bị ĐH: Đăng ký và xét tuyển sớm trực tuyến qua website của trường.\n- Xét tuyển IELTS kết hợp, ưu tiên xét tuyển: Đăng ký sớm trực tuyến qua website của trường, xét tuyển theo kế hoạch chung của Bộ GD&ĐT.\n- Xét tuyển bằng điểm thi THPT: Thời gian, hình thức đăng ký theo lịch trình chung của Bộ GD&ĐT.",
+      "reference": "7.1. Thời gian và hình thức tuyển sinh\na)\tNhà trường tổ chức đăng ký và xét tuyển sớm dành cho các diện xét tuyển sau: \no\tXét tuyển dựa theo kết quả thi ĐGNL do ĐHQGHN tổ chức; \no\tXét tuyển theo chứng chỉ quốc tế gồm SAT, A-Level, ACT; \no\tXét tuyển thẳng theo quy chế tuyển sinh của Bộ GD&ĐT và theo cơ chế đặc thù của ĐHQGHN;\no\tXét tuyển thí sinh diện dự bị đại học.\n...\nb)\tNhà trường tổ chức đăng ký sớm và xét tuyển theo kế hoạch chung của Bộ GDĐT dành cho các phương thức xét tuyển sau:\no\tXét tuyển theo chứng chỉ tiếng Anh quốc tế (IELTS, TOEFL) và điểm Toán, Lý THPT năm 2024 tối thiểu 14 điểm; \no\tƯu tiên xét tuyển; \n...\nc)\tXét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024: thời gian, hình thức đăng ký xét tuyển theo lịch trình chung của Bộ GDĐT;",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.7041564792176039,
+        "answer_token_f1": 0.4304635761589404,
+        "answer_context_f1": 0.18860877684407096,
+        "answer_semantic_similarity": 0.8485045238222002,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.63
+      }
+    },
+    {
+      "id": "dt_053",
+      "question": "Trong 2 năm 2022 và 2023, trường đã sử dụng những phương thức tuyển sinh nào?",
+      "answer": "Trong cả hai năm 2022 và 2023, trường đều sử dụng 4 phương thức xét tuyển chính:\n1. Xét tuyển thẳng, ưu tiên xét tuyển và diện dự bị.\n2. Xét tuyển kết quả thi tốt nghiệp THPT.\n3. Xét tuyển theo các chứng chỉ quốc tế (SAT, A-Level, ACT, IELTS/TOEFL iBT kết hợp).\n4. Xét tuyển kết quả thi đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức.",
+      "reference": "8.1.\tPhương thức tuyển sinh của 2 năm gần nhất: 2022 và 2023 đều Xét tuyển\n(1) Xét tuyển thẳng, ưu tiên xét tuyển và diện dự bị: Theo quy định của Bộ Giáo dục và Đào tạo (GDĐT) và Quy định cơ chế đặc thù của ĐHQGHN;\n(2) Xét tuyển kết quả thi tốt nghiệp THPT theo tổ hợp các môn thi tương ứng được quy định cụ thể trong Đề án tuyển sinh của Nhà trường; \n(3) Xét tuyển theo các chứng chỉ quốc tế (SAT, A-Level, ACT, IELTS/TOEFL iBT và điểm thi tốt nghiệp THPT);\n(4) Xét tuyển kết quả thi đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Thông tin tuyển sinh khác"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.7033639143730887,
+        "answer_token_f1": 0.6844919786096257,
+        "answer_context_f1": 0.10516519311307584,
+        "answer_semantic_similarity": 0.8629047685762059,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.134
+      }
+    },
+    {
+      "id": "dt_097",
+      "question": "Em là học sinh hệ chuyên của trường THPT chuyên thuộc ĐHQGHN, đoạt giải trong kỳ thi Olympic của ĐHQGHN thì có được xét tuyển thẳng không?",
+      "answer": "Có. Thí sinh là học sinh THPT hệ chuyên thuộc ĐHQGHN, tốt nghiệp THPT năm 2024, có hạnh kiểm 3 năm THPT đạt loại Tốt và đạt giải chính thức trong các kỳ thi Olympic bậc THPT của ĐHQGHN sẽ được xét tuyển thẳng vào đại học theo ngành phù hợp với môn thi đã đoạt giải.",
+      "reference": "8.2. Nhóm đối tượng 2: Xét tuyển thẳng theo Quy định của ĐHQGHN\nThí sinh là học sinh THPT hệ chuyên thuộc ĐHQGHN và hệ chuyên/lớp chuyên của các trường THPT chuyên cấp tỉnh, thành phố trực thuộc Trung ương được xét tuyển thẳng vào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đoạt giải nếu tốt nghiệp THPT năm 2024, có hạnh kiểm 3 năm học THPT đạt loại Tốt và đáp ứng một trong các tiêu chí sau:\n8.2.1. Đạt giải chính thức trong kỳ thi chọn học sinh giỏi bậc THPT cấp ĐHQGHN;\n8.2.2. Đạt giải chính thức trong các kỳ thi Olympic bậc THPT của ĐHQGHN;\n8.2.3. Đạt giải chính thức trong các kỳ thi sáng tạo, triển lãm khoa học kỹ thuật khu vực, quốc tế.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6977886977886977,
+        "answer_token_f1": 0.6214689265536723,
+        "answer_context_f1": 0.11245758603974793,
+        "answer_semantic_similarity": 0.7958122004033221,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 6.176
+      }
+    },
+    {
+      "id": "dt_006",
+      "question": "Sinh viên lần đầu nộp hồ sơ học bổng Shinnyo cần chuẩn bị những giấy tờ gì?",
+      "answer": "Sinh viên cần chuẩn bị bản photo giấy xác nhận điểm thi vào trường trung học phổ thông (đối với học sinh lớp 10) hoặc giấy triệu tập thí sinh trúng tuyển đại học chính quy năm 2022 (đối với sinh viên năm nhất), bản tự giới thiệu có dán ảnh, bài viết tìm hiểu về tổ chức Shinnyo-en, Nhật Bản và học bổng Shinnyo (khoảng 2 trang A4), giấy xác nhận hoàn cảnh khó khăn (nếu có) và các chứng nhận về hoạt động Lớp - Đoàn - Hội, hoạt động xã hội cộng đồng, nghiên cứu khoa học trong 1 năm trở lại đây (nếu có).",
+      "reference": "4.2. Đối với SV lần đầu tiên nộp hồ sơ học bổng Shinnyo: – Bản photo Giấy xác nhận điểm thi vào trường trung học phổ thông (đối với học sinh lớp 10) hoặc Giấy triệu tập thí sinh trúng tuyển đại học chính quy năm 2022 (đối với sinh viên năm thứ nhất); – Bản tự giới thiệu, có dán ảnh (theo mẫu); – Bài viết tìm hiểu về tổ chức Shinnyo-en, Nhật Bản và học bổng Shinnyo (có độ dài khoảng 02 trang A4); – Giấy xác nhận hoàn cảnh khó khăn/cần được hỗ trợ kinh phí để học tập (nếu có); – Các chứng nhận về: Hoạt động Lớp – Đoàn – Hội, hoạt động xã hội cộng đồng, nghiên cứu khoa học… trong 01 năm trở lại đây (nếu có).",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quyền lợi, nghĩa vụ & chính sách người học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.661498708010336,
+        "answer_token_f1": 0.7446808510638298,
+        "answer_context_f1": 0.18582169709989257,
+        "answer_semantic_similarity": 0.7838041294934992,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 5.887
+      }
+    },
+    {
+      "id": "dt_093",
+      "question": "Trường có chấp nhận chứng chỉ TOEFL iBT Home Edition cho phương thức xét tuyển kết hợp không?",
+      "answer": "Không. Đề án tuyển sinh nêu rõ rằng trường không xét tuyển chứng chỉ tiếng Anh TOEFL iBT (home edition).",
+      "reference": "- Trường không xét tuyển chứng chỉ tiếng Anh TOEFL iBT (home edition).",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT kết hợp"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6470588235294118,
+        "answer_token_f1": 0.5,
+        "answer_context_f1": 0.04737975592246949,
+        "answer_semantic_similarity": 0.7987071896911211,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.038
+      }
+    },
+    {
+      "id": "dt_033",
+      "question": "Để được ưu tiên xét tuyển vào ngành Công nghệ kỹ thuật xây dựng (CN5) bằng điểm thi ĐGNL thì em cần tối thiểu bao nhiêu điểm?",
+      "answer": "Để được hưởng chính sách ưu tiên xét tuyển, thí sinh phải đạt ngưỡng đảm bảo chất lượng đầu vào của ngành đăng ký. Đối với ngành Công nghệ kỹ thuật xây dựng (mã CN5), ngưỡng điểm thi Đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức là từ 80/150 điểm trở lên.",
+      "reference": "❖\tCác thí sinh diện ưu tiên xét tuyển phải đạt ngưỡng đảm bảo chất lượng đầu vào theo một trong các phương thức xét tuyển như sau:\n1)\tXét tuyển dựa theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024: sẽ được Nhà trường công bố sau khi có điểm thi tốt nghiệp THPT năm 2024 (áp dụng thống nhất cho cả thí sinh dùng chứng chỉ tiếng Anh để quy đổi theo Phụ lục 2).\n2)\tXét tuyển dựa theo kết quả thi Đánh giá năng lực do ĐHQGHN tổ chức (mã 401): Đối với các ngành CN1, CN2, CN8, CN11, CN12 từ 90/150 điểm trở lên; các ngành còn lại từ 80/150 điểm trở lên.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6421052631578947,
+        "answer_token_f1": 0.32584269662921345,
+        "answer_context_f1": 0.11428571428571428,
+        "answer_semantic_similarity": 0.7750302986726629,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 3.675
+      }
+    },
+    {
+      "id": "dt_056",
+      "question": "Thí sinh thuộc diện ưu tiên xét tuyển có cần phải đạt ngưỡng đảm bảo chất lượng đầu vào của trường không ạ? Và ngưỡng đó là bao nhiêu đối với ngành Kỹ thuật máy tính?",
+      "answer": "Có, tất cả thí sinh thuộc diện ưu tiên xét tuyển đều phải đạt ngưỡng đảm bảo chất lượng đầu vào của ngành đăng ký. Đối với ngành Kỹ thuật máy tính (mã CN2), thí sinh cần đạt ngưỡng đầu vào theo một trong các phương thức. Cụ thể, nếu xét bằng kết quả thi Đánh giá năng lực (ĐGNL) của ĐHQGHN, ngưỡng yêu cầu là từ 90/150 điểm trở lên. Ngưỡng theo kết quả thi tốt nghiệp THPT sẽ được công bố sau khi có điểm thi.",
+      "reference": "❖\tCác thí sinh diện ưu tiên xét tuyển phải đạt ngưỡng đảm bảo chất lượng đầu vào theo một trong các phương thức xét tuyển như sau:\n1)\tXét tuyển dựa theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024: sẽ được Nhà trường công bố sau khi có điểm thi tốt nghiệp THPT năm 2024 (áp dụng thống nhất cho cả thí sinh dùng chứng chỉ tiếng Anh để quy đổi theo Phụ lục 2).\n2)\tXét tuyển dựa theo kết quả thi Đánh giá năng lực do ĐHQGHN tổ chức (mã 401): Đối với các ngành CN1, CN2, CN8, CN11, CN12 từ 90/150 điểm trở lên; các ngành còn lại từ 80/150 điểm trở lên.",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6421052631578947,
+        "answer_token_f1": 0.42241379310344823,
+        "answer_context_f1": 0.13660062565172054,
+        "answer_semantic_similarity": 0.7611446694318643,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.489
+      }
+    },
+    {
+      "id": "dt_083",
+      "question": "Em có thể nộp hồ sơ xét tuyển bằng điểm ĐGNL và SAT cùng lúc không?",
+      "answer": "Có. Thí sinh được đăng ký hồ sơ xét tuyển theo tất cả các diện của các phương thức nếu đủ điều kiện. Thí sinh có thể nộp đồng thời cả hồ sơ xét tuyển bằng điểm ĐGNL và SAT, và phải sắp xếp thứ tự ưu tiên cho từng nguyện vọng trên hệ thống chung của Bộ GD&ĐT.",
+      "reference": "7.2. Đăng ký NVXT\n- Thí sinh được đăng ký hồ sơ xét tuyển theo tất cả các diện của các phương thức nếu đủ điều kiện.\n- Thí sinh được đăng ký không giới hạn nguyện vọng (NV) và phải sắp xếp theo thứ tự ưu tiên từ cao xuống thấp (NV1 là NV ưu tiên cao nhất), và Nhà trường chỉ thông báo thí sinh trúng tuyển 01 NV.\n- Thí sinh phải đăng ký tất cả các NVXT (với tất cả các phương thức) trên hệ thống phần mềm chung của Bộ GDĐT.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XT khác"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6416382252559727,
+        "answer_token_f1": 0.41860465116279066,
+        "answer_context_f1": 0.11508379888268155,
+        "answer_semantic_similarity": 0.8018099873242224,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 6.632
+      }
+    },
+    {
+      "id": "dt_000",
+      "question": "Sinh viên đăng ký học phần học kỳ II năm học 2023-2024 trong khoảng thời gian nào?",
+      "answer": "Thời gian bắt đầu đăng ký học từ 10h00 ngày 17/01/2024 đến hết ngày 21/01/2024.",
+      "reference": "2. Thời gian bắt đầu đăng ký học từ10h00ngày17/01/2024đến hết ngày21/01/2024.\nPĐT sẽ công bố kết quả đăng ký học học kỳ II năm học 2023-2024 trước ngày 27/01/2024, yêu cầu sinh viên kiểm tra kết quả đăng ký em học của mình tại địa chỉ http://112.137.129.87/qldt/.\n\n3. PĐT đăng ký học sẵn các học phần bắt buộc cho từng sinh viên theo lịch trình học tập thông thường được tư vấn như trong Sổ tay học vụ học kỳ II năm học 2023-2024 (không bao gồm các học phần tiếng Anh, học phần tự chọn và học phần thuộc khối kiến thức định hướng chuyên sâu). Sinh viên kiểm tra, nếu thấy chưa phù hợp thì thay đổi (thêm/bớt/điều chỉnh) hoặc đăng ký các lớp học phần khác ngoài lịch trình trên trong thời gian đăng ký học trực tuyến qua cổng thông tin đào tạo tại địa chỉ:http://dangkyhoc.vnu.edu.vn/.\n\n4. Trong 2 tuần đầu học kỳ (từ ngày 29/01/2024 ÷ 04/02/2024 và từ ngày 19/02/2024 ÷ 25/02/2024), sinh viên được phép đăng ký những học phần muốn học thêm hoặc đăng ký đổi sang lớp học phần khác, bằng cách thao tác trực tuyến qua cổng thông tin đào tạo tại địa chỉ:http://dangkyhoc.vnu.edu.vn/.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.635814889336016,
+        "answer_token_f1": 0.208,
+        "answer_context_f1": 0.10092188258127122,
+        "answer_semantic_similarity": 0.6066535266848431,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.454
+      }
+    },
+    {
+      "id": "dt_025",
+      "question": "Sắp xếp các đơn vị đào tạo thuộc ĐHQGHN theo số lượng ngành/chương trình đào tạo (CTĐT) từ cao đến thấp.",
+      "answer": "Trường ĐH Khoa học Tự nhiên: 25 ngành/CTĐT.\nTrường ĐH Khoa học Xã hội & Nhân văn: 23 ngành/CTĐT.\nTrường ĐH Ngoại ngữ: 14 ngành/CTĐT.\nTrường ĐH Công nghệ: 13 ngành/CTĐT.\nTrường ĐH Kinh tế: 9 ngành/CTĐT.\nTrường ĐH Giáo dục: 6 ngành/CTĐT.\nKhoa Luật và Khoa Quốc tế: 3 ngành/CTĐT.\nKhoa Y Dược: 2 ngành/CTĐT",
+      "reference": "Năm 2017, 9 đơn vị thuộc ĐHQGHN tuyển sinh đại học chính quy gồm:\n\nTrường Đại học Công nghệ: tuyển sinh 1.120 chỉ tiêu, 13 ngành/CTĐT \n\nTrường ĐH Khoa học Tự nhiên: 1.420 chỉ tiêu, 25 ngành/CTĐT\n\nTrường ĐH Khoa học Xã hội & Nhân văn: 1.610 chỉ tiêu, 23 ngành/CTĐT\n\nTrường Đại học Ngoại Ngữ: 1.225 chỉ tiêu, 14 ngành/CTĐT\n\nTrường Đại học Kinh tế: 680 chỉ tiêu, 9 ngành/CTĐT\n\nTrường Đại học Giáo dục: 300 chỉ tiêu, 6 ngành đào tạo\n\nKhoa Luật: 400 chỉ tiêu, 2 ngành đào tạo\n\nKhoa Y Dược: 190 chỉ tiêu, 3 ngành đào tạo\n\nKhoa Quốc tế: 400 chỉ tiêu, 3 ngành đào tạo",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.625,
+        "answer_token_f1": 0.27312775330396477,
+        "answer_context_f1": 0.2861995753715499,
+        "answer_semantic_similarity": 0.6712789528052917,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.498
+      }
+    },
+    {
+      "id": "dt_067",
+      "question": "Em là học sinh trường chuyên Lê Hồng Phong - Nam Định, đoạt giải Ba học sinh giỏi cấp ĐHQGHN môn Toán. Em có đủ điều kiện xét tuyển thẳng không?",
+      "answer": "Có. Thí sinh là học sinh hệ chuyên của các trường THPT chuyên cấp tỉnh (như THPT chuyên Lê Hồng Phong - Nam Định), tốt nghiệp THPT 2024, có hạnh kiểm 3 năm loại Tốt và đạt giải chính thức (giải Ba) trong kỳ thi chọn học sinh giỏi bậc THPT cấp ĐHQGHN thì đủ điều kiện được xét tuyển thẳng vào ngành phù hợp với môn Toán.",
+      "reference": "8.2. Nhóm đối tượng 2: Xét tuyển thẳng theo Quy định của ĐHQGHN\nThí sinh là học sinh THPT hệ chuyên thuộc ĐHQGHN và hệ chuyên/lớp chuyên của các trường THPT chuyên cấp tỉnh, thành phố trực thuộc Trung ương được xét tuyển thẳng vào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đoạt giải nếu tốt nghiệp THPT năm 2024, có hạnh kiểm 3 năm học THPT đạt loại Tốt và đáp ứng một trong các tiêu chí sau:\n8.2.1. Đạt giải chính thức trong kỳ thi chọn học sinh giỏi bậc THPT cấp ĐHQGHN;",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 2,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6195652173913043,
+        "answer_token_f1": 0.4295774647887324,
+        "answer_context_f1": 0.18674136321195145,
+        "answer_semantic_similarity": 0.696855163963238,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.142
+      }
+    },
+    {
+      "id": "dt_098",
+      "question": "ĐHQGHN xếp hạng như thế nào so với các trường đại học hàng đầu Đông Nam Á trong QS WUR 2025?",
+      "answer": "ĐHQGHN xếp trong nhóm 851-900, thấp hơn so với các trường như Đại học Quốc gia Singapore (xếp thứ 8) và Đại học Công nghệ Nanyang (xếp thứ 15), nhưng vẫn nằm trong nhóm 6 cơ sở giáo dục đại học hàng đầu Việt Nam được xếp hạng.",
+      "reference": "Ngày 5/6/2024, Tổ chức Quacquarelli Symonds (QS) đã công kết quả Bảng xếp hạng đại học thế giới QS World University Rankings 2025 (QS WUR 2025). Trong đó, Đại học Quốc gia Hà Nội (ĐHQGHN) đã có sự gia tăng mạnh mẽ lên vị trí trong nhóm 851-900 các cơ sở giáo dục đại học tốt nhất thế giới theo tiêu chí xếp hạng của QS WUR (so với lần xếp hạng trước là nhóm 951-1000). Trong khu vực Đông Nam Á, đã có 84 cơ sở giáo dục đại học được xếp hạng tại Bảng xếp hạng QS WUR 2025, trong đó, Malaysia là quốc gia Đông Nam Á có nhiều cơ sở giáo dục được xếp hạng nhất (28), tiếp theo là Indonesia (26), Thái Lan (13), Việt Nam (6), Phillipines (5), Singapore (4) và Brunei (2). Tuy chỉ có 4 cơ sở giáo dục đại học được xếp hạng nhưng Singapore vẫn cho thấy vị thế hàng đầu khi có 2 cơ sở giáo dục đại học trong  nhóm 20 thế giới (Đại học Quốc gia Singapore (NUS) đứng thứ 8 và Đại học Công nghệ Nanyang (NTU) đứng thứ 15.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.6187363834422657,
+        "answer_token_f1": 0.2631578947368421,
+        "answer_context_f1": 0.13698630136986303,
+        "answer_semantic_similarity": 0.6235651757940153,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.227
+      }
+    },
+    {
+      "id": "dt_007",
+      "question": "Cho em hỏi cách tính điểm xét tuyển theo tổ hợp A00 (Toán, Lý, Hóa) vào trường như thế nào ạ?",
+      "answer": "Điểm xét tuyển (ĐX) theo tổ hợp A00 được tính bằng tổng điểm ba môn thi cộng với điểm ưu tiên (nếu có). Công thức cụ thể là: ĐX = (Môn 1 + Môn 2 + Môn 3) + Điểm ƯT (ĐT, KV). Điểm xét tuyển được làm tròn đến hai chữ số thập phân và công bố theo thang điểm 30.",
+      "reference": "7.3. Cách tính điểm xét tuyển\na) Cách tính điểm xét tuyển (gọi tắt là ĐX) theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024 như sau:\n\t\t\tĐX = (Môn1 + Môn2 + Môn3) + Điểm ƯT (ĐT, KV)\n\tRiêng tổ hợp D01 điểm xét tuyển được tính như sau:\n\t\t\tĐX = (Toán x 2 + Anh x 2 + Văn) x 3/5 + Điểm ƯT (ĐT, KV)\nLưu ý: \n\t- ĐX được làm tròn đến hai chữ số thập phân;\n\t- Điểm chuẩn trúng tuyển vào các ngành tuyển sinh năm 2024 của Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội sẽ được công bố theo thang điểm 30.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6079545454545454,
+        "answer_token_f1": 0.36363636363636365,
+        "answer_context_f1": 0.12294647588765237,
+        "answer_semantic_similarity": 0.8049907292424999,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 7.071
+      }
+    },
+    {
+      "id": "dt_031",
+      "question": "Em là học sinh trường chuyên của tỉnh, đoạt giải Nhì học sinh giỏi cấp tỉnh môn Lý và có điểm trung bình chung 3 năm THPT là 8.7. Em có thuộc diện được ưu tiên xét tuyển không?",
+      "answer": "Thí sinh là học sinh trường THPT chuyên cấp tỉnh, tốt nghiệp THPT năm 2024, có học lực Giỏi và hạnh kiểm Tốt trong 3 năm học THPT, đồng thời đoạt giải Nhất, Nhì, hoặc Ba trong kỳ thi học sinh giỏi cấp tỉnh/thành phố và có điểm trung bình chung học tập bậc THPT từ 8,5 trở lên sẽ được ưu tiên xét tuyển. Trường hợp của thí sinh đáp ứng đủ các điều kiện này nên thuộc diện được ưu tiên xét tuyển vào ngành phù hợp với môn Vật lý đã đoạt giải.",
+      "reference": "8.4. Nhóm đối tượng 4: Ưu tiên xét tuyển theo Quy định của ĐHQGHN\n8.4.1. Thí sinh là học sinh các trường THPT trên toàn quốc tốt nghiệp THPT năm 2024, có học lực Giỏi, hạnh kiểm Tốt trong 3 năm học THPT và đáp ứng một trong các tiêu chí sau:\na) Đạt giải Nhất, Nhì, Ba trong kỳ thi học sinh giỏi cấp tỉnh/thành phố trực thuộc trung ương và điểm trung bình chung học tập bậc THPT đạt từ 8,5 trở lên được ưu tiên xét tuyển vào đại học theo ngành phù hợp với môn thi mà thí sinh đạt giải (Phụ lục 1);",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6058981233243967,
+        "answer_token_f1": 0.40955631399317405,
+        "answer_context_f1": 0.1656234954260953,
+        "answer_semantic_similarity": 0.6818400575212784,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.194
+      }
+    },
+    {
+      "id": "dt_001",
+      "question": "Nếu chỉ tiêu của phương thức ĐGNL không tuyển đủ, trường sẽ xử lý số chỉ tiêu còn lại như thế nào?",
+      "answer": "Trong trường hợp không sử dụng hết chỉ tiêu dự kiến của một phương thức (ví dụ ĐGNL) cho một ngành, nhà trường sẽ chuyển số chỉ tiêu còn lại đó sang xét tuyển ở ngành khác còn nguồn tuyển theo cùng phương thức, hoặc chuyển sang phương thức khác của cùng ngành đó nếu còn nguồn tuyển. Việc điều chuyển này cam kết không ảnh hưởng đến quyền lợi thí sinh và tổng chỉ tiêu của trường.",
+      "reference": "7.5. Nguyên tắc xét tuyển\n...\n- Trong trường hợp không sử dụng hết chỉ tiêu tuyển sinh đã phân dự kiến theo từng phương thức đối với từng ngành thì Nhà trường sẽ chuyển số chỉ tiêu còn lại sang xét tuyển ở ngành khác còn nguồn tuyển theo phương thức đó hoặc chuyển sang phương thức khác của cùng ngành nếu còn nguồn tuyển. Nhà trường cam kết việc điều chuyển chỉ tiêu không làm ảnh hưởng đến quyền lợi của thí sinh dự tuyển và không thay đổi tổng chỉ tiêu tuyển sinh của Nhà trường và không vượt quá năng lực đào tạo của từng ngành.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.6010928961748633,
+        "answer_token_f1": 0.5229357798165137,
+        "answer_context_f1": 0.13393359594822737,
+        "answer_semantic_similarity": 0.8813597138356025,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.593
+      }
+    },
+    {
+      "id": "dt_022",
+      "question": "Khi nào trường sẽ công bố Đề án tuyển sinh cập nhật nếu có thay đổi?",
+      "answer": "Nếu có bất kỳ sự điều chỉnh, bổ sung nào từ Bộ GD&ĐT, ĐHQGHN hoặc của chính trường, Đề án tuyển sinh sẽ được cập nhật và công bố trước khi thí sinh đăng ký xét tuyển ít nhất 15 ngày theo quy định.",
+      "reference": "13.\tVề việc cập nhật, bổ sung, điều chỉnh Đề án tuyển sinh đại học\nĐề án tuyển sinh năm 2024 của Trường sẽ được cập nhật, bổ sung, điều chỉnh các thông tin mới (nếu có) của Bộ GD&ĐT, của ĐHQGHN, của Trường và được công bố trước khi thí sinh đăng ký xét tuyển ít nhất 15 ngày theo quy định.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5971563981042654,
+        "answer_token_f1": 0.7105263157894737,
+        "answer_context_f1": 0.03232998885172798,
+        "answer_semantic_similarity": 0.82333639874965,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.427
+      }
+    },
+    {
+      "id": "dt_079",
+      "question": "Trường Đại học Công nghệ đã tổ chức những hoạt động nào trong “Tuần lễ hội nhập sinh viên” hằng năm?",
+      "answer": "Trường Đại học Công nghệ tổ chức “Tuần lễ hội nhập sinh viên” với các hoạt động Tuần sinh hoạt công dân – sinh viên và phổ biến các nội dung theo hướng dẫn của Bộ Giáo dục & Đào tạo và Đại học Quốc gia Hà Nội (ĐHQGHN), mời cán bộ Công an Thành phố Hà Nội và giảng viên Học viện Chính trị – Hành chính Quốc gia Hồ Chí Minh phổ biến nội dung liên quan đến sinh viên, giới thiệu về ĐHQGHN, trường, quy chế đào tạo, quy chế công tác HSSV, kế hoạch học tập, sinh hoạt, hoạt động Đoàn thể.",
+      "reference": "\"Hằng năm, vào đầu năm học mới, Nhà Trường tổ chức “Tuần lễ hội nhập sinh viên” với các hoạt động Tuần sinh hoạt công dân – sinh viên và phổ biến các nội dung theo hướng dẫn của Bộ Giáo dục & Đào tạo và Đại học Quốc gia Hà Nội (ĐHQGHN). Nhà trường đã mời cán bộ phòng PA03 thuộc Công an Thành phố Hà Nội và Giảng viên Lý luận chính trị thuộc Học viện Chính trị – Hành chính Quốc gia Hồ Chí Minh trực tiếp phổ biến các nội dung liên quan tới sinh viên. Ngoài ra, sinh viên cũng được nghe giới thiệu về ĐHQGHN, về Trường, quy chế Đào tạo, quy chế Công tác HSSV, cũng như các nội dung liên quan tới kế hoạch học tập, sinh hoạt, hoạt động Đoàn thể.\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5969387755102041,
+        "answer_token_f1": 0.5714285714285714,
+        "answer_context_f1": 0.17903525046382188,
+        "answer_semantic_similarity": 0.8378883376486755,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.744
+      }
+    },
+    {
+      "id": "dt_087",
+      "question": "Trường Đại học Công nghệ đã tổ chức những hoạt động nào trong “Tuần lễ hội nhập sinh viên” hằng năm?",
+      "answer": "Trường Đại học Công nghệ tổ chức “Tuần lễ hội nhập sinh viên” với các hoạt động Tuần sinh hoạt công dân – sinh viên và phổ biến các nội dung theo hướng dẫn của Bộ Giáo dục & Đào tạo và Đại học Quốc gia Hà Nội (ĐHQGHN).  Sinh viên được nghe giới thiệu về ĐHQGHN, về Trường, quy chế Đào tạo, quy chế Công tác HSSV, cũng như các nội dung liên quan tới kế hoạch học tập, sinh hoạt, hoạt động Đoàn thể.",
+      "reference": "'Hằng năm, vào đầu năm học mới, Nhà Trường tổ chức “Tuần lễ hội nhập sinh viên” với các hoạt động Tuần sinh hoạt công dân – sinh viên và phổ biến các nội dung theo hướng dẫn của Bộ Giáo dục & Đào tạo và Đại học Quốc gia Hà Nội (ĐHQGHN). Nhà trường đã mời cán bộ phòng PA03 thuộc Công an Thành phố Hà Nội và Giảng viên Lý luận chính trị thuộc Học viện Chính trị – Hành chính Quốc gia Hồ Chí Minh trực tiếp phổ biến các nội dung liên quan tới sinh viên. Ngoài ra, sinh viên cũng được nghe giới thiệu về ĐHQGHN, về Trường, quy chế Đào tạo, quy chế Công tác HSSV, cũng như các nội dung liên quan tới kế hoạch học tập, sinh hoạt, hoạt động Đoàn thể.'",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo",
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5969387755102041,
+        "answer_token_f1": 0.47058823529411764,
+        "answer_context_f1": 0.17903525046382188,
+        "answer_semantic_similarity": 0.8448754422214825,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 5.243
+      }
+    },
+    {
+      "id": "dt_054",
+      "question": "Khi nào em có thể bắt đầu đăng ký xét tuyển theo phương thức kết hợp chứng chỉ IELTS ạ?",
+      "answer": "Nhà trường tổ chức đăng ký sớm và xét tuyển cho phương thức kết hợp chứng chỉ tiếng Anh quốc tế (IELTS, TOEFL) theo kế hoạch chung của Bộ GD&ĐT. Thời gian đăng ký và công bố kết quả sơ tuyển cụ thể sẽ được trường thông báo trên website tuyển sinh, dựa trên hướng dẫn của ĐHQGHN.",
+      "reference": "7.1. Thời gian và hình thức tuyển sinh\n...\nb)\tNhà trường tổ chức đăng ký sớm và xét tuyển theo kế hoạch chung của Bộ GDĐT dành cho các phương thức xét tuyển sau:\no\tXét tuyển theo chứng chỉ tiếng Anh quốc tế (IELTS, TOEFL) và điểm Toán, Lý THPT năm 2024 tối thiểu 14 điểm; \n...\n❖\tĐăng ký trực tuyến: thí sinh truy cập đường link https://tuyensinh.uet.vnu.edu.vn (mục đăng ký xét tuyển).\n❖\tThời hạn đăng ký và công bố kết quả sơ tuyển: Theo thông báo của Trường trên cơ sở văn bản hướng dẫn của ĐHQGHN. ",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT kết hợp"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.591304347826087,
+        "answer_token_f1": 0.39568345323741,
+        "answer_context_f1": 0.18640955004591367,
+        "answer_semantic_similarity": 0.8340313501193445,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.857
+      }
+    },
+    {
+      "id": "dt_048",
+      "question": "Sinh viên cần chuẩn bị những giấy tờ gì để đăng ký học bổng LG Display năm học 2022-2023?",
+      "answer": "Sinh viên cần chuẩn bị bảng điểm có xác nhận của đơn vị đào tạo, thông tin sinh viên (theo mẫu), và bản photo các giấy chứng nhận về thành tích học tập, hoạt động Đoàn – Hội, nghiên cứu khoa học, hoàn cảnh khó khăn (nếu có).  Tất cả giấy tờ cần được xếp thứ tự, đựng trong túi hồ sơ riêng, ghi đầy đủ thông tin bên ngoài. Hồ sơ cần nộp cả bản giấy, bản pdf (1 file duy nhất), và bản excel thông tin cá nhân (theo mẫu) gửi kèm vào email.",
+      "reference": "4. Đăng ký học bổng – Bảng điểm có xác nhận của đơn vị đào tạo. – Thông tin sinh viên (theo mẫu); – Bản photo các giấy chứng nhận về: Thành tích học tập, hoạt động Đoàn – Hội, nghiên cứu khoa học, hoàn cảnh khó khăn…(nếu có). Tất cả các giấy tờ trên yêu cầu sinh viên xếp theo thứ tự, đựng trong túi hồ sơ riêng, mặt ngoài túi hồ sơ ghi đầy đủ các thông tin (đăng ký học bổng LG Display năm học 2022-2023, Họ và tên, Ngày sinh, Địa chỉ Khoa – Trường, Điện thoại, Email, Danh mục hồ sơ). Hồ sơ đã nộp không trả lại. Hồ sơ nộp bao gồm cả bản giấy, bản pdf (cả bộ hồ sơ là 1 file pdf, không tách từng mục) và bản excel thông tin cá nhân (theo mẫu), trong đó bản pdf và bản excel xin gửi về hộp thư hangtt@vnu.edu.vn.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quyền lợi, nghĩa vụ & chính sách người học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5848375451263539,
+        "answer_token_f1": 0.31830238726790455,
+        "answer_context_f1": 0.2446965959546127,
+        "answer_semantic_similarity": 0.4060381705005413,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.355
+      }
+    },
+    {
+      "id": "dt_065",
+      "question": "Chương trình đào tạo nào yêu cầu tích lũy số tín chỉ cao nhất tại ĐHQGHN, và số tín chỉ cụ thể là bao nhiêu?",
+      "answer": "Chương trình đào tạo Y – Đa khoa yêu cầu tích lũy số tín chỉ cao nhất là 224 tín chỉ.",
+      "reference": "Tùy theo từng chương trình đào tạo, sinh viên phải tích lũy khoảng 120-160 tín chỉ (chưa kể các học phần điều kiện, chương trình Dược học 173 tín chỉ, Y – Đa khoa 224 tín chỉ) để tốt nghiệp và được công nhận học vị cử nhân/ kỹ sư. Đối với các chương trình đào tạo tài năng, tiên tiến, chất lượng cao sinh viên tích lũy số tín chỉ nhiều hơn 135 tín chỉ",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập",
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5833333333333334,
+        "answer_token_f1": 0.3047619047619048,
+        "answer_context_f1": 0.08213096559378469,
+        "answer_semantic_similarity": 0.7561812733185348,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.093
+      }
+    },
+    {
+      "id": "dt_057",
+      "question": "Hệ thống Doit được xây dựng với mục đích gì?",
+      "answer": "Hệ thống Doit được xây dựng với mục đích nâng cao chất lượng đồ án, khóa luận, luận văn của người học, và nói chung là chất lượng giáo dục và đào tạo, vì các hệ thống kiểm tra lỗi chính tả và phát hiện sao chép hiện có chủ yếu dành cho tiếng Anh và có phí sử dụng cao.",
+      "reference": "\"Với mục đích nâng cao chất lượng của các đồ án, khóa luận, luận văn của người học nói riêng và chất lượng giáo dục và đào tạo nói chung, nên chúng tôi đã quyết tâm xây dựng một hệ thống trực tuyến với những chức năng này.\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án",
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Tại sao",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5783132530120482,
+        "answer_token_f1": 0.33484162895927605,
+        "answer_context_f1": 0.17162086371284352,
+        "answer_semantic_similarity": 0.7882801287366196,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 66.356
+      }
+    },
+    {
+      "id": "dt_027",
+      "question": "Em muốn đăng ký xét tuyển sớm bằng điểm ĐGNL thì phải làm như thế nào?",
+      "answer": "Để đăng ký xét tuyển sớm bằng kết quả thi Đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức, thí sinh cần thực hiện đăng ký trực tuyến bằng cách truy cập vào đường link https://tuyensinh.uet.vnu.edu.vn và vào mục 'đăng ký xét tuyển'.",
+      "reference": "7.1. Thời gian và hình thức tuyển sinh\na)\tNhà trường tổ chức đăng ký và xét tuyển sớm dành cho các diện xét tuyển sau: \no\tXét tuyển dựa theo kết quả thi ĐGNL do ĐHQGHN tổ chức; \no\tXét tuyển theo chứng chỉ quốc tế gồm SAT, A-Level, ACT; \no\tXét tuyển thẳng theo quy chế tuyển sinh của Bộ GD&ĐT và theo cơ chế đặc thù của ĐHQGHN;\no\tXét tuyển thí sinh diện dự bị đại học.\n❖\tĐăng ký trực tuyến: thí sinh truy cập đường link https://tuyensinh.uet.vnu.edu.vn (mục đăng ký xét tuyển).",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5780346820809248,
+        "answer_token_f1": 0.3406113537117904,
+        "answer_context_f1": 0.16674937965260547,
+        "answer_semantic_similarity": 0.8596175939271885,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 4.209
+      }
+    },
+    {
+      "id": "dt_068",
+      "question": "Ngành Kỹ sư Kỹ thuật Máy tính tại Trường Đại học Công nghệ bắt đầu tuyển sinh từ năm nào?",
+      "answer": "Ngành Kỹ sư Kỹ thuật Máy tính tại Trường Đại học Công nghệ bắt đầu tuyển sinh từ năm 2017.",
+      "reference": "Ngành Kỹ sư Kỹ thuật Máy tính tại Trường Đại học Công nghệ (ĐHCN), Đại học Quốc gia Hà Nội (ĐHQGHN) bắt đầu tuyển sinh từ năm 2017 này là một ngành đào tạo có tính liên ngành cao về thiết kế, chế tạo máy tính, và các thiết bị điện tử thông minh, tích hợp kiến thức, kỹ năng và khai thác, phát huy thế mạnh cả về giảng dạy và nghiên cứu của hai khoa chủ chốt của Trường ĐHCN là Khoa Điện tử – Viễn thông và Khoa Công nghệ Thông tin.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5742574257425743,
+        "answer_token_f1": 0.9523809523809523,
+        "answer_context_f1": 0.021633315305570583,
+        "answer_semantic_similarity": 0.9482462765831066,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 3.258
+      }
+    },
+    {
+      "id": "dt_081",
+      "question": "Thời hạn cuối cùng để sinh viên các khóa cũ tốt nghiệp đợt xét tháng 12/2020 nộp phiếu đánh giá điểm rèn luyện học kỳ II năm học 2019-2020 và những học kỳ còn thiếu là khi nào?",
+      "answer": "Thời hạn cuối cùng để để sinh viên các khóa cũ tốt nghiệp đợt xét tháng 12/2020 nộp phiếu đánh giá điểm rèn luyện học kỳ II năm học 2019-2020 và những học kỳ còn thiếu là 15h30 ngày 24/12/2020",
+      "reference": "Trước 15h30 ngày 24/12/2020: Tự làm phiếu đánh giá điểm rèn luyện HKII năm học 2019-2020 và những học kỳ còn thiếu (không nhất thiết phải lấy xác nhận của cố vấn học tập), nộp trực tiếp tại phòng CTSV.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5733333333333334,
+        "answer_token_f1": 0.9555555555555557,
+        "answer_context_f1": 0.04985507246376812,
+        "answer_semantic_similarity": 0.9437085101693834,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 4.781
+      }
+    },
+    {
+      "id": "dt_064",
+      "question": "Ngoài cơ sở ở Cầu Giấy, trường còn có địa điểm học tập nào khác không?",
+      "answer": "Có. Ngoài khu học tập chính tại Cầu Giấy (144 Xuân Thủy và số 8 Tôn Thất Thuyết), trường còn có khu học tập tại Hòa Lạc (cơ sở của Đại học Quốc gia Hà Nội tại Hòa Lạc, xã Thạch Hoà, huyện Thạch Thất, Hà Nội).",
+      "reference": "6.1.\tĐịa điểm học\n- Trường ĐHCN có hai khu học tập chính:\na)\tKhu Cầu Giấy gồm: địa chỉ 144 Xuân Thủy, Cầu Giấy, Hà Nội; địa chỉ số 8 Tôn Thất Thuyết, Hà Nội. Hầu hết các ngành và hầu hết thời gian sinh viên học tập tại địa điểm này.\nb)\tKhu Hoà Lạc: địa chỉ cơ sở Đại học Quốc gia Hà Nội tại Hòa Lạc (Xã Thạch Hoà, huyện Thạch Thất, Hà Nội).",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "ĐBCL"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5725190839694656,
+        "answer_token_f1": 0.4747474747474747,
+        "answer_context_f1": 0.1744730679156909,
+        "answer_semantic_similarity": 0.7588838380362314,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 3.406
+      }
+    },
+    {
+      "id": "dt_035",
+      "question": "Nếu em đã nộp lệ phí xét tuyển sớm nhưng sau đó không đăng ký nguyện vọng lên hệ thống Bộ GDĐT thì có được hoàn lại lệ phí không?",
+      "answer": "Đề án tuyển sinh không có quy định về việc hoàn trả lệ phí xét tuyển trong bất kỳ trường hợp nào. Lệ phí 30,000đ/phương thức là phí để xử lý hồ sơ đăng ký sớm.",
+      "reference": "9. Lệ phí xét tuyển\n❖\tTheo quy định của Bộ GD&ĐT.\n❖\tLệ phí nộp đăng ký sớm: 30,000 đ/phương thức.",
+      "multi_intent": 0.0,
+      "insufficient_context": true,
+      "reasoning_level": 1,
+      "topic": [
+        "Thông tin nhập học"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5679012345679012,
+        "answer_token_f1": 0.16143497757847533,
+        "answer_context_f1": 0.16316316316316315,
+        "answer_semantic_similarity": 0.6228114396597565,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 6.978
+      }
+    },
+    {
+      "id": "dt_043",
+      "question": "Lệ phí đăng ký xét tuyển sớm là bao nhiêu?",
+      "answer": "Lệ phí để nộp hồ sơ đăng ký xét tuyển sớm là 30,000 đồng cho mỗi phương thức đăng ký.",
+      "reference": "9. Lệ phí xét tuyển\n❖\tTheo quy định của Bộ GD&ĐT.\n❖\tLệ phí nộp đăng ký sớm: 30,000 đ/phương thức.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5679012345679012,
+        "answer_token_f1": 0.6857142857142857,
+        "answer_context_f1": 0.014332965821389194,
+        "answer_semantic_similarity": 0.8467116705598553,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.47
+      }
+    },
+    {
+      "id": "dt_094",
+      "question": "Những cơ sở pháp lý nào được sử dụng để làm căn cứ cho việc cấp kinh phí hỗ trợ chi phí học tập/hỗ trợ học tập, học kỳ II năm học 2021-2022 cho sinh viên đại học hệ chính quy của Trường Đại học Công nghệ?",
+      "answer": "Việc cấp kinh phí dựa trên Quy định về Tổ chức và Hoạt động của Đại học Quốc gia Hà Nội (Quyết định số 3568/QĐ-ĐHQGHN ngày 08/10/2014), Quyết định số 66/2013/QĐ-TTg ngày 11/11/2013 của Thủ tướng Chính phủ, Thông tư số 35/2014/TTLT-BGDĐT-BTC ngày 15/10/2014, Nghị định số 57/2017/NĐ-CP ngày 09/05/2017, Nghị định số 07/2021/NĐ-CP ngày 27/01/2021, và Quy chế về Tổ chức và hoạt động của Trường Đại học Công nghệ (Quyết định số 520/QĐ-ĐHCN ngày 19/07/2016).",
+      "reference": "Căn cứ Quy định về Tổ chức và Hoạt động của Đại học Quốc gia Hà Nội được ban hành theo Quyết định số 3568/QĐ-ĐHQGHN ngày 08/10/2014 của Giám đốc Đại học Quốc gia Hà Nội quy định về tổ chức và hoạt động của các đơn vị thành viên và đơn vị trực thuộc ĐHQGHN;\n\nCăn cứ Quyết định số 66/2013/QĐ-TTg ngày 11 tháng 11 năm 2013 của Thủ tướng Chính phủ Quy định chính sách hỗ trợ chi phí học tập đối với sinh viên là người dân tộc thiểu số học tại các cơ sở giáo dục Đại học;\n\nCăn cứ Thông tư số 35/2014/TTLT-BGDĐT-BTC ngày 15/10/2014 của Bộ Giáo dục và Đào tạo, Bộ Tài chính hướng dẫn thực hiện Quyết định số 66/2013/QĐ-TTg;\n\nCăn cứ Nghị định số 57/2017/NĐ-CP ngày 09 tháng 05 năm 2017 của Thủ tướng Chính phủ Quy định chính sách ưu tiên tuyển sinh và hỗ trợ học tập đối với trẻ mẫu giáo, học sinh, sinh viên là người dân tộc thiểu số rất ít người;\n\nCăn cứ Nghị định số 07/2021/NĐ-CP ngày 27/01/2021 của Thủ tướng chính phủ về Quy định chuẩn đa chiều giai đoạn 2021-2025;\n\nCăn cứ Quy chế về Tổ chức và hoạt động của Trường Đại học Công nghệ được ban hành theo Quyết định số 520/QĐ-ĐHCN ngày 19/07/2016 của Hiệu trưởng Trường Đại học Công nghệ;",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5628517823639775,
+        "answer_token_f1": 0.37426900584795314,
+        "answer_context_f1": 0.18308702791461412,
+        "answer_semantic_similarity": 0.6327940153502876,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 3.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.348
+      }
+    },
+    {
+      "id": "dt_005",
+      "question": "Thời khóa biểu học kỳ II năm học 2023-2024 cho sinh viên khu vực Cầu Giấy bắt đầu từ khi nào?",
+      "answer": "Thời khóa biểu bắt đầu thực hiện từ thứ Hai ngày 29/01/2024; lịch thực hành/bài tập bắt đầu chậm hơn 1 tuần so với lịch học lý thuyết. Lưu ý: Thời khóa biểu này không dành cho các sinh viên K68 đang học tại khu vực Hòa Lạc.",
+      "reference": "\"Thời khóa biểu chính thức khu vực Cầu Giấy học kỳ II năm học 2023-2024 Phòng Đào tạo (PĐT) trân trọng gửi tới toàn thể sinh viên bậc đại học Thời khóa biểu chính thức khu vực Cầu Giấy học kỳ II năm học 2023-2024, cụ thể như sau: 1. Thời khóa biểu bắt đầu thực hiện từ thứ Hai ngày 29/01/2024; lịch thực hành/bài tập bắt đầu chậm hơn 1 tuần so với lịch học lý thuyết. Thời khóa biểu này không dành cho các sinh viên K68 đang học tại khu vực Hòa Lạc.\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5564738292011019,
+        "answer_token_f1": 0.7207207207207207,
+        "answer_context_f1": 0.06363137685134394,
+        "answer_semantic_similarity": 0.7633470340388899,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 5.204
+      }
+    },
+    {
+      "id": "dt_023",
+      "question": "Trường Đại học Công nghệ dựa trên những căn cứ nào để quyết định tặng học bổng Kiraboshi năm học 2022-2023?",
+      "answer": "Trường Đại học Công nghệ dựa trên Quyết định số 3568/QĐ-ĐHQGHN ngày 08 tháng 10 năm 2014 của Giám đốc Đại học Quốc gia Hà Nội, Nghị quyết số 985/NQ-HĐT ngày 08 tháng 11 năm 2022 của Hội đồng trường Trường Đại học Công nghệ, thỏa thuận Tài trợ cho Giáo dục giữa Chi nhánh Hà Nội Công ty Cổ phần phần mềm MOR và Trường Đại học Công nghệ, kết quả xét chọn của Chi nhánh Hà Nội Công ty Cổ phần phần mềm MOR và đề nghị của Trưởng phòng Công tác Sinh viên.",
+      "reference": "Căn cứ Quyết định số 3568/QĐ-ĐHQGHN ngày 08 tháng 10 năm 2014 của Giám đốc Đại học Quốc gia Hà Nội, quy định về tổ chức và hoạt động của các đơn vị thành viên và đơn vị trực thuộc ĐHQGHN;Căn cứ Nghị quyết số 985/NQ-HĐT ngày 08 tháng 11 năm 2022 của Hội đồng trường Trường Đại học Công nghệ, về việc ban hành Quy chế tạm thời về tổ chức và hoạt động của Trường Đại học Công nghệ;Căn cứ thỏa thuận Tài trợ cho Giáo dục giữa Chi nhánh Hà Nội Công ty Cổ phần phần mềm MOR (MOR) và Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội;Căn cứ kết quả xét chọn của Chi nhánh Hà Nội Công ty Cổ phần phần mềm MOR;Theo đề nghị của Trưởng phòng Công tác Sinh viên.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo",
+        "Tổ chức đào tạo & Quản lý học tập",
+        "Quyền lợi, nghĩa vụ & chính sách người học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5560975609756097,
+        "answer_token_f1": 0.2561576354679803,
+        "answer_context_f1": 0.08333333333333333,
+        "answer_semantic_similarity": 0.4798207293518023,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.53
+      }
+    },
+    {
+      "id": "dt_004",
+      "question": "Địa điểm tổ chức lễ tổng duyệt và lễ trao bằng tốt nghiệp cho sinh viên Ca 1 và Ca 2 khác nhau như thế nào?",
+      "answer": "Lễ tổng duyệt cho sinh viên Ca 1 diễn ra tại Hội trường Nguyễn Văn Đạo, còn Ca 2 diễn ra tại 3G3 trước khi di chuyển lên Hội trường Nguyễn Văn Đạo. Buổi lễ chính thức, Ca 1 diễn ra tại Hội trường Nguyễn Văn Đạo, còn Ca 2 bắt đầu tại 3G3 để nhận lễ phục rồi mới lên Hội trường Nguyễn Văn Đạo.",
+      "reference": "1. Lịch tổng duyệt: Chiều thứ Năm ngày 29/06/2023\n+Ca 1:NCS/HV/SV có mặt từ 13h00 tại Hội trường Nguyễn Văn Đạo để ký nhận bằng, nộp tiền in sao bằng và bảng điểm (với NCS/HV) (100,000đ), nhận lễ phục, chạy tổng duyệt, nghe hướng dẫn và làm các thủ tục liên quan đến việc nhận Bằng tốt nghiệp (khi đi nhớ mang theo CMND hoặc CCCD hoặc hộ chiếu bản gốc) (Danh sách Ca 1 xem trongPhụ lục 1).\n+Ca 2: Sinh viên có mặt từ 14h15 tại 3G3 để kí nhận bằng, sau đó di chuyển lên Hội trường Nguyễn Văn Đạo để chạy tổng duyệt vào lúc 15h15, nghe hướng dẫn và làm các thủ tục liên quan đến việc nhận Bằng tốt nghiệp (khi đi nhớ mang theo CMND hoặc CCCD hoặc hộ chiếu bản gốc) (Danh sách Ca 2 xem trongPhụ lục 2).\n2. Buổi Lễ: Sáng thứ Sáu ngày 30/06/2023\n+Ca 1:7h30 NCS/HV/SV có mặt tại Hội trường Nguyễn Văn Đạo (Danh sách Ca 1 xem trong Phụ lục 1). Yêu cầu người học mặc lễ phục chỉnh tề trước khi vào Hội trường (các sinh viên nhận khen thưởng trên sân khấu có yêu cầu riêng về trang phục).\n+Ca 2:9h00 sinh viên có mặt tại 3G3 để nhận lễ phục, khi có hướng dẫn mới di chuyển lên Hội trường Nguyễn Văn Đạo (Danh sách Ca 2 xem trong Phụ lục 2).\n+ Yêu cầu chung với toàn bộ người học đến tham gia buổi Lễ: Trang phục bắt buộc là áo trắng, quần sẫm màu, sơ vin và đi giày (đối với nam); áo trắng/áo dài/váy dài, quần sẫm màu và đi giày (đối với nữ).\nThông qua người học, Nhà trường trân trọng kính mời phụ huynh/người nhà của người nhận bằng tới tham dự buổi Lễ (ngồi trên tầng 2 của Hội trường). Giấy mời được gửi qua Email của người học.\nNgười học đến nhận bằng tuân thủ một số nội dung như sau:\nYêu cầu tất cả người học đọc kỹ các nội dung, tham gia đầy đủ, đúng giờ buổi tổng duyệt và buổi Lễ để chương trình diễn ra thành công.\nĐề nghị các Ban Chủ nhiệm Khoa/Viện thông báo rộng rãi tới người học tốt nghiệp đợt tháng 06/2023 được biết, đến dự Lễ đầy đủ, đúng giờ./.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.551111111111111,
+        "answer_token_f1": 0.3289473684210526,
+        "answer_context_f1": 0.19935691318327975,
+        "answer_semantic_similarity": 0.7993357369266706,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 7.884
+      }
+    },
+    {
+      "id": "dt_092",
+      "question": "Sinh viên cần đáp ứng những điều kiện gì để được xét học bổng BIDV năm học 2021-2022?",
+      "answer": "Sinh viên năm thứ 2, 3, 4; tích cực tham gia hoạt động Đoàn - Hội và hoạt động vì cộng đồng, có hoàn cảnh khó khăn; có kết quả học tập năm học 2020-2021 từ 2.5 trở lên, kết quả rèn luyện từ Tốt trở lên (sinh viên khóa QH-2021 có kết quả thi THPT cao); chưa từng nhận hoặc không đang nhận học bổng khác năm học 2021-2022.",
+      "reference": "Ngày 10/11/2021, trường Đại học Công nghệ nhận được Biên bản xác nhận tài trợ của Ngân hàng TMCP Đầu tư và Phát triển VN, chi nhánh Cầu Giấy (gọi tắt là BIDV), nhằm mục đích tài trợ học bổng giáo dục, năm học 2021-2022. Thông tin chi tiết về học bổng dành cho sinh viên đại học hệ chính quy, Trường Đại học Công nghệ như sau:\n\nSinh viên năm thứ 2, 3, 4 thỏa mãn các yêu cầu sau:\n\n– Tích cực tham gia các hoạt động Đoàn – Hội và các hoạt động vì cộng đồng, có hoàn cảnh khó khăn.\n\n– Có kết quả học tập trong năm học 2020-2021 đạt từ 2.5 trở lên, kết quả rèn luyện từ Tốt trở lên; sinh viên khóa QH-2021 có kết quả thi THPT cao.\n\n– Chưa từng nhận hoặc không đang trong thời gian đề xuất nhận học bổng khác trong năm học 2021-2022.\n\n– Bản tự giới thiệu của sinh viên, có dán ảnh (theo mẫu); \n\n– Bảng điểm năm học 2020-2021 của sinh viên, có xác nhận của đơn vị đào tạo hoặc giấy triệu tập thí sinh trúng tuyển; \n\n– Giấy xác nhận hoàn cảnh gia đình, có dấu của cơ quan có thẩm quyền (bản chính hoặc bản photo công chứng); \n\n– Bản photo các chứng nhận về: thành tích học tập, hoạt động Lớp-Đoàn-Hội, nghiên cứu khoa học…(nếu có).\n\nTất cả các giấy tờ trên yêu cầu sinh viên xếp theo thứ tự, đựng trong túi hồ sơ riêng có kích thước 25cm x 34 cm, mặt ngoài túi hồ sơ ghi đầy đủ các thông tin (Đăng ký học bổng BIDV năm học 2021-2022, Họ và tên, Ngày sinh, Địa chỉ Khoa, Trường, Điện thoại, Email, Danh mục tài liệu). Hồ sơ đã nộp không trả lại.\n\nSinh viên tìm hiểu kỹ các thông tin về học bổng trên và đăng ký tham gia chương trình học bổng nếu đủ điều kiện.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quyền lợi, nghĩa vụ & chính sách người học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5500848896434634,
+        "answer_token_f1": 0.16363636363636364,
+        "answer_context_f1": 0.031168831168831165,
+        "answer_semantic_similarity": 0.4852598398699881,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.602
+      }
+    },
+    {
+      "id": "dt_003",
+      "question": "Năm 2022,  Trường Đại học Công nghệ sử dụng những chứng chỉ quốc tế nào để xét tuyển?",
+      "answer": "Năm 2022, Trường Đại học Công nghệ sử dụng các chứng chỉ quốc tế sau để xét tuyển: Chứng chỉ quốc tế A-Level của Trung tâm Khảo thí Đại học Cambridge (điểm mỗi môn từ 60/100 trở lên), kết quả thi chuẩn hóa SAT (từ 1100/1600 trở lên), kết quả thi chuẩn hóa ACT (từ 22/36 trở lên), và chứng chỉ IELTS từ 5.5 trở lên hoặc chứng chỉ tiếng Anh quốc tế tương đương.",
+      "reference": "III. Xét tuyển bằng các chứng chỉ quốc tế và kết quả thi ĐGNL\n\n1. Xét tuyển bằng các chứng chỉ quốc tế\n\na. Thí sinh có Chứng chỉ quốc tế A-Level của Trung tâm Khảo thí Đại học Cambridge (Anh) theo điểm 3 môn thi theo các tổ hợp quy định của ngành đào tạo tương ứng đảm bảo mức điểm mỗi môn thi đạt từ 60/100 điểm trở lên (tương ứng điểm C, PUM range ≥ 60);\n\nb. Thí sinh có kết quả trong kỳ thi chuẩn hóa SAT (Scholastic Assessment Test, Hoa Kỳ) đạt điểm từ 1100/1600 trở lên.Mã đăng ký của ĐHQGHN với Tổ chức thi SAT(The College Board) là 7853-Vietnam National University-Hanoi (thí sinh phải khai báo mã đăng ký trên khi đăng ký thi SAT);\n\nc. Thí sinh có kết quả trong kỳ thi chuẩn hóa ACT (American College Testing) đạt điểm từ 22/36;\n\nd. Thí sinh có chứng chỉ tiếng Anh IELTS từ 5,5 trở lên hoặc chứng chỉ tiếng Anh quốc tế tương đương và có tổng điểm 2 môn Toán và Lý trong kỳ thi THPT đạt tối thiểu 14 điểm trong kỳ thi THPT năm 2022.\n\nGhi chú:Các chứng chỉ quốc tế phải còn hạn sử dụng tính đến ngày ĐKXT (thời hạn sử dụng 02 năm kể từ ngày dự thi).\n\nBẢNG QUY ĐỔI ĐIỂM CHỨNG CHỈ TIẾNG ANH QUỐC TẾ\n\n\\begin{tabular}{|l|l|l|}\n\\hline\nSTT & Trình độ Tiếng Anh & Quy đổi điểm theo thang điểm 10 \\\\\n\\hline\nIELTS & TOEFL iBT \\\\\n\\hline\n1 & 5.5 & 65-78 & 8.50 \\\\\n\\hline\n2 & 6.0 & 79-87 & 9.00 \\\\\n\\hline\n3 & 6.5 & 88-95 & 9.25 \\\\\n\\hline\n4 & 7.0 & 96-101 & 9.50 \\\\\n\\hline\n5 & 7.5 & 102-109 & 9.75 \\\\\n\\hline\n6 & 8.0-9.0 & 110-120 & 10.00 \\\\\n\\hline\n\\end{tabular}",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5441696113074205,
+        "answer_token_f1": 0.26294820717131473,
+        "answer_context_f1": 0.12879581151832462,
+        "answer_semantic_similarity": 0.6748786877377927,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 6.097
+      }
+    },
+    {
+      "id": "dt_058",
+      "question": "Thí sinh tốt nghiệp trước năm 2024 có được xét tuyển bằng điểm thi THPT không?",
+      "answer": "Có, nhưng thí sinh tốt nghiệp trước năm 2024 phải dự thi lại các môn theo tổ hợp xét tuyển trong kỳ thi tốt nghiệp THPT năm 2024 để được xét tuyển.",
+      "reference": "3.\tPhương thức tuyển sinh: Xét tuyển\n(1)\tXét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024: thí sinh tham dự kỳ thi tốt nghiệp THPT năm 2024 do Bộ GD&ĐT và các Sở GD&ĐT tổ chức (bao gồm cả diện thí sinh sử dụng chứng chỉ tiếng Anh (theo Phụ lục 2) để thay thế môn tiếng Anh trong tổ hợp xét tuyển). Đối với thí sinh tốt nghiệp trước năm 2024 phải dự thi lại các môn theo tổ hợp xét tuyển.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5405405405405406,
+        "answer_token_f1": 0.5217391304347826,
+        "answer_context_f1": 0.0681265206812652,
+        "answer_semantic_similarity": 0.8745688917696746,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 5.846
+      }
+    },
+    {
+      "id": "dt_076",
+      "question": "Hồ sơ đăng ký học bổng Brother cần nộp những giấy tờ gì và nộp ở đâu?",
+      "answer": "Hồ sơ gồm sơ yếu lý lịch (có xác nhận), bảng điểm năm học 2017-2018 (hoặc học bạ và giấy báo nhập học đối với sinh viên năm nhất), giấy xác nhận hộ nghèo/cận nghèo (nếu có), giấy chứng nhận tham gia các hoạt động xã hội, NCKH (nếu có). Tất cả được xếp theo thứ tự trong túi hồ sơ kích thước 25cm x 34cm, ghi đầy đủ thông tin bên ngoài. Nộp tại Phòng Công tác sinh viên (P.104-E3) trước 16h ngày 20/9/2018.",
+      "reference": " 3. Hồ sơ đăng ký học bổng – Sơ yếu lý lịch (Sơ yếu lý lịch) có xác nhận của nhà trường hoặc địa phương. – Bảng điểm năm học 2017-2018 (đối với sinh viên năm thứ hai, ba, tư)/bản photo học bạ và bản photo giấy báo nhập học (đối với sinh viên năm thứ nhất). – Giấy xác nhận hộ nghèo/cận nghèo (nếu có). – Giấy chứng nhận tham gia các hoạt động xã hội, NCKH,…(nếu có). Tất cả các giấy tờ trên yêu cầu sinh viên xếp theo thứ tự, đựng trong túi hồ sơ riêng có kích thước 25cm x 34 cm. Mặt ngoài túi hồ sơ ghi đầy đủ các thông tin (xét chọn học bổng Brother, năm học 2018-2019, Họ và tên, Ngày sinh, Địa chỉ Khoa, Trường, Điện thoại, Email, Danh mục các loại giấy tờ có). Hồ sơ đã nộp không trả lại. Hồ sơ đăng ký học bổng của sinh viên nộp tại Phòng Công tác sinh viên (P.104-E3) chậm nhất đến 16 giờ ngày 20/9/2018.",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo",
+        "Tổ chức đào tạo & Quản lý học tập",
+        "Quyền lợi, nghĩa vụ & chính sách người học"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.54,
+        "answer_token_f1": 0.1875,
+        "answer_context_f1": 0.06410256410256411,
+        "answer_semantic_similarity": 0.4304183710986999,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.715
+      }
+    },
+    {
+      "id": "dt_020",
+      "question": "Những sinh viên nào sẽ học tại cơ sở Hòa Lạc?",
+      "answer": "Cơ sở Hòa Lạc dành cho sinh viên năm thứ nhất của 6 ngành: Vật lý kỹ thuật (CN3), Cơ kỹ thuật (CN4), Công nghệ kỹ thuật xây dựng (CN5), Công nghệ hàng không vũ trụ (CN7), Kỹ thuật năng lượng (CN13), và Công nghệ nông nghiệp (CN10).",
+      "reference": "6.1.\tĐịa điểm học\n...\nb)\tKhu Hoà Lạc: ... Địa điểm này chỉ dành cho sinh viên của 6 ngành (thông tin có trong bảng 6) học và ở ký túc xá tập trung trong năm thứ nhất, từ năm thứ 2 trở đi, sinh viên sẽ quay trở lại học tập tại khu vực Cầu Giấy. \nBảng 6. Thông tin địa điểm học các ngành tuyển sinh năm 2024\n...\n(Liệt kê 6 ngành có địa điểm học là Hòa Lạc năm 1).",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "ĐBCL"
+      ],
+      "question_type": "Ai",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5393258426966292,
+        "answer_token_f1": 0.3025210084033613,
+        "answer_context_f1": 0.07865818392134181,
+        "answer_semantic_similarity": 0.7361131753752139,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.019
+      }
+    },
+    {
+      "id": "dt_069",
+      "question": "Năm 2020, trường Đại học Công nghệ có bao nhiêu chỉ tiêu xét tuyển vào chương trình đào tạo chất lượng cao ngành Công nghệ thông tin?",
+      "answer": "Năm 2020, trường Đại học Công nghệ có 50 chỉ tiêu xét tuyển vào chương trình đào tạo chất lượng cao ngành Công nghệ thông tin.",
+      "reference": "Căn cứ Hướng dẫn công tác tuyển sinh đại học chính quy năm 2020 ở Đại học Quốc gia Hà Nội ban hành theo Công văn số 1539/HD-ĐHQGHN ngày 26/05/2020 của Giám đốc Đại học Quốc gia Hà Nội;\n\nCăn cứ Đề án tuyển sinh Đại học chính quy năm 2020 của trường Đại học Công nghệ;\n\nPhòng Đào tạo thông báo xét tuyển vào chương trình đào tạo (CTĐT)\t chất lượng cao ngành Công nghệ thông tin năm 2020, đại học hệ chính quy khoá QH.2020 như sau:\n\n1. Đối tượng và chỉ tiêu\n\n–Đối tượng: Sinh viên khóa QH.2020 đã trúng tuyển vào trường Đại học Công nghệ – ĐHQGHN thuộc nhóm ngành Công nghệ thông tin (CN1).\n\n–Chỉ tiêu:50\t",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5392670157068064,
+        "answer_token_f1": 0.7384615384615384,
+        "answer_context_f1": 0.0364963503649635,
+        "answer_semantic_similarity": 0.7498976829498565,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 5.198
+      }
+    },
+    {
+      "id": "dt_084",
+      "question": "Hệ thống LED chiếu sáng và giám sát thông số trong nông nghiệp ứng dụng công nghệ IoT do nhóm nghiên cứu của TS. Bùi Đình Tú có những tính năng nổi bật nào?",
+      "answer": "Hệ thống có các module tùy theo độ phức tạp, bao gồm cảm biến cường độ ánh sáng, độ ẩm, nhiệt độ, độ pH; khả năng hiển thị, điều khiển từ xa qua internet và mạng GSM; có thể lựa chọn hoặc được tư vấn các module phù hợp; các module điều khiển áp dụng công nghệ khoa học kết hợp với mạng internet thông qua các phần mềm. Hệ thống được thiết kế nhỏ gọn và tính năng mở rộng bằng việc kết nối với nhiều cảm biến theo yêu cầu. Được bảo hành trọn đời và khắc phục sự cố kỹ thuật ngay. Cảm biến được thiết kế và chuẩn hóa với vật liệu, linh kiện chống ăn mòn, nâng cao độ bền. Hệ thống được giám sát trên điện thoại qua phần mềm có độ bảo mật cao.",
+      "reference": "Sau thành công tại cuộc thi “Sáng tạo khởi nghiệp ĐHQGHN 2017”, TS. Bùi Đình Tú (Chủ nhiệm Bộ môn Kỹ thuật năng lượng, Phó chủ nhiệm khoa) cùng ThS. Nguyễn Đăng Cơ và nhóm sinh viên Khoa Vật lý kỹ thuật và Công nghệ nano (Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội) tiếp tục phát triển và cải tiến sản phẩm “Hệ thống LED chiếu sáng và các hệ thống giám sát thông số trong nông nghiệp ứng dụng công nghệ IoT”. Phát triển sản phẩm để chuyển giao công nghệ Sau 4 năm nghiên cứu và hoàn thiện hệ thống, TS. Bùi Đình Tú cùng các thành viên trong nhóm nghiên cứu đã thiết lập thành bộ sản phẩm “Hệ thống LED chiếu sáng và các hệ thống giám sát thông số trong nông nghiệp ứng dụng công nghệ IoT” để sản xuất hàng loạt khi cần lắp đặt hoặc chuyển giao công nghệ. Đồng thời, nhóm nghiên cứu đã cải tiến để các hệ thống trở thành thiết bị nhỏ gọn và tính năng được mở rộng bằng việc kết nối với nhiều cảm biến theo yêu cầu người dùng. TS. Bùi Đình Tú cùng ThS. Nguyễn Đăng Cơ và nhóm sinh viên Khoa Vật lý kỹ thuật và Công nghệ nano đã nghiên cứu, chuyển giao mô hình hệ thống LED chiếu sáng và thiết bị giám sát thông số trong nông nghiệp ứng dụng công nghệ IoT Chia sẻ về hệ thống chiếu sáng và giám sát thông số trong nông nghiệp, TS. Bùi Đình Tú cho biết: “Thiết bị có các module tùy theo độ phức tạp của thành phần, quy mô sản xuất nông nghiệp, trong đó bao gồm các module cảm biến như cảm biến cường độ ánh sáng, độ ẩm không khí, nhiệt độ, độ pH, có khả năng hiển thị, điều khiển từ xa thông qua kết nối internet, mạng GSM,…., tùy theo nhu cầu sử dụng khách hàng có thể lựa chọn, hoặc được tư vấn để lựa chọn các module phù hợp. Các module điều khiển áp dụng công nghệ khoa học kết hợp với mạng internet thông qua các phần mềm”. Do nhu cầu áp dụng công nghệ kỹ thuật trong công nghệ ngày càng phát triển, nên sau khi hệ thống được phát triển thì nhóm nghiên cứu đã nhận được sự quan tâm từ các doanh nghiệp, trung tâm nghiên cứu. Cụ thể là hệ thống chiếu sáng đã được nhóm nghiên cứu phối hợp với Trung tâm công nghệ sinh học – Viện nghiên cứu ứng dụng & phát triển trường Đại học Hùng Vương (Phú Thọ) chuyển giao cho các trung tâm và các hộ trồng lan trong cả nước. Hệ thống LED chiếu sáng được chuyển giao và ứng dụng tại vườn lan – Kiên Trần (Việt Trì, Phú Thọ) và nhiều hộ trồng lan trên cả nước Đối với hệ thống LED chiếu sáng và các hệ thống giám sát thông số trong nông nghiệp ứng dụng công nghệ IoT do nhóm nghiên cứu làm chủ công nghệ nên hệ thống sẽ được bảo hành trọn đời và nếu xảy ra sự cố kỹ thuật sẽ được xử lý, khắc phục ngay. Bên cạnh đó, với thế mạnh về vật lý nhóm nghiên cứu sẽ thiết kế và chuẩn hóa cảm biến với những vật liệu, linh kiện chống chọi sự ăn mòn trong quá trình điện hóa, phù hợp với môi trường để nâng cao độ bền cho sản phẩm. Quan trọng nhất là, hệ thống được giám sát trên điện thoại thông qua phần mềm do nhóm nghiên cứu xây dựng với độ bảo mật cao.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5389908256880734,
+        "answer_token_f1": 0.4466019417475728,
+        "answer_context_f1": 0.17340425531914894,
+        "answer_semantic_similarity": 0.5416250400240894,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.955
+      }
+    },
+    {
+      "id": "dt_062",
+      "question": "Học phí dự kiến cho ngành Công nghệ thông tin năm học 2024-2025 là bao nhiêu?",
+      "answer": "Học phí dự kiến cho ngành Công nghệ thông tin năm học 2024-2025 là 40.000.000 đồng.",
+      "reference": "\begin{tabular}{|l|l|l|l|}\n\\hline\nHọc phí năm học 2024-2025(dự kiến) & Mã xét tuyển & Ngành đào tạo & Địa điểm học \\\n\\hline\n40,000,000 & CN1 & Công nghệ thông tin & Cầu Giấy \\\n\\hline\nCN2 & Kỹ thuật máy tính \\\n\\hline\nCN6 & Công nghệ kỹ thuật cơ điện tử \\\n\\hline\nCN8 & Khoa học máy tính \\\n\\hline\nCN9 & Công nghệ kỹ thuật điện tử – viễn thông \\\n\\hline\nCN14 & Hệ thống thông tin \\\n\\hline\n32,000,000 & CN11 & Kỹ thuật điều khiển và tự động hóa \\\n\\hline\nCN12 & Trí tuệ nhân tạo \\\n\\hline\nCN18 & Thiết kế công nghiệp và đồ họa \\\n\\hline\nCN10 & Công nghệ nông nghiệp & – Năm thứ nhất học tại Hòa Lạc– Từ năm thứ hai học tại Cầu Giấy \\\n\\hline\n40,000,000 & CN3 & Vật lý kỹ thuật \\\n\\hline\nCN4 & Cơ kỹ thuật \\\n\\hline\nCN5 & Công nghệ kỹ thuật xây dựng \\\n\\hline\nCN7 & Công nghệ hàng không vũ trụ \\\n\\hline\nCN13 & Kỹ thuật năng lượng \\\n\\hline\nCN15 & Mạng máy tính và truyền thông dữ liệu \\\n\\hline\nCN17 & Kỹ thuật Robot \\\n\\hline\n\\end{tabular}\n\n(dự kiến)\n\nGhi chú:Mức học phí có thể được điều chỉnh cho các năm học sau, nhưng không tăng quá 15% mỗi năm.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tài chính, thanh tra & xử lý vi phạm"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5382059800664452,
+        "answer_token_f1": 0.4810126582278481,
+        "answer_context_f1": 0.06424242424242424,
+        "answer_semantic_similarity": 0.9332369171344753,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 34.46
+      }
+    },
+    {
+      "id": "dt_014",
+      "question": "Việc quy đổi điểm chứng chỉ ngoại ngữ sang điểm thi THPT có áp dụng cho chứng chỉ Cambridge không ạ?",
+      "answer": "Có. Chứng chỉ Cambridge được chấp nhận để quy đổi điểm. Mức điểm quy đổi phụ thuộc vào loại chứng chỉ và điểm số đạt được, ví dụ B1 Preliminary đạt 160 điểm sẽ tương đương 8.5 điểm, B2 First đạt 170 điểm tương đương 9.5 điểm.",
+      "reference": "PHỤ LỤC 2\n(Kèm theo Công văn số          /ĐHCN-ĐT ngày      tháng     năm 2024 \ncủa Trường Đại học Công nghệ)\n\nDanh mục các chứng chỉ ngoại ngữ quy đổi điểm thay thế điểm môn tiếng Anh\ntrong kỳ thi tốt nghiệp THPT\n Ghi chú: Trường không xét tuyển chứng chỉ tiếng Anh thi online (home edition).\n\n| CEFR/ KNLNNVN | ... | Cambridge | ... | Thang 10 |\n|---|---|---|---|---|\n| B1/Bậc 3 | ... | B1 Preliminary: 140, B2 First: 140, B1 Business Preliminary: 140, B2 Business Vantage: 140 | ... | 8.0 |\n| B2/Bậc 4 | ... | B1 Preliminary: 160, B2 First: 160, C1 Advanced: 160, B1 Business Preliminary: 160, B2 Business Vantage: 160, C1 Business Higher: 160 | ... | 8.5 |\n| B2/Bậc 4 | ... | B2 First: 168, C1 Advanced: 168, B2 Business Vantage: 168, C1 Business Higher: 168 | ... | 9.0 |\n| B2/Bậc 4 | ... | B2 First: 170, C1 Advanced: 170, B2 Business Vantage: 170, C1 Business Higher: 170 | ... | 9.5 |\n| C1/Bậc 5 | ... | B2 First: 180, C1 Advanced: 180, C2 Proficiency: 180, B2 Business Vantage: 180, C1 Business Higher: 180 | ... | 10 |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5347985347985348,
+        "answer_token_f1": 0.2403846153846154,
+        "answer_context_f1": 0.1528034504004929,
+        "answer_semantic_similarity": 0.7196315930528057,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.294
+      }
+    },
+    {
+      "id": "dt_037",
+      "question": "Nếu em có chứng chỉ IELTS 6.0 thì sẽ được quy đổi thành bao nhiêu điểm môn tiếng Anh khi xét tuyển bằng điểm thi THPT?",
+      "answer": "Theo Phụ lục 2 của đề án, chứng chỉ IELTS 6.0 sẽ được quy đổi thành 9.0 điểm môn Tiếng Anh trong kỳ thi tốt nghiệp THPT để sử dụng cho việc xét tuyển.",
+      "reference": "PHỤ LỤC 2\n(Kèm theo Công văn số          /ĐHCN-ĐT ngày      tháng     năm 2024 \ncủa Trường Đại học Công nghệ)\n\nDanh mục các chứng chỉ ngoại ngữ quy đổi điểm thay thế điểm môn tiếng Anh\ntrong kỳ thi tốt nghiệp THPT\n Ghi chú: Trường không xét tuyển chứng chỉ tiếng Anh thi online (home edition).\n\n| CEFR/ KNLNNVN | VSTEP.3-5 | IELTS | TOEFL IBT iBT | Cambridge | APTIS ESOL | Thang 10 |\n|---|---|---|---|---|---|---|\n| B1/Bậc 3 | 4.5 | 4.5 | 53 | ... | 130 | 8.0 |\n| B2/Bậc 4 | 6.0 | 5.5 | 65 | ... | 153 | 8.5 |\n| B2/Bậc 4 | 7.0 | 6.0 | 71 | ... | 163 | 9.0 |\n| B2/Bậc 4 | 8.0 | 6.5 | 75 | ... | 173 | 9.5 |\n| C1/Bậc 5 | >=8.5 | >=7.0 | >=79 | ... | >=184 | 10 |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5344827586206897,
+        "answer_token_f1": 0.35200000000000004,
+        "answer_context_f1": 0.08603351955307263,
+        "answer_semantic_similarity": 0.8346734362777632,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.105
+      }
+    },
+    {
+      "id": "dt_055",
+      "question": "Hạnh kiểm năm lớp 10 của em là loại Khá, lớp 11 và 12 là Tốt. Em có giải Nhì HSG cấp tỉnh. Vậy em có đủ điều kiện ưu tiên xét tuyển không ạ?",
+      "answer": "Không. Một trong các điều kiện bắt buộc để được hưởng chính sách ưu tiên xét tuyển theo quy định của ĐHQGHN (Nhóm đối tượng 4) là thí sinh phải có hạnh kiểm Tốt trong cả 3 năm học THPT. Do hạnh kiểm năm lớp 10 của thí sinh là loại Khá, nên không đáp ứng được tiêu chí này.",
+      "reference": "8.4. Nhóm đối tượng 4: Ưu tiên xét tuyển theo Quy định của ĐHQGHN\n8.4.1. Thí sinh là học sinh các trường THPT trên toàn quốc tốt nghiệp THPT năm 2024, có học lực Giỏi, hạnh kiểm Tốt trong 3 năm học THPT và đáp ứng một trong các tiêu chí sau:\na) Đạt giải Nhất, Nhì, Ba trong kỳ thi học sinh giỏi cấp tỉnh/thành phố trực thuộc trung ương và điểm trung bình chung học tập bậc THPT đạt từ 8,5 trở lên được ưu tiên xét tuyển vào đại học theo ngành phù hợp với môn thi mà thí sinh đạt giải (Phụ lục 1);",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5340599455040872,
+        "answer_token_f1": 0.17777777777777776,
+        "answer_context_f1": 0.2708618331053352,
+        "answer_semantic_similarity": 0.640554453457381,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.171
+      }
+    },
+    {
+      "id": "dt_036",
+      "question": "Nếu em có điểm IELTS 9.0 thì quy đổi được bao nhiêu điểm?",
+      "answer": "Với chứng chỉ IELTS 9.0, điểm quy đổi của thí sinh là 10.00 điểm, mức điểm tối đa.",
+      "reference": "Bảng 5. Bảng quy đổi điểm chứng chỉ tiếng Anh IELTS, TOEFL iBT\nsang thang điểm 10 áp dụng cho xét tuyển theo chứng chỉ quốc tế\n| STT | IELTS | TOEFL iBT | Quy đổi điểm ... |\n|---|---|---|---|\n| ... | ... | ... | ... |\n| 6 | 8.0-9.0 | 110-120 | 10.00 |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT kết hợp"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.53125,
+        "answer_token_f1": 0.3111111111111111,
+        "answer_context_f1": 0.07318467695826186,
+        "answer_semantic_similarity": 0.7710096653552266,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.877
+      }
+    },
+    {
+      "id": "dt_051",
+      "question": "Trường có cam kết gì trong trường hợp có rủi ro xảy ra trong quá trình tuyển sinh không?",
+      "answer": "Nhà trường cam kết bảo vệ quyền lợi chính đáng của thí sinh trong những trường hợp rủi ro (nếu có), tuân theo quy định của pháp luật hiện hành, quy chế tuyển sinh của Bộ GD&ĐT, quy chế của ĐHQGHN và đề án tuyển sinh của chính trường.",
+      "reference": "12.\tCam kết của Trường trong những trường hợp rủi ro\nNhà trường cam kết bảo vệ quyền lợi chính đáng của thí sinh trong những trường hợp rủi ro (nếu có) theo quy định của pháp luật hiện hành, quy chế tuyển sinh của Bộ GD&ĐT, quy chế tuyển sinh của ĐHQGHN và đề án tuyển sinh của Trường.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5286343612334802,
+        "answer_token_f1": 0.48514851485148514,
+        "answer_context_f1": 0.1404303510758777,
+        "answer_semantic_similarity": 0.7895881603731209,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.883
+      }
+    },
+    {
+      "id": "dt_082",
+      "question": "Những ngành nào không nhân hệ số môn chính khi xét tuyển tổ hợp D01?",
+      "answer": "Theo đề án, tất cả các ngành xét tuyển tổ hợp D01 đều có môn chính là Toán và Anh, đồng nghĩa với việc các ngành này đều áp dụng công thức nhân hệ số cho hai môn này. Không có ngành nào xét tuyển D01 mà không nhân hệ số.",
+      "reference": "Bảng 4. Chỉ tiêu theo ngành, theo từng phương thức xét tuyển trình độ đào tạo đại học\n| TT | ... | Tên ngành xét tuyển | ... | Tổ hợp xét tuyển 3 | Tổ hợp xét tuyển 3 |\n|---|---|---|---|---|---|\n| TT | ... | Tên ngành xét tuyển | ... | Tổ hợp môn | Môn chính |\n| (1) | ... | (4) | ... | (13) | (14) |\n| 1 | ... | Công nghệ thông tin | ... | D01 | Toán,Anh |\n| 2 | ... | Kỹ thuật máy tính | ... | D01 | Toán,Anh |\n| 3 | ... | Khoa học máy tính | ... | D01 | Toán,Anh |\n| 4 | ... | Trí tuệ nhân tạo | ... | D01 | Toán,Anh |\n| 5 | ... | Hệ thống thông tin | ... | D01 | Toán,Anh |\n| 6 | ... | Mạng máy tính và truyền thông dữ liệu | ... | D01 | Toán,Anh |\n| 7 | ... | Công nghệ kỹ thuật xây dựng | ... | D01 | Toán,Anh |\n| 8 | ... | Công nghệ kỹ thuật cơ điện tử | ... | D01 | Toán,Anh |\n| 9 | ... | Công nghệ hàng không vũ trụ* | ... | D01 | Toán,Anh |\n| 10 | ... | Công nghệ kỹ thuật điện tử - viễn thông | ... | D01 | Toán,Anh |\n| 12 | ... | Vật lý kỹ thuật | ... | D01 | Toán,Anh |\n| 13 | ... | Cơ kỹ thuật | ... | D01 | Toán,Anh |\n| 14 | ... | Kỹ thuật điều khiển và tự động hóa | ... | D01 | Toán,Anh |\n| 15 | ... | Kỹ thuật năng lượng* | ... | D01 | Toán,Anh |\n| 16 | ... | Kỹ thuật Robot* | ... | D01 | Toán,Anh |\n| 17 | ... | Thiết kế công nghiệp và đồ họa* | ... | D01 | Toán,Anh |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5282051282051282,
+        "answer_token_f1": 0.22360248447204972,
+        "answer_context_f1": 0.20707596253902186,
+        "answer_semantic_similarity": 0.7574069840609534,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.923
+      }
+    },
+    {
+      "id": "dt_034",
+      "question": "Em từng tham gia thi tháng chương trình \"Đường lên đỉnh Olympia\" của VTV. Vậy em có được cộng điểm hay ưu tiên gì khi xét tuyển vào trường không?",
+      "answer": "Có. Thí sinh là thành viên tham gia cuộc thi tháng của chương trình “Đường lên đỉnh Olympia” do Đài truyền hình Việt Nam tổ chức hàng năm và có điểm trung bình chung học tập bậc THPT đạt từ 8,5 trở lên, đồng thời tốt nghiệp THPT năm 2024, có học lực Giỏi và hạnh kiểm Tốt trong 3 năm học THPT, sẽ được ưu tiên xét tuyển vào đại học.",
+      "reference": "8.4. Nhóm đối tượng 4: Ưu tiên xét tuyển theo Quy định của ĐHQGHN\n8.4.1. Thí sinh là học sinh các trường THPT trên toàn quốc tốt nghiệp THPT năm 2024, có học lực Giỏi, hạnh kiểm Tốt trong 3 năm học THPT và đáp ứng một trong các tiêu chí sau:\nc) Là thành viên tham gia cuộc thi tháng của chương trình “Đường lên đỉnh Olympia” do Đài truyền hình Việt Nam tổ chức hàng năm và có điểm trung bình chung học tập bậc THPT đạt từ 8,5 trở lên được ưu tiên xét tuyển vào đại học;",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5245901639344263,
+        "answer_token_f1": 0.39285714285714285,
+        "answer_context_f1": 0.13634181469035045,
+        "answer_semantic_similarity": 0.7021285808165333,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 6.113
+      }
+    },
+    {
+      "id": "dt_009",
+      "question": "Sắp xếp các biện pháp vệ sinh cá nhân từ cơ bản đến nâng cao trong phòng chống COVID-19?",
+      "answer": "1.Rửa tay thường xuyên bằng xà phòng và nước hoặc dung dịch chứa cồn.\n2. Che mũi miệng khi hắt hơi và ho, vứt khăn giấy vào thùng rác có nắp đậy.\n3.Giữ ấm cơ thể, súc họng bằng nước sát khuẩn miệng.\n4. Đeo khẩu trang và hạn chế tiếp xúc với người bị bệnh.\n5.Sử dụng nguồn nước sạch, không dùng chung cốc uống nước.\n6. Đảm bảo chế độ ăn uống, nghỉ ngơi hợp lý và tập thể thao.\n7.Không hút thuốc lá.",
+      "reference": "Thực hiện các biện pháp vệ sinh cá nhân.\n\nRửa tay sạch: rửa tay thường xuyên bằng xà phòng và nước hoặc bằng dung dịch rửa tay có chứa cồn, đặc biệt sau khi hắt hơi, ho hoặc chùi mũi.\nChe mũi miệng khi có hắt hơi và ho, vứt các khăn giấy lau mũi miệng vào thùng rác riêng có nắp đậy.\nĐảm bảo chế độ ăn uống đầy đủ, nghỉ ngơi, sinh hoạt hợp lý và luyện tập thể thao.\nKhông hút thuốc lá.\nGiữ ấm cơ thể, súc họng bằng nước sát khuẩn miệng.\nĐeo khẩu trang, hạn chế tiếp xúc trực tiếp với người bị bệnh viêm đường hô hấp cấp tính.\nSử dụng nguồn nước sạch và không dùng chung cốc uống nước.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.5241935483870968,
+        "answer_token_f1": 0.25862068965517243,
+        "answer_context_f1": 0.17737917289486796,
+        "answer_semantic_similarity": 0.6678507561278212,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.964
+      }
+    },
+    {
+      "id": "dt_010",
+      "question": "Năm nay em thi tốt nghiệp THPT, tổng điểm 3 môn của em là 24. Nếu em được cộng 0.75 điểm ưu tiên khu vực, điểm ưu tiên của em sẽ được tính lại như thế nào?",
+      "answer": "Vì tổng điểm của thí sinh (24 điểm) lớn hơn 22.5, điểm ưu tiên sẽ được điều chỉnh giảm theo công thức: Điểm ƯT = [(30 – Tổng điểm đạt được)/7.5] x Mức điểm ưu tiên theo quy định. Áp dụng vào trường hợp này, điểm ưu tiên thực tế thí sinh được cộng là: [(30 - 24)/7.5] x 0.75 = (6/7.5) x 0.75 = 0.8 x 0.75 = 0.6 điểm.",
+      "reference": "Lưu ý: \n\t- ĐX được làm tròn đến hai chữ số thập phân;\n\t- Điểm chuẩn trúng tuyển vào các ngành tuyển sinh năm 2024 của Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội sẽ được công bố theo thang điểm 30.\n\t- Từ năm 2023, thí sinh được hưởng chính sách ưu tiên khu vực theo quy định trong năm tốt nghiệp THPT (hoặc trung cấp) và một năm kế tiếp. (Thí sinh tốt nghiệp từ năm 2022 trở về trước không được cộng điểm ưu tiên khu vực).\n\t- Điểm ưu tiên đối với thí sinh đạt tổng điểm từ 22.5 trở lên (khi quy đổi về điểm theo thang 10 và tổng điểm 3 môn tối đa là 30) được xác định theo công thức sau:\nĐiểm ƯT = [(30 – Tổng điểm đạt được)/7.5] x Mức điểm ưu tiên theo quy định của Bộ",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 2,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5075528700906344,
+        "answer_token_f1": 0.41353383458646614,
+        "answer_context_f1": 0.16557294295810196,
+        "answer_semantic_similarity": 0.7749593190013351,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.792
+      }
+    },
+    {
+      "id": "dt_060",
+      "question": "Trường có công nhận giải thưởng từ các kỳ thi Khoa học Kỹ thuật nào để xét tuyển thẳng không?",
+      "answer": "Đề án tuyển sinh có nêu rõ việc công nhận giải thưởng từ các kỳ thi khoa học kỹ thuật để xét tuyển. Cụ thể, thí sinh đoạt giải chính thức trong kỳ thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GD&ĐT tổ chức hoặc các kỳ thi sáng tạo, triển lãm khoa học kỹ thuật khu vực, quốc tế sẽ được xem xét. Tuy nhiên, đề án không liệt kê tên cụ thể của các cuộc thi khu vực và quốc tế được công nhận.",
+      "reference": "8.1. Nhóm đối tượng 1: Xét tuyển thẳng theo Quy chế tuyển sinh của Bộ GD&ĐT\nThí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế hoặc thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia; thời gian đoạt giải không quá 3 năm tính tới thời điểm xét tuyển thẳng và tốt nghiệp THPT năm 2024 được xét tuyển thẳng vào bậc đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đã đoạt giải.\n8.2. Nhóm đối tượng 2: Xét tuyển thẳng theo Quy định của ĐHQGHN\n...đáp ứng một trong các tiêu chí sau:\n8.2.3. Đạt giải chính thức trong các kỳ thi sáng tạo, triển lãm khoa học kỹ thuật khu vực, quốc tế.",
+      "multi_intent": 0.0,
+      "insufficient_context": true,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5036674816625917,
+        "answer_token_f1": 0.49494949494949486,
+        "answer_context_f1": 0.1109350237717908,
+        "answer_semantic_similarity": 0.7233059982248576,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 3.739
+      }
+    },
+    {
+      "id": "dt_013",
+      "question": "Nội dung thông báo tuyển sinh thạc sĩ gồm những thông tin nào liên quan đến điều kiện dự tuyển?",
+      "answer": "Nội dung thông báo tuyển sinh gồm: đối tượng và điều kiện dự tuyển, danh mục ngành phù hợp của từng chương trình đào tạo, và quy định những trường hợp phải hoàn thành học bổ sung kiến thức.",
+      "reference": "Nội dung thông báo tuyển sinh gồm: đối tượng và điều kiện dự tuyển; danh mục ngành phù hợp của từng chương trình đào tạo và quy định những trường hợp phải hoàn thành học bổ sung kiến thức; chỉ tiêu tuyển sinh của từng ngành đào tạo; các môn thi tuyển sinh, nội dung thi và dạng thức đề thi hoặc yêu cầu và thang điểm đánh giá năng lực quy định tại khoản 1, Điều 11, Quy chế này (nếu có); môn thi được cộng điểm ưu tiên; hồ sơ đăng ký dự thi; Kế hoạch và phương thức tuyển sinh, thời gian khai giảng khóa học và thời gian đào tạo; Chi phí đào tạo, mức thu học phí, mức thu dịch vụ tuyển sinh và khoản thu dịch vụ khác cho lộ trình cả khóa học, từng năm học; các thông tin cần thiết khác đối với thí sinh trong kỳ thi tuyển sinh.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.503562945368171,
+        "answer_token_f1": 0.18536585365853658,
+        "answer_context_f1": 0.1412196240256763,
+        "answer_semantic_similarity": 0.687261012791464,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.461
+      }
+    },
+    {
+      "id": "dt_070",
+      "question": "Điểm TOEFL iBT tối thiểu để xét tuyển kết hợp là bao nhiêu, và được quy đổi thành bao nhiêu điểm?",
+      "answer": "Mức điểm TOEFL iBT tối thiểu để đủ điều kiện xét tuyển kết hợp là 65 điểm. Theo bảng quy đổi, mức điểm TOEFL iBT từ 65 đến 78 sẽ được quy đổi thành 8.50 điểm.",
+      "reference": "5. Ngưỡng đầu vào\n3) Đối với phương thức xét tuyển theo chứng chỉ quốc tế: \n...\n+ Chứng chỉ tiếng Anh quốc tế (IELTS từ 5.5 trở lên hoặc TOEFL iBT từ 65 trở lên) và có tổng điểm 2 môn thi Toán và Vật lý đạt tối thiểu 14 điểm trong kỳ thi THPT năm 2024.\n\nBảng 5. Bảng quy đổi điểm chứng chỉ tiếng Anh IELTS, TOEFL iBT\nsang thang điểm 10 áp dụng cho xét tuyển theo chứng chỉ quốc tế\n| STT | IELTS | TOEFL iBT | Quy đổi điểm ... |\n|---|---|---|---|\n| 1 | 5.5 | 65-78 | 8.50 |",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XT kết hợp"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.5,
+        "answer_token_f1": 0.2994652406417112,
+        "answer_context_f1": 0.15499070055796654,
+        "answer_semantic_similarity": 0.8377242394085799,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 3.879
+      }
+    },
+    {
+      "id": "dt_024",
+      "question": "Nếu em đoạt giải Khuyến khích trong kỳ thi học sinh giỏi quốc gia thì em được hưởng chính sách gì từ trường ạ?",
+      "answer": "Thí sinh đoạt giải Khuyến khích trong kỳ thi chọn học sinh giỏi quốc gia và tốt nghiệp THPT năm 2024 sẽ được ưu tiên xét tuyển vào đại học của trường theo ngành phù hợp với môn thi đã đoạt giải.",
+      "reference": "8.3. Nhóm đối tượng 3: Ưu tiên xét tuyển theo Quy chế tuyển sinh của Bộ GD&ĐT\n8.3.1. Thí sinh đoạt giải khuyến khích trong kỳ thi chọn học sinh giỏi quốc gia; Thí sinh đoạt giải tư trong Cuộc thi khoa học, kĩ thuật cấp quốc gia tốt nghiệp THPT năm 2024 được ưu tiên xét tuyển vào đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc đề tài dự thi mà thí sinh đã đoạt giải.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4971098265895954,
+        "answer_token_f1": 0.3495145631067961,
+        "answer_context_f1": 0.1539235412474849,
+        "answer_semantic_similarity": 0.6929434298015755,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.235
+      }
+    },
+    {
+      "id": "dt_026",
+      "question": "Em đoạt giải ba quốc gia môn Vật lý và muốn vào ngành Trí tuệ nhân tạo (CN12). Bạn em đoạt giải nhì quốc gia môn Hóa học và cũng muốn vào ngành này. Nếu cả hai đều dùng quyền xét tuyển thẳng thì trường sẽ ưu tiên ai?",
+      "answer": "Đối với ngành Trí tuệ nhân tạo (mã CN12), nguyên tắc ưu tiên của trường sẽ xét đến môn đoạt giải trước khi xét đến thứ hạng giải. Thứ tự ưu tiên môn học cho ngành này là Tin học -> Toán -> Lý -> Các môn đoạt giải khác. Vì Vật lý được ưu tiên hơn Hóa học, nên thí sinh đoạt giải ba môn Vật lý sẽ được ưu tiên cao hơn thí sinh đoạt giải nhì môn Hóa học.",
+      "reference": "8.5. Nguyên tắc ưu tiên\n- Ưu tiên 1 (theo nhóm đối tượng): Nhóm đối tượng 1 là nhóm đối tượng ưu tiên cao nhất, lần lượt đến nhóm đối tượng 4 (trong mỗi nhóm thứ tự theo thứ tự trình bày từng đối tượng).\n- Ưu tiên 2 (theo môn đạt giải): áp dùng các ngành CN1, CN8, CN12, CN14, CN15 ưu tiên theo môn Tin ⭢ Toán ⭢ Lý ⭢ Các môn đoạt giải khác.\n- Ưu tiên 3 (theo thứ tự giải): Từ Nhất ⭢ Nhì ⭢ Ba. \n- Ưu tiên 4: Điểm trung bình chung học tập bậc THPT.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 2,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Ai",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4929178470254958,
+        "answer_token_f1": 0.35514018691588783,
+        "answer_context_f1": 0.20204978038067353,
+        "answer_semantic_similarity": 0.6392901433534319,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.686
+      }
+    },
+    {
+      "id": "dt_017",
+      "question": "Sinh viên ngành Công nghệ Hàng không vũ trụ của Trường Đại học Công nghệ muốn tham gia chương trình học 2+2 tại MAI cần đáp ứng những điều kiện gì?",
+      "answer": "Sinh viên cần hoàn thành chương trình đào tạo 2 năm theo quy định tại Trường Đại học Công nghệ và đáp ứng đủ tiêu chuẩn của MAI về Tiếng Anh cũng như bài kiểm tra đầu vào.",
+      "reference": "\"Theo thỏa thuận, sinh viên ngành Công nghệ hàng không vũ trụ của Trường Đại học Công nghệ, ĐHQGHN nếu hoàn thành chương trình đào tạo 2 năm theo quy định tại Trường Đại học Công nghệ và đáp ứng đủ tiêu chuẩn của MAI về Tiếng Anh cũng như bài kiểm tra đầu vào sẽ được học 2 năm cuối tại MAI (học bằng Tiếng Anh với các sinh viên quốc tế khác) có cơ hội được học và nhận bằng tốt nghiệp Cử nhân Kỹ thuật thuật hàng không của MAI theo hình thức 2+2.\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4916201117318436,
+        "answer_token_f1": 0.20382165605095542,
+        "answer_context_f1": 0.10267857142857144,
+        "answer_semantic_similarity": 0.6009609840326501,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 6.203
+      }
+    },
+    {
+      "id": "dt_042",
+      "question": "Học viện Hàng không Moscow (MAI) có những thế mạnh nổi bật nào trong lĩnh vực đào tạo và nghiên cứu hàng không vũ trụ?",
+      "answer": "MAI là một trung tâm đào tạo và nghiên cứu đa ngành, là trường đại học hàng đầu thế giới đào tạo lĩnh vực hàng không vũ trụ; có hơn 120 phòng thí nghiệm hiện đại, ba phòng thiết kế sinh viên, các trung tâm máy tính, nhà máy chế thử – thực nghiệm và sân bay riêng; đào tạo các chuyên gia về hàng không vũ trụ phục vụ các ngành kinh tế và quốc phòng; có đội ngũ giáo viên hùng hậu với nhiều giáo sư, tiến sĩ, viện sĩ; sinh viên có thể tiếp cận hơn 60 lĩnh vực đào tạo cho các chương trình cử nhân và thạc sỹ về hàng không và chế tạo tên lửa, điều khiển học kỹ thuật, vô tuyến điện tử và hệ thống liên lạc, hệ thống rô bốt, công nghệ vật liệu hiện đại. Về lĩnh vực Vật lý và Hàng không, MAI được xem như là một trường đào tạo đại học hàng đầu thế giới.",
+      "reference": "MAI là một trung tâm đào tạo và nghiên cứu đa ngành, là trường đại học hàng đầu thế giới đào tạo lĩnh vực hàng không vũ trụ. Được thành lập từ năm 1930, MAI là một trong những trường đại học công nghệ hàng đầu của Liên bang Nga. Sinh viên có thể tiếp cận hơn 60 lĩnh vực đào tạo cho các chương trình cử nhân và thạc sỹ về hàng không và chế tạo tên lửa, điều khiển học kỹ thuật, vô tuyến điện tử và hệ thống liên lạc, hệ thống rô bốt, công nghệ vật liệu hiện đại. Hiện tại MAI có 10 Khoa, 4 Viện và 4 chi nhánh với gần 20.000 sinh viên theo học, trong đó có hơn 600 sinh viên quốc tế đến từ rất nhiều nước khác nhau. Đội ngũ giáo viên của MAI khoảng 2.300 người, trong đó có 16 viện sĩ, 450 tiến sĩ khoa học và giáo sư và 1.100 tiến sĩ và phó giáo sư. MAI có hơn 120 phòng thí nghiệm hiện đại, ba phòng thiết kế sinh viên, các trung tâm máy tính, nhà máy chế thử – thực nghiệm và đặc biệt MAI là trường đại học duy nhất trên thế giới có sân bay riêng. MAI đào tạo các chuyên gia về hàng không vũ trụ phục vụ các ngành kinh tế và quốc phòng. Về lĩnh vực Vật lý và Hàng không, MAI được xem như là một trường đào tạo đại học hàng đầu thế giới.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4903474903474903,
+        "answer_token_f1": 0.5014409221902016,
+        "answer_context_f1": 0.1744484350949205,
+        "answer_semantic_similarity": 0.8300687769387429,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 8.664
+      }
+    },
+    {
+      "id": "dt_047",
+      "question": "Em có thể đăng ký xét tuyển vào trường bằng những phương thức nào?",
+      "answer": "Trường Đại học Công nghệ tuyển sinh năm 2024 theo 4 phương thức chính:\n1. Xét tuyển theo kết quả thi tốt nghiệp THPT năm 2024.\n2. Xét tuyển thẳng, ưu tiên xét tuyển (bao gồm cả diện dự bị đại học).\n3. Xét tuyển theo kết quả thi Đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức.\n4. Xét tuyển theo các chứng chỉ quốc tế (SAT, A-Level, ACT, IELTS/TOEFL iBT kết hợp điểm THPT).",
+      "reference": "3.\tPhương thức tuyển sinh: Xét tuyển\n(1)\tXét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024: thí sinh tham dự kỳ thi tốt nghiệp THPT năm 2024 do Bộ GD&ĐT và các Sở GD&ĐT tổ chức (bao gồm cả diện thí sinh sử dụng chứng chỉ tiếng Anh (theo Phụ lục 2) để thay thế môn tiếng Anh trong tổ hợp xét tuyển). Đối với thí sinh tốt nghiệp trước năm 2024 phải dự thi lại các môn theo tổ hợp xét tuyển. \n(2) Xét tuyển thẳng, ưu tiên xét tuyển (bao gồm cả dự bị đại học): Theo quy định của Bộ Giáo dục và Đào tạo (GDĐT) và Quy định cơ chế đặc thù của ĐHQGHN.\n(3) Xét tuyển kết quả thi đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức.\n(4) Xét tuyển theo các chứng chỉ quốc tế: Xét tuyển theo chứng chỉ quốc tế SAT (Scholastic Assessment Test, Hoa Kỳ), A-Level (Cambridge International Examinations A-Level, UK; sau đây gọi tắt là chứng chỉ A-Level), ACT (American College Testing); Xét tuyển chứng chỉ tiếng Anh quốc tế (IELTS hoặc TOEFL iBT) và có tổng điểm 2 môn thi Toán và Vật lý THPT năm 2024 đạt tối thiểu 14 điểm.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4745762711864407,
+        "answer_token_f1": 0.421875,
+        "answer_context_f1": 0.1562799616490892,
+        "answer_semantic_similarity": 0.786475661375161,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 2.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.302
+      }
+    },
+    {
+      "id": "dt_089",
+      "question": "Đại học Quốc gia Hà Nội (ĐHQGHN) đã đạt được vị trí nào trong bảng xếp hạng QS World University Rankings 2025?",
+      "answer": "Đại học Quốc gia Hà Nội (ĐHQGHN) đã đạt được vị trí trong nhóm 851-900 các cơ sở giáo dục đại học tốt nhất thế giới theo tiêu chí xếp hạng của QS WUR 2025.",
+      "reference": "\"Ngày 5/6/2024, Tổ chức Quacquarelli Symonds (QS) đã công kết quả Bảng xếp hạng đại học thế giới QS World University Rankings 2025 (QS WUR 2025). Trong đó, Đại học Quốc gia Hà Nội (ĐHQGHN) đã có sự gia tăng mạnh mẽ lên vị trí trong nhóm 851-900 các cơ sở giáo dục đại học tốt nhất thế giới theo tiêu chí xếp hạng của QS WUR (so với lần xếp hạng trước là nhóm 951-1000).\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.469208211143695,
+        "answer_token_f1": 0.36734693877551017,
+        "answer_context_f1": 0.15456919060052218,
+        "answer_semantic_similarity": 0.9177993063979107,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 7.564
+      }
+    },
+    {
+      "id": "dt_028",
+      "question": "Học phí dự kiến năm học 2024-2025 của ngành Trí tuệ nhân tạo là bao nhiêu?",
+      "answer": "Học phí dự kiến cho năm học 2024-2025 của ngành Trí tuệ nhân tạo (mã CN12) là 32,000,000 đồng.",
+      "reference": "10. Học phí dự kiến với sinh viên chính quy; lộ trình tăng học phí tối đa cho từng năm\n| STT | Mã tuyển sinh | Ngành | Học phí năm học 2024-2025 |\n|---|---|---|---|\n| ... | ... | ... | ... |\n| | CN12 | Trí tuệ nhân tạo | 32,000,000 |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Chương trình học"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.46808510638297873,
+        "answer_token_f1": 0.2857142857142857,
+        "answer_context_f1": 0.15086782376502003,
+        "answer_semantic_similarity": 0.8549877668159569,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 1.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.009
+      }
+    },
+    {
+      "id": "dt_039",
+      "question": "Hội nghị khoa học quốc tế IEEE lần thứ 12 về Hệ thống trên chip nhúng đa lõi xử lý và Trí tuệ nhân tạo (MCSoC) năm 2018 được tổ chức tại đâu và có ý nghĩa gì đối với Trường Đại học Công nghệ?",
+      "answer": "Hội nghị khoa học quốc tế IEEE lần thứ 12 về Hệ thống trên chip nhúng đa lõi xử lý và Trí tuệ nhân tạo (MCSoC) năm 2018 được tổ chức tại Trường Đại học Công nghệ (Đại học Quốc gia Hà Nội). Hội nghị này có ý nghĩa quan trọng vì nó là một hoạt động góp phần khuyến khích hoạt động khoa học công nghệ và đào tạo chất lượng cao của nhà trường, đồng thời là dịp kỷ niệm 25 năm Chính phủ ban hành Nghị định về Đại học Quốc gia Hà Nội.",
+      "reference": "Ngày 12/09, tại Trường Đại học Công nghệ (Đại học Quốc gia Hà Nội) diễn ra Lễ khai mạc “Hội nghị Khoa học Quốc tế IEEE lần thứ 12 về Hệ thống trên chip nhúng đa lõi xử lý và Trí tuệ nhân tạo” (MCSoC).\n\nPhó Hiệu trưởng Chử Đức Trình bày tỏ sự vinh dự khi một hội nghị khoa học lớn tầm cỡ quốc tế được tổ chức ở Việt Nam và do Trường Đại học Công nghệ (ĐHQGHN) chủ trì nhân dịp kỷ niệm 25 năm Chính phủ ban hành Nghị định về Đại học Quốc gia Hà Nội.Trường Đại học Công nghệ – một thành viên của Đại học Quốc gia Hà Nội – sẽ tiếp tục phấn đấu thực hiện sứ mệnh “đào tạo nguồn nhân lực chất lượng cao và bồi dưỡng nhân tài” cho sự phát triển chung của xã hội. Để thực hiện được sứ mệnh đó, nhà trường đã hợp tác đào tạo và nghiên cứu với nhiều trường đại học, doanh nghiệp trên thế giới. Việc đăng cai tổ chức Hội nghị khoa học quốc tế MCSoC 2018 là một trong những cách tiếp cận nhanh và hiệu quả nhằm khuyến khích các họa động khoa học công nghệ và đào tạo chất lượng cao.",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập",
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.46808510638297873,
+        "answer_token_f1": 0.3644646924829157,
+        "answer_context_f1": 0.2781456953642384,
+        "answer_semantic_similarity": 0.8578480400000555,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.755
+      }
+    },
+    {
+      "id": "dt_066",
+      "question": "Chào phòng tuyển sinh, cho em hỏi điều kiện để được xét tuyển thẳng vào trường theo quy định của Bộ Giáo dục và Đào tạo là gì ạ?",
+      "answer": "Theo Quy chế tuyển sinh của Bộ Giáo dục và Đào tạo (GD&ĐT), thí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế hoặc thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia sẽ được xét tuyển thẳng. Giải thưởng phải được trao trong vòng 3 năm tính đến thời điểm xét tuyển và thí sinh phải tốt nghiệp THPT năm 2024. Ngành được xét tuyển thẳng phải phù hợp với môn thi hoặc nội dung đề tài mà thí sinh đã đoạt giải.",
+      "reference": "8. Chính sách ưu tiên: Xét tuyển thẳng; ưu tiên xét tuyển\n8.1. Nhóm đối tượng 1: Xét tuyển thẳng theo Quy chế tuyển sinh của Bộ GD&ĐT\nThí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế hoặc thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia; thời gian đoạt giải không quá 3 năm tính tới thời điểm xét tuyển thẳng và tốt nghiệp THPT năm 2024 được xét tuyển thẳng vào bậc đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đã đoạt giải.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4680851063829786,
+        "answer_token_f1": 0.3677685950413223,
+        "answer_context_f1": 0.33494505494505494,
+        "answer_semantic_similarity": 0.7944710026070101,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 4.336
+      }
+    },
+    {
+      "id": "dt_018",
+      "question": "Học phí dự kiến cho ngành Công nghệ thông tin năm học 2024-2025 tại cơ sở Cầu Giấy là bao nhiêu?",
+      "answer": "Học phí dự kiến cho ngành Công nghệ thông tin năm học 2024-2025 tại cơ sở Cầu Giấy là 40.000.000 đồng.",
+      "reference": "\nĐỊA ĐIỂM HỌC VÀ THÔNG TIN VỀ HỌC PHÍ\n\nTrường ĐHCN có hai địa điểm học tập chính:\n\n\\begin{tabular}{|l|l|l|l|}\n\\hline\n  Học phínăm học 2024-2025(dự kiến) & Mã xét tuyển & Ngành đào tạo & Địa điểm học \\\\\n\\hline\n  40,000,000 & CN1 & Công nghệ thông tin & Cầu Giấy \\\\\n\\hline\n\nCN2 & Kỹ thuật máy tính \\\\\n\\hline\nCN6 & Công nghệ kỹ thuật cơ điện tử \\\\\n\\hline\nCN8 & Khoa học máy tính \\\\\n\\hline\nCN9 & Công nghệ kỹ thuật điện tử – viễn thông \\\\\n\\hline\nCN14 & Hệ thống thông tin \\\\\n\\hline\nCN15 & Mạng máy tính và truyền thông dữ liệu \\\\\n\\hline\nCN17 & Kỹ thuật Robot \\\\\n\\hline\n  32,000,000 & CN11 & Kỹ thuật điều khiển và tự động hóa \\\\\n\\hline\nCN12 & Trí tuệ nhân tạo \\\\\n\\hline\nCN18 & Thiết kế công nghiệp và đồ họa \\\\\n\\hline\nCN10 & Công nghệ nông nghiệp & – Năm thứ nhất \\textamp;nbsp; học tại\\textamp;nbsp; Hòa Lạc– Từ năm thứ hai học tại Cầu Giấy \\\\\n\\hline\n  40,000,000 & CN3 & Vật lý kỹ thuật \\\\\n\\hline\nCN4 & Cơ kỹ thuật \\\\\n\\hline\nCN5 & Công nghệ kỹ thuật xây dựng \\\\\n\\hline\nCN7 & Công nghệ hàng không vũ trụ \\\\\n\\hline\nCN13 & Kỹ thuật năng lượng \\\\\n\\hline\n\\end{tabular}\n\n(dự kiến)\n\n40,000,000\n\nCầu Giấy\n\n32,000,000\n\n– Năm thứ nhất \\textamp;nbsp; học tại\\textamp;nbsp; Hòa Lạc\n\n– Từ năm thứ hai học tại Cầu Giấy\n\n40,000,000\n\nGhi chú:Mức học phí có thể được điều chỉnh cho các năm học sau, nhưng không tăng quá 15% mỗi năm.\n",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tài chính, thanh tra & xử lý vi phạm"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4659090909090909,
+        "answer_token_f1": 0.19999999999999998,
+        "answer_context_f1": 0.20286396181384247,
+        "answer_semantic_similarity": 0.8282593529500085,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 6.135
+      }
+    },
+    {
+      "id": "dt_072",
+      "question": "Em có IELTS 8.0, Toán 9.0 và Lý 9.5. Điểm xét tuyển của em có bị trừ điểm ưu tiên không ạ?",
+      "answer": "Việc tính lại điểm ưu tiên chỉ áp dụng cho thí sinh có tổng điểm từ 22.5 trở lên *khi quy đổi về thang điểm 30* theo phương thức xét điểm THPT. Đối với phương thức xét tuyển kết hợp IELTS, công thức tính điểm là: ĐX = điểm IELTS quy đổi + Điểm Toán + Điểm Lý + Điểm ƯT. Đề án không quy định việc tính lại điểm ưu tiên cho phương thức này. Do đó, điểm ưu tiên (nếu có) sẽ được cộng trực tiếp vào tổng điểm.",
+      "reference": "c) Cách tính điểm xét tuyển theo các chứng chỉ quốc tế\n- IELTS/TOEFL iBT: ĐX= điểm IELTS/TOEFL iBT (quy đổi Bảng 5) \n+ Điểm Toán + Điểm Lý + Điểm ƯT (ĐT, KV)\nLưu ý:\n...\n- Điểm ưu tiên đối với thí sinh đạt tổng điểm từ 22.5 trở lên (khi quy đổi về điểm theo thang 10 và tổng điểm 3 môn tối đa là 30) được xác định theo công thức sau:\nĐiểm ƯT = [(30 – Tổng điểm đạt được)/7.5] x Mức điểm ưu tiên theo quy định của Bộ",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 2,
+      "topic": [
+        "XT kết hợp"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4654545454545455,
+        "answer_token_f1": 0.36909871244635184,
+        "answer_context_f1": 0.12195121951219512,
+        "answer_semantic_similarity": 0.6492842963692419,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.334
+      }
+    },
+    {
+      "id": "dt_029",
+      "question": "Trong học kỳ II năm học 2022-2023, sinh viên có bao nhiêu ngày để đăng ký học phần?",
+      "answer": "Sinh viên có 5 ngày để đăng ký học phần, từ ngày 05/12/2022 đến ngày 09/12/2022.",
+      "reference": "Phòng Đào tạo (P.ĐT) gửi tới toàn thể sinh viên trong Trường “Dự kiến Thời khóa biểu học kỳ II năm học 2022-2023”. Sinh viên lưu ý các nội dung sau:\n\n1. Học kỳ II bắt đầu từ ngày 30/01/2023 ÷ 14/05/2023 (15 tuần) và 02 tuần học dự phòng (từ 15/05/2023 ÷ 28/05/2023)\n\n   – Lịch học bài tập, thực hành bắt đầu học từ tuần thứ 2 của học kỳ.\n\n2. Thời gian đăng ký học phần dự kiến: từ ngày 05/12/2022 – 09/12/2022.\n\n3. Thời khóa biểu chính thức dự kiến thông báo ngày 30/11/2022.\n\n   4. Sinh viên có nguyện vọng học tiếng Anh tại trường và các học phần khác điền thông tin theo khảo sát tại đây: https://forms.gle/gCajUVogUtfuhDYC9. Thời hạn nhận khảo sát đến hết Chủ nhật ngày 20/11/2022.\n\n     5. Sinh viên cần xem kỹ dự kiến thời khóa biểu, đối chiếu với kế hoạch học tập của cá nhân. Nếu gặp vướng mắc, trước ngày 22/11/2022, sinh viên liên hệ trực tiếp P.ĐT (P.105-E3) hoặc qua một trong các kênh sau để hỗ trợ giải quyết:\n\n– Gửi thư đến địa chỉ email: daotao_dhcn@vnu.edu.vn\n\n– Gọi điện thoại đến số: 024 3202 6858\n\n– Qua kênh hỗ trợ trực tuyến: https://hotro.uet.vnu.edu.vn/\n\nTrân trọng thông báo!",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.46492985971943884,
+        "answer_token_f1": 0.21782178217821782,
+        "answer_context_f1": 0.06817090734517522,
+        "answer_semantic_similarity": 0.5969347642462955,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 3.742
+      }
+    },
+    {
+      "id": "dt_071",
+      "question": "Thời gian đăng ký học phần dự kiến cho học kỳ II năm học 2022-2023 là khi nào?",
+      "answer": "Thời gian đăng ký học phần dự kiến là từ ngày 05/12/2022 đến ngày 09/12/2022.",
+      "reference": "Phòng Đào tạo (P.ĐT) gửi tới toàn thể sinh viên trong Trường “Dự kiến Thời khóa biểu học kỳ II năm học 2022-2023”. Sinh viên lưu ý các nội dung sau:\n\n1. Học kỳ II bắt đầu từ ngày 30/01/2023 ÷ 14/05/2023 (15 tuần) và 02 tuần học dự phòng (từ 15/05/2023 ÷ 28/05/2023)\n\n   – Lịch học bài tập, thực hành bắt đầu học từ tuần thứ 2 của học kỳ.\n\n2. Thời gian đăng ký học phần dự kiến: từ ngày 05/12/2022 – 09/12/2022.\n\n3. Thời khóa biểu chính thức dự kiến thông báo ngày 30/11/2022.\n\n   4. Sinh viên có nguyện vọng học tiếng Anh tại trường và các học phần khác điền thông tin theo khảo sát tại đây: https://forms.gle/gCajUVogUtfuhDYC9. Thời hạn nhận khảo sát đến hết Chủ nhật ngày 20/11/2022.\n\n     5. Sinh viên cần xem kỹ dự kiến thời khóa biểu, đối chiếu với kế hoạch học tập của cá nhân. Nếu gặp vướng mắc, trước ngày 22/11/2022, sinh viên liên hệ trực tiếp P.ĐT (P.105-E3) hoặc qua một trong các kênh sau để hỗ trợ giải quyết:\n\n– Gửi thư đến địa chỉ email: daotao_dhcn@vnu.edu.vn\n\n– Gọi điện thoại đến số: 024 3202 6858\n\n– Qua kênh hỗ trợ trực tuyến: https://hotro.uet.vnu.edu.vn/\n\nTrân trọng thông báo!",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.46492985971943884,
+        "answer_token_f1": 0.325,
+        "answer_context_f1": 0.05255023183925812,
+        "answer_semantic_similarity": 0.7526740879631236,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 4.483
+      }
+    },
+    {
+      "id": "dt_063",
+      "question": "Buổi gặp mặt chia tay ThS. Nguyễn Vinh Quang diễn ra vào thời điểm nào và có sự tham gia của những ai?",
+      "answer": "Buổi gặp mặt diễn ra ngày 03/03/2020. Có sự tham dự của PGS.TS. Nguyễn Việt Hà – Hiệu trưởng, TS. Nguyễn Anh Thái – Phó Hiệu trưởng, PGS.TS. Trịnh Anh Vũ- Chủ tịch Công đoàn trường, đại diện lãnh đạo, cán bộ các đơn vị và các đồng nghiệp của ThS. Nguyễn Vinh Quang.",
+      "reference": "\"Gặp mặt chia tay ThS. Nguyễn Vinh Quang – Giảng viên chính Khoa Điện tử viễn thông nghỉ hưu hưởng chế độ Bảo hiểm xã hội Ngày 03/03/2020, Trường Đại học Công nghệ (ĐHCN) tổ chức buổi gặp mặt thân mật chia tay ThS. Nguyễn Vinh Quang – Giảng viên chính, khoa Điện tử viễn thông về nghỉ hưu hưởng chế độ Bảo hiểm xã hội theo chế độ sau 40 năm học tập và cống hiến trong ngành giáo dục. Trong buổi gặp mặt thân mật và đầm ấm có sự tham dự của PGS.TS. Nguyễn Việt Hà – Hiệu trưởng Nhà trường, TS. Nguyễn Anh Thái – Phó Hiệu trưởng, PGS.TS. Trịnh Anh Vũ- Chủ tịch Công đoàn trường cùng đại diện lãnh đạo, cán bộ các đơn vị và các đồng nghiệp của ThS. Nguyễn Vinh Quang.\"",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4642857142857143,
+        "answer_token_f1": 0.1794871794871795,
+        "answer_context_f1": 0.015584415584415584,
+        "answer_semantic_similarity": 0.4888972557850047,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 5.564
+      }
+    },
+    {
+      "id": "dt_061",
+      "question": "Năm 2023, cựu sinh viên khóa K44 Trường Đại học Công nghệ đã tổ chức những sự kiện nào để kỷ niệm 20 năm ngày ra trường?",
+      "answer": "Năm 2023, cựu sinh viên khóa K44 đã tổ chức chuỗi sự kiện kỷ niệm 20 năm ngày ra trường gồm đêm nhạc hội “20 năm – Hành trình kết nối” vào ngày 5/8/2023 và Hội khóa vào ngày 6/8/2023.",
+      "reference": "\"Hướng tới kỷ niệm 20 năm ngày thành lập, 25 năm ngày truyền thống Trường Đại học Công nghệ, cựu sinh viên K44 Trường ĐH Công nghệ, ĐHQGHN (VNU-UET) đã tổ chức chuỗi sự kiện kỷ niệm 20 năm ngày ra trường gồm đêm nhạc hội “20 năm – Hành trình kết nối” với thông điệp “Tạm dừng hiện tại, nối lại tình xưa” tổ chức ngày 5/8/2023 và Hội khóa ngày 6/8/2023.\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4610778443113772,
+        "answer_token_f1": 0.6307692307692309,
+        "answer_context_f1": 0.09987819732034105,
+        "answer_semantic_similarity": 0.9046171059006102,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 5.358
+      }
+    },
+    {
+      "id": "dt_088",
+      "question": "Yêu cầu về công bố kết quả nghiên cứu của luận án?",
+      "answer": "Nghiên cứu sinh tại Đại học Quốc gia Hà Nội cần đáp ứng yêu cầu công bố kết quả luận án với tổng điểm công bố tối thiểu 2,0 và phải là tác giả chính. Các công bố cần đạt một trong các tiêu chí sau: có ít nhất một bài báo trong danh mục Web of Science hoặc Scopus; hoặc một bằng sáng chế hoặc giải pháp hữu ích và một bài báo/báo cáo quốc tế; hoặc ít nhất hai bài báo/báo cáo quốc tế từ các ấn phẩm uy tín như chương sách, sách chuyên khảo, hoặc báo cáo hội thảo có phản biện và mã số ISBN/ISSN.",
+      "reference": "a) Yêu cầu về chất lượng luận án thể hiện qua việc phát hiện và giải quyết những vấn đề mới, đóng góp mới cho khoa học và thực tiễn. Nghiên cứu sinh công bố kết quả nghiên cứu của luận án trên tạp chí khoa học chuyên ngành với vai trò là tác giả chính (tác giả tên đầu/tác giả liên hệ) có tổng điểm đạt từ 2,0 trở lên tính theo điểm tối đa do Hội đồng Giáo sư nhà nước quy định cho mỗi loại công trình (là tác giả chính, không chia điểm khi có đồng tác giả). Các công bố quốc tế phải được viết bằng tiếng nước ngoài, các bài báo đăng trên các tạp chí khoa học chuyên ngành trong nước phải thuộc danh mục được Hội đồng Giáo sư nhà nước quy định khung điểm đánh giá tối thiểu 0,75 điểm và phải đáp ứng một trong các tiêu chí sau:\n- Có tối thiểu 01 bài đăng trên tạp chí khoa học thuộc danh mục Web of Science hoặc Scopus (sau đây gọi chung là danh mục WoS/Scopus);\n- Có 01 bằng phát minh sáng chế/giải pháp hữu ích đã được cấp và tối thiểu 01 bài báo/báo cáo quốc tế thuộc một trong các ấn phẩm sau: (i) chương sách tham khảo do các nhà xuất bản quốc tế có uy tín phát hành, hoặc (ii) sách chuyên khảo do các nhà xuất bản có uy tín quốc tế phát hành, hoặc (iii) báo cáo trong kỷ yếu hội thảo quốc tế có phản biện, có mã số ISBN, hoặc (iv) bài báo đăng trên tạp chí khoa học chuyên ngành có uy tín của nước ngoài có phản biện, có mã số ISSN;\n- Có tối thiểu 02 bài báo/báo cáo quốc tế thuộc một trong các ấn phẩm sau: (i) chương sách tham khảo do các nhà xuất bản quốc tế có uy tín phát hành, hoặc (ii) sách chuyên khảo do các nhà xuất bản có uy tín quốc tế phát hành, hoặc (iii) báo cáo trong kỷ yếu hội thảo quốc tế có phản biện, có mã số ISBN, hoặc (iv) bài báo đăng trên tạp chí khoa học chuyên ngành có uy tín của nước ngoài có phản biện, có mã số ISSN.\n",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4591679506933744,
+        "answer_token_f1": 0.3233830845771144,
+        "answer_context_f1": 0.24887690925426775,
+        "answer_semantic_similarity": 0.7175114974436667,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 4.902
+      }
+    },
+    {
+      "id": "dt_045",
+      "question": "Trường có bao nhiêu ngành đào tạo thuộc lĩnh vực Công nghệ kỹ thuật?",
+      "answer": "Theo danh mục ngành được phép đào tạo, trường có 5 ngành thuộc lĩnh vực Công nghệ kỹ thuật, bao gồm:\n1. Công nghệ kỹ thuật điện tử – viễn thông\n2. Công nghệ kỹ thuật cơ - điện tử\n3. Công nghệ nông nghiệp\n4. Công nghệ kỹ thuật xây dựng\n5. Công nghệ hàng không vũ trụ",
+      "reference": "9.\tThông tin danh mục ngành được phép đào tạo:\n...\nLĩnh vực Công nghệ kỹ thuật\n & Công nghệ kỹ thuật điện tử – viễn thông\n & Công nghệ kỹ thuật cơ - điện tử\n & Công nghệ nông nghiệp\n & Công nghệ kỹ thuật xây dựng\n & Công nghệ hàng không vũ trụ\n...",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Thông tin tuyển sinh khác"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4563758389261745,
+        "answer_token_f1": 0.7768595041322315,
+        "answer_context_f1": 0.06792873051224944,
+        "answer_semantic_similarity": 0.8432474063898165,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 6.389
+      }
+    },
+    {
+      "id": "dt_032",
+      "question": "Giải thưởng HSG của em đã được 4 năm rồi nhưng năm nay em mới tốt nghiệp THPT, vậy em có đủ điều kiện xét tuyển thẳng không?",
+      "answer": "Không. Theo quy định, thời gian đoạt giải không được quá 3 năm tính tới thời điểm xét tuyển thẳng. Do giải thưởng của thí sinh đã được 4 năm nên không còn hợp lệ để sử dụng cho phương thức xét tuyển thẳng.",
+      "reference": "8.1. Nhóm đối tượng 1: Xét tuyển thẳng theo Quy chế tuyển sinh của Bộ GD&ĐT\nThí sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia, quốc tế hoặc thi khoa học, kỹ thuật cấp quốc gia, quốc tế do Bộ GDĐT tổ chức, cử tham gia; thời gian đoạt giải không quá 3 năm tính tới thời điểm xét tuyển thẳng và tốt nghiệp THPT năm 2024 được xét tuyển thẳng vào bậc đại học theo ngành phù hợp với môn thi (Phụ lục 1) hoặc nội dung đề tài dự thi mà thí sinh đã đoạt giải.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "XTT-ƯTXT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4560439560439561,
+        "answer_token_f1": 0.3055555555555556,
+        "answer_context_f1": 0.08373904576436222,
+        "answer_semantic_similarity": 0.5710722787593241,
+        "llm_correctness_score": 1.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.174
+      }
+    },
+    {
+      "id": "dt_012",
+      "question": "Em đạt giải nhì kỳ thi học sinh giỏi quốc gia môn Toán. Em có thể được xét tuyển thẳng vào chương trình tài năng ngành Khoa học máy tính không?",
+      "answer": "Theo quy định, nếu học sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia có môn thi phù hợp với ngành học thì sẽ đủ điều kiện xét tuyển thẳng vào chương trình đào tạo tài năng của ngành học. Em có thể liên hệ với trường để biết các môn phù hợp với ngành Khoa học máy tính. Nếu môn toán là môn phù hợp thì em đủ điều kiện xét tuyển thẳng vào chương trình đào tạo tài năng.",
+      "reference": "1. Tuyển chọn\nViệc tuyển chọn sinh viên vào học chương trình đào tạo tài năng, chất lượng cao theo chuẩn của Đại học Quốc gia Hà Nội được thực hiện theo hình thức thi tuyển và xét tuyển.\na) Xét tuyển thẳng\nNhững sinh viên thuộc một trong các diện sau sẽ được xét tuyển thẳng vào các chương trình đào tạo tài năng, chất lượng cao:\n- Thành viên đội tuyển quốc gia tham dự kỳ thi Olympic quốc tế về môn học phù hợp với ngành học;\n- Học sinh đoạt giải nhất, nhì, ba trong kỳ thi chọn học sinh giỏi quốc gia có môn thi phù hợp với ngành học.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Tuyển sinh"
+      ],
+      "question_type": "Có/Không",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4486486486486487,
+        "answer_token_f1": 0.3358024691358025,
+        "answer_context_f1": 0.24882629107981222,
+        "answer_semantic_similarity": 0.7637559633991843,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 6.891
+      }
+    },
+    {
+      "id": "dt_075",
+      "question": "Sắp xếp các đối tượng được miễn, giảm hoặc hoãn học phần GDQP-AN theo mức độ ưu tiên giảm dần.",
+      "answer": "1. Đối tượng được miễn học toàn bộ học phần.\n2. Đối tượng được miễn học, miễn thi các nội dung đạt từ 5 điểm trở lên.\n3. Đối tượng được miễn thực hành kỹ năng quân sự.\n4. Đối tượng được tạm hoãn học phần do sức khỏe hoặc thai sản.",
+      "reference": "5. Đối tượng được miễn, giảm, tạm hoãn học GDQP-AN\n\n            Thực hiện theo điều 4 Thông tư liên tịch số 18/2015/TTLT-BGDĐT-BLĐTBXH, ngày 08/9/2015; hiệu lực thi hành từ 23/10/2015, cụ thể như sau: \n\n            5.1 Đối tượng miễn học\n\n            a) Học sinh, sinh viên có giấy chứng nhận sĩ quan dự bị hoặc bằng tốt nghiệp do các trường quân đội, công an cấp;\n\n            b) Học sinh, sinh viên đã có chứng chỉ GDQP&AN tương ứng với trình độ đào tạo;\n\n           c) Học sinh, sinh viên là người nước ngoài.\n\n            5.2. Đối tượng được miễn học, miễn thi học phần, nội dung trong chương trình GDQP&AN, gồm:\n\n            Học sinh, sinh viên có giấy xác nhận kết quả học tập các học phần, nội dung đó đạt từ 5 điểm trở lên theo thang điểm 10.\n\n            5.3. Đối tượng được miễn học, các nội dung thực hành kỹ năng quân sự\n\n            a) Học sinh, sinh viên là người khuyết tật, có giấy xác nhận khuyết tật theo quy định của pháp luật về người khuyết tật;\n\n            b) Học sinh, sinh viên không đủ sức khỏe về thể lực hoặc mắc những bệnh lý thuộc diện miễn làm nghĩa vụ quân sự theo quy định hiện hành;\n\n            c) Học sinh, sinh viên đã hoàn thành nghĩa vụ quân sự, công an nhân dân.\n\n           5.4. Đối tượng được tạm hoãn học môn học GDQP&AN\n\n           a) Học sinh, sinh viên vì lý do sức khỏe phải dừng học trong thời gian dài để điều trị, phải có giấy xác nhận của bệnh viện nơi học sinh, sinh viên điều trị;\n\n          b) Học sinh, sinh viên là nữ đang mang thai hoặc trong thời gian nghỉ chế độ thai sản theo quy định hiện hành.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Ai",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4478371501272265,
+        "answer_token_f1": 0.08322147651006712,
+        "answer_context_f1": 0.3882252559726963,
+        "answer_semantic_similarity": 0.5188365016581361,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 5.346
+      }
+    },
+    {
+      "id": "dt_085",
+      "question": "Trường có xét tuyển theo học bạ THPT không?",
+      "answer": "Các phương thức tuyển sinh của trường cho năm 2024 được liệt kê trong đề án bao gồm: xét kết quả thi THPT, xét tuyển thẳng/ưu tiên xét tuyển, xét kết quả thi ĐGNL, và xét chứng chỉ quốc tế. Phương thức xét tuyển dựa trên học bạ THPT không được đề cập.",
+      "reference": "3.\tPhương thức tuyển sinh: Xét tuyển\n(1)\tXét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024...\n(2) Xét tuyển thẳng, ưu tiên xét tuyển...\n(3) Xét tuyển kết quả thi đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức.\n(4) Xét tuyển theo các chứng chỉ quốc tế: Xét tuyển theo chứng chỉ quốc tế SAT, A-Level, ACT; Xét tuyển chứng chỉ tiếng Anh quốc tế (IELTS hoặc TOEFL iBT)...",
+      "multi_intent": 0.0,
+      "insufficient_context": true,
+      "reasoning_level": 1,
+      "topic": [
+        "Không XT"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4444444444444445,
+        "answer_token_f1": 0.26388888888888884,
+        "answer_context_f1": 0.08714596949891068,
+        "answer_semantic_similarity": 0.5771386100997886,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 2.819
+      }
+    },
+    {
+      "id": "dt_078",
+      "question": "Nếu đợt 1 không đủ chỉ tiêu, trường có tổ chức xét tuyển bổ sung không và bằng phương thức nào?",
+      "answer": "Có. Trong trường hợp còn chỉ tiêu sau đợt 1, nhà trường sẽ xét tuyển đợt bổ sung. Các phương thức được sử dụng cho đợt bổ sung là xét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024 và kết quả thi Đánh giá năng lực (ĐGNL) do ĐHQGHN tổ chức.",
+      "reference": "7.1. Thời gian và hình thức tuyển sinh\n...\n- Căn cứ vào kết quả xét tuyển đợt 1, đối với các ngành còn chỉ tiêu tuyển sinh Nhà trường sẽ xét tuyển đợt bổ sung: xét tuyển theo kết quả tổ hợp môn thi tốt nghiệp THPT năm 2024 và kết quả thi ĐGNL do ĐHQGHN tổ chức.",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 1,
+      "topic": [
+        "Hồ sơ và quy trình"
+      ],
+      "question_type": "Như thế nào",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.443579766536965,
+        "answer_token_f1": 0.3501945525291829,
+        "answer_context_f1": 0.2047817047817048,
+        "answer_semantic_similarity": 0.834086852223539,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 4.729
+      }
+    },
+    {
+      "id": "dt_046",
+      "question": "Hội nghị sinh viên nghiên cứu khoa học thường được tổ chức vào thời gian nào trong năm học?",
+      "answer": "Thời gian tổ chức sẽ được xác định trong kế hoạch hoạt động nghiên cứu khoa học hàng năm của đơn vị.",
+      "reference": "Công tác tổ chức và quản lý hoạt động nghiên cứu khoa học của sinh viên được phân cấp như sau:\n1. Đơn vị đào tạo\na) Xây dựng kế hoạch hoạt động nghiên cứu khoa học của sinh viên trong nhiệm vụ năm học của đơn vị;\nb) Triển khai nghiên cứu khoa học của sinh viên gắn với các đề tài, dự án nghiên cứu khoa học và các hoạt động khoa học khác của đơn vị. Tạo điều kiện để sinh viên được tham gia nghiên cứu, trở thành thành viên của các nhóm nghiên cứu và tham gia thực hiện các hoạt động khoa học công nghệ;\nc) Tổ chức hội nghị khoa học sinh viên, đánh giá, xếp loại, khen thưởng công trình nghiên cứu của sinh viên;\nd) Thành lập các câu lạc bộ khoa học sinh viên, tổ chức sinh hoạt chuyên đề khoa học;\nđ) Thủ trưởng đơn vị đào tạo quy định cụ thể số lượng giờ chuẩn giảng viên hướng dẫn sinh viên nghiên cứu khoa học trên mỗi một công trình.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.44191343963553525,
+        "answer_token_f1": 0.22857142857142856,
+        "answer_context_f1": 0.06669798027242836,
+        "answer_semantic_similarity": 0.46309673151595804,
+        "llm_correctness_score": 2.0,
+        "llm_faithfulness_score": 1.0,
+        "llm_completeness_score": 2.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.268
+      }
+    },
+    {
+      "id": "dt_019",
+      "question": "Các môn chính nhân hệ số 2 trong tổ hợp D01 của ngành Khoa học máy tính là môn nào ạ?",
+      "answer": "Đối với tất cả các ngành xét tuyển tổ hợp D01, hai môn chính được nhân hệ số 2 là Toán và Tiếng Anh.",
+      "reference": "Bảng 4. Chỉ tiêu theo ngành, theo từng phương thức xét tuyển trình độ đào tạo đại học\n| TT | ... | Tên ngành xét tuyển | ... | Tổ hợp xét tuyển 3 | Tổ hợp xét tuyển 3 |\n|---|---|---|---|---|---|\n| TT | ... | Tên ngành xét tuyển | ... | Tổ hợp môn | Môn chính |\n| (1) | ... | (4) | ... | (13) | (14) |\n| ... | ... | ... | ... | ... | ... |\n| 3 | Đại học | Khoa học máy tính | ... | D01 | Toán,Anh |",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "XT THPT QG"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4416666666666667,
+        "answer_token_f1": 0.16483516483516483,
+        "answer_context_f1": 0.12378902045209902,
+        "answer_semantic_similarity": 0.6382642704214442,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.673
+      }
+    },
+    {
+      "id": "dt_040",
+      "question": "Hội nghị tổng kết 10 năm đào tạo theo tín chỉ của Trường Đại học Công nghệ được tổ chức vào thời điểm nào và ở đâu?",
+      "answer": "Hội nghị được tổ chức vào ngày 13/01/2017 tại Nhà E3, Trường Đại học Công nghệ.",
+      "reference": "Để đánh giá kết quả, những ưu điểm và hạn chế của công tác đào tạo theo tín chỉ trong giai đoạn 2006 – 2016, hướng tới Hội nghị tổng kết 10 năm đào tạo tín chỉ tại Đại học Quốc gia Hà Nội, Trường Đại học Công nghệ đã tổ chức Hội nghị tổng kết 10 năm đào tạo theo tín chỉ giai đoạn 2006-2016 vào ngày 13/01/2017 tại Nhà E3.",
+      "multi_intent": 1.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập",
+        "Quy định chung & Chương trình đào tạo"
+      ],
+      "question_type": "Khi nào",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.43916913946587544,
+        "answer_token_f1": 0.7499999999999999,
+        "answer_context_f1": 0.02831142568250758,
+        "answer_semantic_similarity": 0.7700205959821986,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 3.634
+      }
+    },
+    {
+      "id": "dt_008",
+      "question": "Có bao nhiêu lớp học phần được mở bổ sung cho chương trình đào tạo chuẩn trong học kỳ II năm học 2023-2024 tại khu vực Cầu Giấy?",
+      "answer": "Có 6 lớp học phần được mở bổ sung cho chương trình đào tạo chuẩn.",
+      "reference": "Căn cứ đơn đề nghị của sinh viên, phòng Đào tạo (PĐT) trân trọng gửi tới Thầy/Cô và toàn thể sinh viên học tại khu vực Cầu Giấy thời khóa biểu các lớp học phần (LHP) mở bổ sung trong học kỳ II năm học 2023-2024 như sau:\n\n\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}\n\\hline\nMã HP & Học phần & TC & Mã LHP & Giảng viên/ Trợ giảng & Thứ & Tiết & Giảng đường & Nhóm \\\n\\hline\nLHP dành cho chương trình đào tạo chuẩn \\\n\\hline\nINT3506 & Các hệ thống thương mại điện tử (môn tự chọn) & 3 & INT3506 2 & PGS.TS. Trần Trọng Hiếu & 5 & 4-6 & 308-GĐ2 & CL \\\n\\hline\nMAT1041 & Giải tích 1 & 4 & MAT1041 1 & ThS. Vũ Minh Anh & 5 & 1-4 & 310-GĐ2 & CL \\\n\\hline\nELT3047 & Kiến trúc máy tính & 3 & ELT3047 1 & TS. Phạm Đức Quang & 5 & 9-11 & 307-GĐ2 & CL \\\n\\hline\nPEC1008 & Kinh tế chính trị Mác-Lênin & 2 & PEC1008 1 & TS. GVC. Nguyễn Thị Thu Hường & 7 & 8-9 & 106-GĐ3 & CL \\\n\\hline\nAER2008 & Sức bền vật liệu & 3 & AER2008 2 & TS. Nguyễn Văn Thương & 2 & 7-9 & 310-GĐ2 & CL \\\n\\hline\nINT4006 & Thực tập chuyên ngành & 3 & INT4006 1 & Khoa CNTT & CN & 7-11 & Khoa CNTT & CL \\\n\\hline\nLHP dành cho chương trình đào tạo Chất lượng cao \\\n\\hline\nPHI1002 & Chủ nghĩa xã hội khoa học & 2 & PHI1002 22 & TS. Phạm Minh Hoàng & 7 & 1-2 & 102-GĐ3 & CL \\\n\\hline\nPEC1008 & Kinh tế chính trị Mác-Lênin & 2 & PEC1008 20 & TS. GVC. Nguyễn Thị Thu Hường & 7 & 10-11 & 106-GĐ3 & CL \\\n\\hline\nEMA2023 & Kỹ thuật số & 2 & EMA2023 20 & ThS. Lê Tiến Dung & 4 & 7-9 & 215-GĐ3 & CL \\\n\\hline\nHIS1001 & Lịch sử Đảng Cộng sản Việt Nam & 2 & HIS1001 20 & TS. GVC. Nguyễn Thị Thu Hường & 4 & 5-6 & 3-G3 & CL \\\n\\hline\nBSA2002 & Nguyên lý Marketing (môn tự chọn) & 3 & BSA2002 20 & TS. Lê Thị Hải Hà & 4 & 1-3 & 309-GĐ2 & CL \\\n\\hline\nINT3306E & Phát triển ứng dụng web (LT) & 3 & INT3306E 21 & TS. Lê Đình Thanh & 5 & 4-5 & 312-GĐ2 & CL \\\n\\hline\nINT3306E & Phát triển ứng dụng web (TH) & 3 & INT3306E 21 & TS. Lê Đình Thanh & 2 & 2-3 & PM207-G2 & CL \\\n\\hline\nINT3401E & Trí tuệ nhân tạo & 3 & INT3401E 21 & TS. Nguyễn Văn Vinh & 7 & 8-10 & 301-G2 & CL \\\n\\hline\n\\end{tabular}\n\nGhi chú:Các LHP trên bắt đầu triển khai từ tuần 3 của học kỳ (từ 26/02/2024). Sinh viên đăng ký học trên Cổng thông tin đào tạo:https://dangkyhoc.vnu.edu.vn/dang-nhaptừ 9h00 ngày 19/02/2024 đến 13h00 ngày 23/02/2024.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Bao nhiêu",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4388185654008439,
+        "answer_token_f1": 0.1639344262295082,
+        "answer_context_f1": 0.14507772020725387,
+        "answer_semantic_similarity": 0.6973766737232108,
+        "llm_correctness_score": 3.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 3.0,
+        "llm_judge_label": "partially_correct",
+        "latency_seconds": 5.047
+      }
+    },
+    {
+      "id": "dt_030",
+      "question": "Tên học phần có số tín chỉ lớn nhất trong danh sách các học phần bổ sung học kỳ II năm học 2023-2024 (khu vực Cầu Giấy)?",
+      "answer": "Học phần có số tín chỉ nhiều nhất là Giải tích 1 có 4 tín chỉ",
+      "reference": "Căn cứ đơn đề nghị của sinh viên, phòng Đào tạo (PĐT) trân trọng gửi tới Thầy/Cô và toàn thể sinh viên học tại khu vực Cầu Giấy thời khóa biểu các lớp học phần (LHP) mở bổ sung trong học kỳ II năm học 2023-2024 như sau:\n\n\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}\n\\hline\nMã HP & Học phần & TC & Mã LHP & Giảng viên/ Trợ giảng & Thứ & Tiết & Giảng đường & Nhóm \\\n\\hline\nLHP dành cho chương trình đào tạo chuẩn \\\n\\hline\nINT3506 & Các hệ thống thương mại điện tử (môn tự chọn) & 3 & INT3506 2 & PGS.TS. Trần Trọng Hiếu & 5 & 4-6 & 308-GĐ2 & CL \\\n\\hline\nMAT1041 & Giải tích 1 & 4 & MAT1041 1 & ThS. Vũ Minh Anh & 5 & 1-4 & 310-GĐ2 & CL \\\n\\hline\nELT3047 & Kiến trúc máy tính & 3 & ELT3047 1 & TS. Phạm Đức Quang & 5 & 9-11 & 307-GĐ2 & CL \\\n\\hline\nPEC1008 & Kinh tế chính trị Mác-Lênin & 2 & PEC1008 1 & TS. GVC. Nguyễn Thị Thu Hường & 7 & 8-9 & 106-GĐ3 & CL \\\n\\hline\nAER2008 & Sức bền vật liệu & 3 & AER2008 2 & TS. Nguyễn Văn Thương & 2 & 7-9 & 310-GĐ2 & CL \\\n\\hline\nINT4006 & Thực tập chuyên ngành & 3 & INT4006 1 & Khoa CNTT & CN & 7-11 & Khoa CNTT & CL \\\n\\hline\nLHP dành cho chương trình đào tạo Chất lượng cao \\\n\\hline\nPHI1002 & Chủ nghĩa xã hội khoa học & 2 & PHI1002 22 & TS. Phạm Minh Hoàng & 7 & 1-2 & 102-GĐ3 & CL \\\n\\hline\nPEC1008 & Kinh tế chính trị Mác-Lênin & 2 & PEC1008 20 & TS. GVC. Nguyễn Thị Thu Hường & 7 & 10-11 & 106-GĐ3 & CL \\\n\\hline\nEMA2023 & Kỹ thuật số & 2 & EMA2023 20 & ThS. Lê Tiến Dung & 4 & 7-9 & 215-GĐ3 & CL \\\n\\hline\nHIS1001 & Lịch sử Đảng Cộng sản Việt Nam & 2 & HIS1001 20 & TS. GVC. Nguyễn Thị Thu Hường & 4 & 5-6 & 3-G3 & CL \\\n\\hline\nBSA2002 & Nguyên lý Marketing (môn tự chọn) & 3 & BSA2002 20 & TS. Lê Thị Hải Hà & 4 & 1-3 & 309-GĐ2 & CL \\\n\\hline\nINT3306E & Phát triển ứng dụng web (LT) & 3 & INT3306E 21 & TS. Lê Đình Thanh & 5 & 4-5 & 312-GĐ2 & CL \\\n\\hline\nINT3306E & Phát triển ứng dụng web (TH) & 3 & INT3306E 21 & TS. Lê Đình Thanh & 2 & 2-3 & PM207-G2 & CL \\\n\\hline\nINT3401E & Trí tuệ nhân tạo & 3 & INT3401E 21 & TS. Nguyễn Văn Vinh & 7 & 8-10 & 301-G2 & CL \\\n\\hline\n\\end{tabular}\n\nGhi chú:Các LHP trên bắt đầu triển khai từ tuần 3 của học kỳ (từ 26/02/2024). Sinh viên đăng ký học trên Cổng thông tin đào tạo:https://dangkyhoc.vnu.edu.vn/dang-nhaptừ 9h00 ngày 19/02/2024 đến 13h00 ngày 23/02/2024.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4388185654008439,
+        "answer_token_f1": 0.2790697674418604,
+        "answer_context_f1": 0.06532389765922701,
+        "answer_semantic_similarity": 0.6312389481783863,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 3.639
+      }
+    },
+    {
+      "id": "dt_086",
+      "question": "Tên học phần được xếp lịch học vào Chủ nhật  trong danh sách các học phần bổ sung học kỳ II năm học 2023-2024 (khu vực Cầu Giấy)?",
+      "answer": "Học phần  Thực tập chuyên ngành được xếp lịch học vào Chủ nhật",
+      "reference": "Căn cứ đơn đề nghị của sinh viên, phòng Đào tạo (PĐT) trân trọng gửi tới Thầy/Cô và toàn thể sinh viên học tại khu vực Cầu Giấy thời khóa biểu các lớp học phần (LHP) mở bổ sung trong học kỳ II năm học 2023-2024 như sau:\n\n\\begin{tabular}{|l|l|l|l|l|l|l|l|l|}\n\\hline\nMã HP & Học phần & TC & Mã LHP & Giảng viên/ Trợ giảng & Thứ & Tiết & Giảng đường & Nhóm \\\n\\hline\nLHP dành cho chương trình đào tạo chuẩn \\\n\\hline\nINT3506 & Các hệ thống thương mại điện tử (môn tự chọn) & 3 & INT3506 2 & PGS.TS. Trần Trọng Hiếu & 5 & 4-6 & 308-GĐ2 & CL \\\n\\hline\nMAT1041 & Giải tích 1 & 4 & MAT1041 1 & ThS. Vũ Minh Anh & 5 & 1-4 & 310-GĐ2 & CL \\\n\\hline\nELT3047 & Kiến trúc máy tính & 3 & ELT3047 1 & TS. Phạm Đức Quang & 5 & 9-11 & 307-GĐ2 & CL \\\n\\hline\nPEC1008 & Kinh tế chính trị Mác-Lênin & 2 & PEC1008 1 & TS. GVC. Nguyễn Thị Thu Hường & 7 & 8-9 & 106-GĐ3 & CL \\\n\\hline\nAER2008 & Sức bền vật liệu & 3 & AER2008 2 & TS. Nguyễn Văn Thương & 2 & 7-9 & 310-GĐ2 & CL \\\n\\hline\nINT4006 & Thực tập chuyên ngành & 3 & INT4006 1 & Khoa CNTT & CN & 7-11 & Khoa CNTT & CL \\\n\\hline\nLHP dành cho chương trình đào tạo Chất lượng cao \\\n\\hline\nPHI1002 & Chủ nghĩa xã hội khoa học & 2 & PHI1002 22 & TS. Phạm Minh Hoàng & 7 & 1-2 & 102-GĐ3 & CL \\\n\\hline\nPEC1008 & Kinh tế chính trị Mác-Lênin & 2 & PEC1008 20 & TS. GVC. Nguyễn Thị Thu Hường & 7 & 10-11 & 106-GĐ3 & CL \\\n\\hline\nEMA2023 & Kỹ thuật số & 2 & EMA2023 20 & ThS. Lê Tiến Dung & 4 & 7-9 & 215-GĐ3 & CL \\\n\\hline\nHIS1001 & Lịch sử Đảng Cộng sản Việt Nam & 2 & HIS1001 20 & TS. GVC. Nguyễn Thị Thu Hường & 4 & 5-6 & 3-G3 & CL \\\n\\hline\nBSA2002 & Nguyên lý Marketing (môn tự chọn) & 3 & BSA2002 20 & TS. Lê Thị Hải Hà & 4 & 1-3 & 309-GĐ2 & CL \\\n\\hline\nINT3306E & Phát triển ứng dụng web (LT) & 3 & INT3306E 21 & TS. Lê Đình Thanh & 5 & 4-5 & 312-GĐ2 & CL \\\n\\hline\nINT3306E & Phát triển ứng dụng web (TH) & 3 & INT3306E 21 & TS. Lê Đình Thanh & 2 & 2-3 & PM207-G2 & CL \\\n\\hline\nINT3401E & Trí tuệ nhân tạo & 3 & INT3401E 21 & TS. Nguyễn Văn Vinh & 7 & 8-10 & 301-G2 & CL \\\n\\hline\n\\end{tabular}\n\nGhi chú:Các LHP trên bắt đầu triển khai từ tuần 3 của học kỳ (từ 26/02/2024). Sinh viên đăng ký học trên Cổng thông tin đào tạo:https://dangkyhoc.vnu.edu.vn/dang-nhaptừ 9h00 ngày 19/02/2024 đến 13h00 ngày 23/02/2024.",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Tổ chức đào tạo & Quản lý học tập"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.4388185654008439,
+        "answer_token_f1": 0.05901639344262295,
+        "answer_context_f1": 0.19462102689486555,
+        "answer_semantic_similarity": 0.5889011991022047,
+        "llm_correctness_score": 0.0,
+        "llm_faithfulness_score": 0.0,
+        "llm_completeness_score": 0.0,
+        "llm_judge_label": "wrong",
+        "latency_seconds": 3.895
+      }
+    },
+    {
+      "id": "dt_041",
+      "question": "Hệ thống Doit có những chức năng chính nào?",
+      "answer": "Hệ thống Doit có các chức năng chính là: kiểm lỗi chính tả và đưa ra từ gợi ý thay thế; phát hiện sao chép giữa các tài liệu trong cùng nhóm và giữa một tài liệu với các tài liệu khác trong cơ sở dữ liệu; đánh giá văn bản; và tra cứu văn bản.",
+      "reference": "\"Hệ thống gồm các chức năng chính là: kiểm lỗi chính tả, đưa ra từ gợi ý để thay thế; phát hiện sao chép giữa các tài liệu trong cùng một nhóm và giữa một tài liệu và các tài liệu khác trong cơ sở dữ liệu của hệ thống; đánh giá văn bản: người dạy có thể sử dụng công cụ để đánh giá báo cáo, khóa luận, luận văn, đồ án của người học; tra cứu văn bản: sinh viên và giảng viên có thể tìm hiểu những nghiên cứu, công trình đã có về một chủ đề nào đấy.\"",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "Nghiên cứu khoa học & Luận văn/Luận án"
+      ],
+      "question_type": "Cái gì",
+      "domain": "Đào tạo",
+      "metrics": {
+        "reference_chunk_f1": 0.43749999999999994,
+        "answer_token_f1": 0.4605263157894737,
+        "answer_context_f1": 0.10350981558596074,
+        "answer_semantic_similarity": 0.872010007096556,
+        "llm_correctness_score": 4.0,
+        "llm_faithfulness_score": 4.0,
+        "llm_completeness_score": 4.0,
+        "llm_judge_label": "mostly_correct",
+        "latency_seconds": 4.986
+      }
+    },
+    {
+      "id": "dt_073",
+      "question": "Tôi có thể xem báo cáo việc làm chi tiết của sinh viên trường ở đâu?",
+      "answer": "Báo cáo chi tiết về tình hình việc làm của sinh viên sau khi tốt nghiệp được công khai tại đường link: https://uet.vnu.edu.vn/wp-content/uploads/2023/10/bao-cao-viec-lam-2023_ph%E1%BB%A5-l%E1%BB%A5c-1.pdf",
+      "reference": "7.\tTình hình việc làm của sinh viên sau khi tốt nghiệp\nĐường link công khai việc làm của sinh viên sau tốt nghiệp trên website: https://uet.vnu.edu.vn/wp-content/uploads/2023/10/bao-cao-viec-lam-2023_ph%E1%BB%A5-l%E1%BB%A5c-1.pdf",
+      "multi_intent": 0.0,
+      "insufficient_context": false,
+      "reasoning_level": 0,
+      "topic": [
+        "ĐBCL"
+      ],
+      "question_type": "Ở đâu",
+      "domain": "Tuyển sinh",
+      "metrics": {
+        "reference_chunk_f1": 0.4355555555555556,
+        "answer_token_f1": 0.4972375690607735,
+        "answer_context_f1": 0.14606095457159285,
+        "answer_semantic_similarity": 0.7399005149367032,
+        "llm_correctness_score": 5.0,
+        "llm_faithfulness_score": 5.0,
+        "llm_completeness_score": 5.0,
+        "llm_judge_label": "correct",
+        "latency_seconds": 4.006
+      }
+    }
+  ]
+}
