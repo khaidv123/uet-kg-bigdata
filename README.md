@@ -19,9 +19,9 @@ Dự án xây dựng hệ thống **RAG Knowledge Graph** dành riêng cho dữ 
 
 ### Dữ liệu 
 
-Dữ liệu được lưu trên Google Drive:
+Dữ liệu tải trên Google Drive:
 
-> **[Tải dữ liệu tại đây]** — *(Cập nhật link Google Drive vào đây)*
+> [link](https://drive.google.com/file/d/1a3f8_I-D61JijNA9lMjf-oA9ucbyJY8y/view?usp=sharing)
 
 ---
 
