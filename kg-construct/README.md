@@ -1,8 +1,5 @@
 # KG-Construct Pipeline
 
-## Giới thiệu dự án
-**KG-Construct** là một hệ thống tự động trích xuất thông tin và xây dựng Đồ thị Tri thức (Knowledge Graph - KG) quy mô lớn. 
-
 Hệ thống được thiết kế theo pipeline bao gồm nhiều bước: từ nạp tài liệu thô, làm sạch, cắt văn bản, rút trích bộ ba (triple: Thực thể - Quan hệ - Sự kiện), cho tới chuẩn hóa và tạo đồ thị cuối cùng. Để đáp ứng khối lượng dữ liệu lớn, KG-Construct sử dụng **Apache Spark** kết hợp bộ lưu trữ Object Storage (**MinIO**), và khai thác sức mạnh của LLM (thông qua OpenAI-compatible API) cho các bước phân tích ngôn ngữ phức tạp.
 
 ---
